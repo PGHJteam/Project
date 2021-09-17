@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7688946726F4216900B204C9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* Endpoint.swift */; };
+		769A053A26F3339B005350DF /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A053926F3339B005350DF /* LoginStoryboard.storyboard */; };
 		76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180826F1C51200D677D6 /* AppDelegate.swift */; };
 		76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180A26F1C51200D677D6 /* SceneDelegate.swift */; };
 		76F4180D26F1C51200D677D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180C26F1C51200D677D6 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7688946626F4216900B204C9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		769A053926F3339B005350DF /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		76F4180526F1C51200D677D6 /* PGHJapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGHJapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F4180826F1C51200D677D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F4180A26F1C51200D677D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +80,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7688946426F4215500B204C9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7688946526F4215D00B204C9 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7688946526F4215D00B204C9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7688946626F4216900B204C9 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		76F417FC26F1C51100D677D6 = {
 			isa = PBXGroup;
 			children = (
+				7688946426F4215500B204C9 /* Data */,
 				76F4180726F1C51200D677D6 /* PGHJapp */,
 				76F4181E26F1C51300D677D6 /* PGHJappTests */,
 				76F4182926F1C51300D677D6 /* PGHJappUITests */,
@@ -106,6 +127,7 @@
 				76F4181126F1C51200D677D6 /* Assets.xcassets */,
 				76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */,
 				76F4181626F1C51200D677D6 /* Info.plist */,
+				769A053926F3339B005350DF /* LoginStoryboard.storyboard */,
 			);
 			path = PGHJapp;
 			sourceTree = "<group>";
@@ -234,6 +256,7 @@
 				76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */,
 				76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */,
 				76F4181026F1C51200D677D6 /* Main.storyboard in Resources */,
+				769A053A26F3339B005350DF /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +283,7 @@
 			files = (
 				76F4180D26F1C51200D677D6 /* ViewController.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
+				7688946726F4216900B204C9 /* Endpoint.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
