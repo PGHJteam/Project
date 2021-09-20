@@ -48,14 +48,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'users',
+    'files',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -90,8 +91,8 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
 
-ROOT_URLCONF = 'pghj_server.urls'
-AUTH_USER_MODEL = 'users.User'
+ROOT_URLCONF = 'pghj_server.urls' # 최상위 URL
+AUTH_USER_MODEL = 'users.User'    # 유저 커스텀 모델
 
 TEMPLATES = [
     {
@@ -165,3 +166,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media 파일 관련 환경설정
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 미디어 파일을 관리할 루트 media 디렉터리
+MEDIA_URL = '/media/' # 각 media file에 대한 URL prefix

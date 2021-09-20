@@ -59,7 +59,7 @@ def SignIn(request):
 
 
 # 헤더 토큰에서 유저 기본키 식별 후 해당 유저를 반환
-def get_pk(request): 
+def get_user(request): 
         key, token = request.headers.get("Authorization").split()
         payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
         user = User.objects.get(id=payload['user_id'])
@@ -71,12 +71,12 @@ class UserView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,) # 인증된 사용자(토큰 있는 사용자)만 접근 가능
 
     def get(self, request): # 해당 유저 정보 조회
-        user = get_pk(request)
+        user = get_user(request)
         serializer = UserSerializer(user) 
         return JsonResponse(serializer.data, status=status.HTTP_200_OK) 
 
     def put(self, request): # 해당 유저 정보 수정
-        user = get_pk(request)
+        user = get_user(request)
         data = JSONParser().parse(request)
         serializer = UserSerializer(user, data=data) 
         if serializer.is_valid(): 
@@ -85,7 +85,7 @@ class UserView(generics.GenericAPIView):
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST) 
 
     def delete(self, request): # 해당 유저 정보 삭제
-        user = get_pk(request)
+        user = get_user(request)
         user.is_active = False
         user.save()
         return HttpResponse(status=status.HTTP_200_OK)
