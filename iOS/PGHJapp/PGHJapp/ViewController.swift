@@ -1,5 +1,6 @@
 import UIKit
 import PhotosUI
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -8,6 +9,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var requestButton: UIButton!
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+    
+    func configure(){
+        addButton.layer.cornerRadius = 15
+        requestButton.layer.cornerRadius = 15
+    }
     
     @IBAction func addButtonTouched(_ sender: Any) {
         var configuration = PHPickerConfiguration()
@@ -19,16 +33,38 @@ class ViewController: UIViewController {
         self.present(picker, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-    
-    func configure(){
-        addButton.layer.cornerRadius = 15
-        requestButton.layer.cornerRadius = 15
+    func upload(image: UIImage, index: Int, progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (_ result: Bool) -> Void) {
+        if let imageData = image.pngData() {
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
+            }, to: APIRouter.uploadImage, method: .post
+//            headers: ["Authorization": "Basic\(authorization)"],
+            )
+            .responseJSON { response in
+                print(response) // 처리해주기
+            }
+            
+        }
     }
 
+    @IBAction func createButtonTouched(_ sender: Any) {
+        progressView.progress = 0.0
+        progressView.isHidden = false
+        activityIndicatorView.startAnimating()
+        for (index, image) in images.enumerated() {
+            upload(image: image, index: index) { [weak self] percent in
+                guard let strongSelf = self else {return}
+                strongSelf.progressView.setProgress(percent, animated: true)
+            } completion: { [weak self] result in
+                guard let strongSelf = self else {return}
+                strongSelf.progressView.isHidden = true
+                strongSelf.activityIndicatorView.stopAnimating()
+                strongSelf.images = []
+                strongSelf.myImageView.image = nil
+            }
+
+        }
+    }
 }
 
 extension ViewController: PHPickerViewControllerDelegate {

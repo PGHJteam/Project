@@ -16,6 +16,13 @@ class APIClient {
             }
     }
     
+    static func uploadImage(imageData: Data,completion: @escaping (Result<User, AFError>) -> Void){
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
+        }, to: APIRouter.uploadImage)
+        
+    }
+    
     static func test(id: String, password: String, completion: @escaping (Result<User, AFError>) -> Void){
         AF.request(APIRouter.login(id: id, password: password))
             .responseDecodable { (response: DataResponse<User, AFError>) in

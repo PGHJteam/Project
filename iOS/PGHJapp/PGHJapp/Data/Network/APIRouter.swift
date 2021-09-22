@@ -8,14 +8,14 @@
 import Foundation
 import Alamofire
 
-enum APIRouter: URLRequestConvertible {
+enum APIRouter: URLRequestConvertible, URLConvertible {
     case login(id: String, password: String)
-    case uploadImages
+    case uploadImage
     case test(id: String, password: String)
     
     private var method: HTTPMethod {
         switch self {
-        case .login, .uploadImages, .test:
+        case .login, .uploadImage, .test:
             return .post
         }
     }
@@ -24,7 +24,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .login:
             return "/api/users/signin"
-        case .uploadImages:
+        case .uploadImage:
             return "/uploadImages"
         case .test:
             return "/default/SwiftCamp"
@@ -33,7 +33,7 @@ enum APIRouter: URLRequestConvertible {
     
     private var parameters: Parameters? {
         switch self {
-        case .uploadImages:
+        case .uploadImage:
             return nil // 변경 필요
         case .login(let id, let password), .test(let id, let password):
             return [
@@ -45,6 +45,10 @@ enum APIRouter: URLRequestConvertible {
     
     var encoding: ParameterEncoding {
             return JSONEncoding.default
+    }
+    
+    func asURL() throws -> URL {
+        return APIConstants.baseURL.appendingPathComponent(path)
     }
     
     func asURLRequest() throws -> URLRequest {
