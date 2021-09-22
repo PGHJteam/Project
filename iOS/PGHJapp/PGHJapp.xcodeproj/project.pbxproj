@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182855DD60E852F986B95628 /* Pods_PGHJapp.framework */; };
 		0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */; };
-		7688946726F4216900B204C9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* Endpoint.swift */; };
-		7688946926F429C900B204C9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* NetworkManager.swift */; };
-		769A053A26F3339B005350DF /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A053926F3339B005350DF /* LoginStoryboard.storyboard */; };
+		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
+		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
+		76E4098F26FAF8A3006A807F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* LoginViewController.swift */; };
+		76E4099326FB0027006A807F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099226FB0027006A807F /* User.swift */; };
+		76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099926FB9DE5006A807F /* APIConstants.swift */; };
 		76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180826F1C51200D677D6 /* AppDelegate.swift */; };
 		76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180A26F1C51200D677D6 /* SceneDelegate.swift */; };
 		76F4180D26F1C51200D677D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180C26F1C51200D677D6 /* ViewController.swift */; };
@@ -44,9 +46,11 @@
 		182855DD60E852F986B95628 /* Pods_PGHJapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7688946626F4216900B204C9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		7688946826F429C900B204C9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		769A053926F3339B005350DF /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		76E4098E26FAF8A3006A807F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		76E4099226FB0027006A807F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		76E4099926FB9DE5006A807F /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		76F4180526F1C51200D677D6 /* PGHJapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGHJapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F4180826F1C51200D677D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F4180A26F1C51200D677D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,10 +135,43 @@
 		7688946526F4215D00B204C9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7688946626F4216900B204C9 /* Endpoint.swift */,
-				7688946826F429C900B204C9 /* NetworkManager.swift */,
+				7688946626F4216900B204C9 /* APIRouter.swift */,
+				7688946826F429C900B204C9 /* APIClient.swift */,
+				76E4099926FB9DE5006A807F /* APIConstants.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		76E4098C26FAF87E006A807F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				76E4098D26FAF885006A807F /* Login */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		76E4098D26FAF885006A807F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				76E4098E26FAF8A3006A807F /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		76E4099026FAFFE0006A807F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				76E4099126FAFFE7006A807F /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		76E4099126FAFFE7006A807F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				76E4099226FB0027006A807F /* User.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		76F417FC26F1C51100D677D6 = {
@@ -162,6 +199,8 @@
 		76F4180726F1C51200D677D6 /* PGHJapp */ = {
 			isa = PBXGroup;
 			children = (
+				76E4099026FAFFE0006A807F /* Domain */,
+				76E4098C26FAF87E006A807F /* Presentation */,
 				7688946426F4215500B204C9 /* Data */,
 				76F4180826F1C51200D677D6 /* AppDelegate.swift */,
 				76F4180A26F1C51200D677D6 /* SceneDelegate.swift */,
@@ -170,7 +209,6 @@
 				76F4181126F1C51200D677D6 /* Assets.xcassets */,
 				76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */,
 				76F4181626F1C51200D677D6 /* Info.plist */,
-				769A053926F3339B005350DF /* LoginStoryboard.storyboard */,
 			);
 			path = PGHJapp;
 			sourceTree = "<group>";
@@ -304,7 +342,6 @@
 				76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */,
 				76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */,
 				76F4181026F1C51200D677D6 /* Main.storyboard in Resources */,
-				769A053A26F3339B005350DF /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E4098F26FAF8A3006A807F /* LoginViewController.swift in Sources */,
 				76F4180D26F1C51200D677D6 /* ViewController.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
-				7688946926F429C900B204C9 /* NetworkManager.swift in Sources */,
-				7688946726F4216900B204C9 /* Endpoint.swift in Sources */,
+				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
+				76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */,
+				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
+				76E4099326FB0027006A807F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
