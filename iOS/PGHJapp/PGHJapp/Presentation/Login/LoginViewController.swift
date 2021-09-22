@@ -18,18 +18,37 @@ class LoginViewController: UIViewController {
         configure()
     }
     
+    @IBAction func loginButtonTouched(_ sender: Any) {
+        guard let username = usernameTextField.text, !username.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+                
+        APIClient.login(id: username, password: password) { result in
+            switch result{
+            case .success(let user):
+                guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
+                  self.navigationController?.pushViewController(homeVC, animated: true)
+            case .failure(let error):
+                self.simpleAlert(title: "로그인 실패", message: "id, password 오류")
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // 알림 창 띄우는 함수
+    func simpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message,
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인"
+                                     
+                                     ,style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+
+    
     private func configure() {
         loginButton.layer.cornerRadius = 10
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

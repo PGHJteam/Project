@@ -2,24 +2,23 @@
 //  NetworkManager.swift
 //  PGHJapp
 //
-//  Created by 김지선 on 2021/09/17.
+//  Created by 김지선 on 2021/09/23.
 //
 
 import Foundation
-import Alamofire
 
-class NetworkManager {
-    // url을 전달받으면 request 보내고 response를 completion으로 받는 함수 구현
-    func getBasicData() {
-        AF.request(Endpoint.URL,
-                   method: .get,
-                   parameters: nil)
-            .validate(statusCode: 200..<300)
-            .responseJSON { data in
-                //data 처리
-            }
-    }
-    func postImageTest(image: UIImage){
-        
+struct NetworkManager {
+    // 싱글톤 패턴
+    static let shared = NetworkManager()
+    
+    func signIn(id: String, password: String){
+        let url = APIConstants.
+                let header: HTTPHeaders = [
+                    "Content-Type":"application/json"
+                ]
+                let body: Parameters = [
+                    "email": email,
+                    "password":password
+                ]
     }
 }
