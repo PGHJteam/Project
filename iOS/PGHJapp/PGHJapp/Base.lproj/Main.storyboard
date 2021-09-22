@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hRD-kV-Lgw">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Upload-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PGHJapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,13 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ESB-tD-2nT">
-                                <rect key="frame" x="45" y="143" width="300" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="5HV-5e-HD2"/>
-                                    <constraint firstAttribute="height" constant="400" id="mTJ-eT-N6X"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bw-zx-4B7">
                                 <rect key="frame" x="95" y="583" width="200" height="57"/>
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,27 +31,73 @@
                                     <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nv8-7N-tnP"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESB-tD-2nT">
+                                <rect key="frame" x="45" y="144" width="300" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="5HV-5e-HD2"/>
+                                    <constraint firstAttribute="height" constant="400" id="mTJ-eT-N6X"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlC-zX-263">
+                                <rect key="frame" x="95" y="662" width="200" height="57"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="94b-5O-j6N"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="K0b-2c-fuX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="SSJ-mD-k1B"/>
+                                    <constraint firstAttribute="width" constant="200" id="q1q-Rd-kEt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="강의자료 생성">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uVf-9a-ZXU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="JlC-zX-263" firstAttribute="top" secondItem="2bw-zx-4B7" secondAttribute="bottom" constant="22" id="HNi-Yk-077"/>
                             <constraint firstItem="2bw-zx-4B7" firstAttribute="top" secondItem="ESB-tD-2nT" secondAttribute="bottom" constant="40" id="JzS-8P-iHO"/>
                             <constraint firstItem="ESB-tD-2nT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ej4-nb-dr8"/>
+                            <constraint firstItem="JlC-zX-263" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l8C-54-kf7"/>
                             <constraint firstItem="2bw-zx-4B7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pWI-Uu-hC4"/>
                             <constraint firstItem="ESB-tD-2nT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="99" id="wfx-LM-Rj0"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Upload" image="square.and.arrow.up" catalog="system" selectedImage="square.and.arrow.up" id="Ch5-fH-Myb"/>
                     <connections>
                         <outlet property="addButton" destination="2bw-zx-4B7" id="HxC-FA-aEP"/>
                         <outlet property="myImageView" destination="ESB-tD-2nT" id="z6B-YA-Tz0"/>
+                        <outlet property="requestButton" destination="JlC-zX-263" id="KjT-Xu-DME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998.46153846153845" y="88.151658767772503"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="INx-X0-QaV">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hRD-kV-Lgw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzr-bP-RIN">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="uYg-yr-Bcx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQz-0I-boR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.230769230769226" y="88.151658767772503"/>
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

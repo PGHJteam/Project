@@ -6,7 +6,7 @@ target 'PGHJapp' do
   use_frameworks!
 
   # Pods for PGHJapp
-
+pod 'Alamofire'
   target 'PGHJappTests' do
     inherit! :search_paths
     # Pods for testing
