@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hRD-kV-Lgw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tdR-zp-qav">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -76,12 +76,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998.46153846153845" y="88.151658767772503"/>
+            <point key="canvasLocation" x="1927.6923076923076" y="88.151658767772503"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="waJ-Jc-hRn">
+            <objects>
+                <viewController id="BPl-Gn-X4g" customClass="LoginViewController" customModule="PGHJapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SWt-wV-493">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T6a-Oe-pFM">
+                                <rect key="frame" x="45" y="271" width="300" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-We-A9b">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="7Wg-eS-cFx"/>
+                                            <constraint firstAttribute="height" constant="50" id="jGh-LW-LLe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-PX-mhG">
+                                        <rect key="frame" x="0.0" y="70" width="300" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="TQN-c9-Thg"/>
+                                            <constraint firstAttribute="height" constant="50" id="z3A-ax-Fdc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PGHJ" translatesAutoresizingMaskIntoConstraints="NO" id="bud-99-1WF">
+                                <rect key="frame" x="140.66666666666666" y="107" width="109" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="hMV-bU-fIh"/>
+                                    <constraint firstAttribute="height" constant="109" id="v01-ki-ODa"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-qo-5hg">
+                                <rect key="frame" x="45" y="437" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PWB-s5-gbO"/>
+                                    <constraint firstAttribute="width" constant="300" id="e13-d3-02r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qg2-Ex-LgF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BVj-qo-5hg" firstAttribute="centerX" secondItem="SWt-wV-493" secondAttribute="centerX" id="6bk-gp-sS5"/>
+                            <constraint firstItem="bud-99-1WF" firstAttribute="centerX" secondItem="SWt-wV-493" secondAttribute="centerX" id="DDd-FQ-CpC"/>
+                            <constraint firstItem="bud-99-1WF" firstAttribute="top" secondItem="qg2-Ex-LgF" secondAttribute="top" constant="63" id="HaP-kz-xdr"/>
+                            <constraint firstItem="BVj-qo-5hg" firstAttribute="top" secondItem="T6a-Oe-pFM" secondAttribute="bottom" constant="46" id="O4l-9Q-OW3"/>
+                            <constraint firstItem="T6a-Oe-pFM" firstAttribute="centerX" secondItem="SWt-wV-493" secondAttribute="centerX" id="S9h-DG-8uC"/>
+                            <constraint firstItem="T6a-Oe-pFM" firstAttribute="top" secondItem="bud-99-1WF" secondAttribute="bottom" constant="55" id="qla-xk-m5w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3hx-2U-dL4"/>
+                    <connections>
+                        <outlet property="loginButton" destination="BVj-qo-5hg" id="qpI-Fq-J2B"/>
+                        <outlet property="passwordTextField" destination="f5s-PX-mhG" id="fLg-ya-cEk"/>
+                        <outlet property="usernameTextField" destination="4Og-We-A9b" id="cGV-Ez-JTK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUl-O8-Afg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149.23076923076923" y="87.440758293838854"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="INx-X0-QaV">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hRD-kV-Lgw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainView" automaticallyAdjustsScrollViewInsets="NO" id="hRD-kV-Lgw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzr-bP-RIN">
                         <autoresizingMask key="autoresizingMask"/>
@@ -93,11 +166,32 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQz-0I-boR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.230769230769226" y="88.151658767772503"/>
+            <point key="canvasLocation" x="998.46153846153845" y="88.151658767772503"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0sY-Hw-tv4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tdR-zp-qav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DG-F0-8Wo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BPl-Gn-X4g" kind="relationship" relationship="rootViewController" id="Qpx-Tw-tdc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uo5-Lw-Aeh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-780" y="87.440758293838854"/>
         </scene>
     </scenes>
     <resources>
+        <image name="PGHJ" width="1024" height="1024"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
