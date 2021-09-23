@@ -20,7 +20,7 @@ class FileView(generics.GenericAPIView):
         upload = Upload.objects.create(user=user) 
                 
         # image 만들기
-        images = request.FILES.getlist('image')
+        images = request.FILES.getlist('images')
         image_type = request.POST['image_type']
         print(images)
 

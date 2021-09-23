@@ -13,8 +13,8 @@ class Upload(models.Model):
 
 class Image(models.Model):
     upload = models.ForeignKey(Upload, on_delete=models.CASCADE)
-    image = models.ImageField("이미지", upload_to = "images/")
-    image_type = models.CharField("이미지 타입", max_length=10)
+    image = models.ImageField("이미지", upload_to = "images/", null=False, blank=False)
+    image_type = models.CharField("이미지 타입", max_length=10, default="etc")
 
     class Meta:
         db_table = "images"

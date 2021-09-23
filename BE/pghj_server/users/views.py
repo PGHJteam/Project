@@ -4,7 +4,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework_simplejwt.tokens import RefreshToken
+# from rest_framework_simplejwt.tokens import RefreshToken
 
 import jwt
 from pghj_server.settings import SECRET_KEY, ALGORITHM
@@ -28,7 +28,7 @@ def SignUp(request):
 
 
 # 로그인
-@api_view(['POST'])              
+'''@api_view(['POST'])              
 @permission_classes([AllowAny]) # 누구나 접근 가능
 def SignIn(request):
     if request.method == 'POST':
@@ -47,23 +47,23 @@ def SignIn(request):
         # 유효한 유저 있으면 해당 유저의 로그인 토큰 발급
         else:
             refresh = RefreshToken.for_user(user) 
-            #refresh_token = str(refresh)
+            refresh_token = str(refresh)
             access_token = str(refresh.access_token)
 
             response = {
-                'token': access_token
-            #    'refresh': refresh_token 
+                'accessToken': access_token,
+                'refreshToken': refresh_token 
             }
 
-            return JsonResponse(response, status=status.HTTP_200_OK) 
+            return JsonResponse(response, status=status.HTTP_200_OK) '''
 
 
 # 헤더 토큰에서 유저 기본키 식별 후 해당 유저를 반환
 def get_user(request): 
-        key, token = request.headers.get("Authorization").split()
-        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
-        user = User.objects.get(id=payload['user_id'])
-        return user
+    key, token = request.headers.get("Authorization").split()
+    payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
+    user = User.objects.get(id=payload['user_id'])
+    return user
 
 
 # 해당 유저 정보 조회/수정/삭제

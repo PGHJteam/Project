@@ -2,8 +2,14 @@
 # ignore all files in any directory named migrations
 migrations/
 
+# ignore all files in any directory named __pycache__
+__pycache__/
+
+# ignore all files in media directory
+media/
+
 # ignore db.sqlite3 file
 db.sqlite3
 
-# ignore secrets.json file
-secrets.json
+# ignore all .json files
+*.json

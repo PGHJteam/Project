@@ -6,6 +6,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.FileView.as_view()), # 이미지 업로드 
+    path('uploadImages/', views.FileView.as_view()), # 이미지 업로드 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
