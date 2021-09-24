@@ -16,7 +16,7 @@ sudo apt-get install python3
 sudo apt-get install python3-pip
 ```
 
-#### 4. ec2에 올릴 장고 서버 올리기
+#### 4. ec2에 장고 서버 올리기
 ```
 git clone {repository url}
 cd pghj_server
