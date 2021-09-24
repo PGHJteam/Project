@@ -1,4 +1,4 @@
-# API test server
+# Infrastructure for 'test server'
 
 ## Guide
 #### 1. 인프라 프로비저닝
