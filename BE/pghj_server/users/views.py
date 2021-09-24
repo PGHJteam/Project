@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth import authenticate
+#from django.contrib.auth import authenticate
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.decorators import api_view, permission_classes
