@@ -35,13 +35,13 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     #password
-    user_id = models.CharField(max_length=20, unique=True)
-    user_email = models.EmailField(max_length=100, unique=True)
-    user_name = models.CharField(max_length=20)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+    user_id = models.CharField("ID", max_length=20, unique=True)
+    user_email = models.EmailField("Email", max_length=100, unique=True)
+    user_name = models.CharField("Name", max_length=20)
+    created_at = models.DateTimeField("Created at", auto_now_add=True)
+    updated_at = models.DateTimeField("Updated at", auto_now=True)
+    is_active = models.BooleanField("Is active", default=True)
+    is_admin = models.BooleanField("Is admin", default=False)
 
     objects = UserManager()
 

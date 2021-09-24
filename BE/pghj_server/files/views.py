@@ -27,8 +27,8 @@ class FileView(generics.GenericAPIView):
         for image in images:
             Image.objects.create(
                 upload=upload,
-                image = image,
-                image_type = image_type,
+                image=image,
+                image_type=image_type,
             )
 
         return HttpResponse(status=status.HTTP_200_OK)
