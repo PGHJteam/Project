@@ -3,7 +3,8 @@
  struct APIConstants {
      // MARK: - Start Endpoint
      static var baseURL: URL {
-         return URL(string: "http://3.35.137.242:8080")!
+//         return URL(string: "http://3.35.137.242:8080")!
+         return URL(string: "http://3.36.118.188:8000")!
      }
 
      static let token = ""

@@ -34,23 +34,31 @@ class ViewController: UIViewController {
     }
     
     func upload(image: UIImage, index: Int, progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (_ result: Bool) -> Void) {
-        if let imageData = image.pngData() {
-            AF.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
-            }, to: APIRouter.uploadImage, method: .post
-//            headers: ["Authorization": "Basic\(authorization)"],
-            )
+//        if let imageData = image.pngData() {
+//            AF.upload(multipartFormData: { multipartFormData in
+//                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
+//            }, to: APIRouter.uploadImage, method: .post
+////            headers: ["Authorization": "Basic\(authorization)"],
+//            )
+//            .responseJSON { response in
+//                print(response) // 처리해주기
+//            }
+//
+//        }
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data("english".utf8), withName: "image_type")
+        }, to: URL(string: "https://8feaee36-6bec-4c60-a418-69f2bff63701.mock.pstmn.io/")!)
             .responseJSON { response in
-                print(response) // 처리해주기
+                dump(response)
             }
-            
-        }
     }
 
     @IBAction func createButtonTouched(_ sender: Any) {
         progressView.progress = 0.0
         progressView.isHidden = false
         activityIndicatorView.startAnimating()
+        dump(images)
+        
         for (index, image) in images.enumerated() {
             upload(image: image, index: index) { [weak self] percent in
                 guard let strongSelf = self else {return}
@@ -81,7 +89,6 @@ extension ViewController: PHPickerViewControllerDelegate {
                 }
             }
         }
-        
         let itemProvider = results.last?.itemProvider
 
         if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {

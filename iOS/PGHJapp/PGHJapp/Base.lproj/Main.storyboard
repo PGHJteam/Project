@@ -476,7 +476,7 @@
         <!--Settings View Controller-->
         <scene sceneID="dGt-g9-5Aw">
             <objects>
-                <viewController id="UJF-1a-g98" customClass="SettingsViewController" customModule="DrawPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UJF-1a-g98" customClass="SettingsViewController" customModule="PGHJapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rxb-H0-g85"/>
                         <viewControllerLayoutGuide type="bottom" id="GTM-ys-CkZ"/>
