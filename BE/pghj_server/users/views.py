@@ -1,10 +1,8 @@
-from django.http import HttpResponse, JsonResponse
-#from django.contrib.auth import authenticate
+from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
-# from rest_framework_simplejwt.tokens import RefreshToken
 
 import jwt
 from pghj_server.settings import SECRET_KEY, ALGORITHM
@@ -22,41 +20,14 @@ def SignUp(request):
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            return HttpResponse(status=status.HTTP_201_CREATED)
-    
-        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
-
-
-# 로그인
-'''@api_view(['POST'])              
-@permission_classes([AllowAny]) # 누구나 접근 가능
-def SignIn(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request) 
-
-        # 인증 - DB에서 일치하는 아이디 찾고 비밀번호 맞는지 비교
-        user = authenticate(  
-            user_id=data['user_id'], 
-            password=data['password']
-            ) 
-
-        # 유효한 유저 없으면 BAD_REQUEST 반환
-        if user is None:
-            return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
-
-        # 유효한 유저 있으면 해당 유저의 로그인 토큰 발급
+            response_data = {'detail': 'SUCCESS'}
+            response_status = status.HTTP_201_CREATED
         else:
-            refresh = RefreshToken.for_user(user) 
-            refresh_token = str(refresh)
-            access_token = str(refresh.access_token)
+            response_data = {'detail': 'ERROR: Invalid format or invalid values.'}
+            response_status = status.HTTP_400_BAD_REQUEST
 
-            response = {
-                'accessToken': access_token,
-                'refreshToken': refresh_token 
-            }
-
-            return JsonResponse(response, status=status.HTTP_200_OK) '''
-
+        return JsonResponse(data=response_data, status=response_status)
+        
 
 # 헤더 토큰에서 유저 기본키 식별 후 해당 유저를 반환
 def get_user(request): 
@@ -81,11 +52,18 @@ class UserView(generics.GenericAPIView):
         serializer = UserSerializer(user, data=data) 
         if serializer.is_valid(): 
             serializer.save() 
-            return HttpResponse(status=status.HTTP_201_CREATED) 
-        return HttpResponse(status=status.HTTP_400_BAD_REQUEST) 
+            response_data = {'detail': 'SUCCESS'}
+            response_status = status.HTTP_201_CREATED
+        else:
+            response_data = {'detail': 'ERROR: Invalid format or invalid values.'}    
+            response_status = status.HTTP_400_BAD_REQUEST
+
+        return JsonResponse(data=response_data, status=response_status) 
 
     def delete(self, request): # 해당 유저 정보 삭제
-        user = get_user(request)
+        user = get_user(request)    
         user.is_active = False
         user.save()
-        return HttpResponse(status=status.HTTP_200_OK)
+        response_data = {'detail': 'SUCCESS'}
+        response_status = status.HTTP_200_OK
+        return JsonResponse(data=response_data, status=response_status)
