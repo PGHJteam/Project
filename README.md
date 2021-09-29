@@ -12,7 +12,7 @@
 
 사용자는 디지털 자료로 만들고자 하는 노트필기를 사진으로 찍어 이미지를 저장한다. 디지털화 하려는 자료 순서에 맞추어 이미지를 선택하고 원하는 템플릿을 선택하여 아날로그 자료를 쉽게 디지털 자료로 변환한다. 앱은 이미지에서 한글/영어/수식을 추출하여 변환하고 사용자가 선택한 템플릿에 텍스트를 적절하게 배치하여 디지털 자료를 생성한다. 사용자는 해당 자료를 앱에서 저장하고 관리할 수 있다.
 
-더보기 링크...
+[더보기](https://dour-dianella-55a.notion.site/e84006a862d84398b4305d41705db890)
 
 
 
@@ -29,6 +29,6 @@
 
 ## Project Wiki
 
-Ground Rule
+[Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
 
 [회의록](https://dour-dianella-55a.notion.site/a0722116b6bc4a73a4c9819ddf651ff0)
