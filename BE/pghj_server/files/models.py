@@ -25,9 +25,9 @@ class Image(models.Model):
 
 class Material(models.Model):
     upload = models.ForeignKey(Upload, on_delete=models.CASCADE)
-    material = models.CharField("PATH", max_length=200)
-    material_tag = models.CharField("TAG", max_length=20)
-    material_template = models.CharField("TEMPLATE", max_length=200)
+    material = models.CharField("PATH", max_length=200) # 저장 경로 + 파일명
+    # material_tag = models.CharField("TAG", max_length=20)
+    material_template = models.IntegerField("TEMPLATE", default=0) # 템플릿 디자인 번호
 
     class Meta:
         db_table = "materials"
