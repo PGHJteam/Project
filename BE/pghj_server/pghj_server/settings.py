@@ -18,18 +18,19 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PPTX_DIR = os.path.join(BASE_DIR, 'files/pptx/') # ppt 저장경로
 
 
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-secret_file = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러와 줍니다.
 
-with open(secret_file, 'r') as f: #open as로 secret.json을 열어줍니다.
+# SECRET_KEY, ALGORITHM
+secret_file = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러오기
+
+with open(secret_file, 'r') as f: #open as로 secrets.json 열기
     secrets = json.loads(f.read())
 
-def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생을 검출합니다.
+def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생을 검출
     try:
         return secrets[setting]
     except KeyError:
@@ -39,14 +40,13 @@ def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생
 SECRET_KEY = get_secret("SECRET_KEY")
 ALGORITHM = get_secret("ALGORITHM")
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'rest_framework',
     'users',
@@ -79,8 +79,8 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=2),      
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),    
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),      
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),    
     'ROTATE_REFRESH_TOKENS': True,                 
     'BLACKLIST_AFTER_ROTATION': True,              
     'UPDATE_LAST_LOGIN': False,                     
@@ -178,5 +178,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media 파일 관련 환경설정
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 미디어 파일을 관리할 루트 media 디렉터리
-MEDIA_URL = '/media/' # 각 media file에 대한 URL prefix
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 미디어 파일을 관리할 루트 media 디렉터리
+# MEDIA_URL = '/media/' # 각 media file에 대한 URL prefix

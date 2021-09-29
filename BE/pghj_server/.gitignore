@@ -1,7 +1,7 @@
 migrations/
 __pycache__/
-media/
-images/
+pptx/
 
 db.sqlite3
 *.json
+.gitignore
