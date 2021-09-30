@@ -1,5 +1,4 @@
-from django.http import JsonResponse
-from django.http.response import HttpResponse
+from django.http import JsonResponse, FileResponse
 from rest_framework import status, generics
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticated
@@ -13,7 +12,8 @@ from users.views import get_user
 class MaterialView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated, ]
 
-    def post(self, request):
+
+    def post(self, request): # ppt 파일 생성 요청
         user = get_user(request) # 토큰에서 유저 정보 분리하여 유저 식별 (유저아이디가 넘어옴?)
         upload = Upload.objects.create(user=user)
         data = JSONParser().parse(request) # json 에서 정보 분리하기
@@ -32,8 +32,19 @@ class MaterialView(generics.GenericAPIView):
         
         return JsonResponse(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        
 
+    def get(self, request): # ppt 파일 다운로드 요청
+        data = JSONParser().parse(request)
+        path = data['path']
+
+        try:
+            file = open(path, 'rb')
+
+        except FileNotFoundError:
+            return JsonResponse(data={"detail": "File Not Found Error."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        else:
+            return FileResponse(file)
 
 
 '''class ImageView(generics.GenericAPIView):
@@ -65,4 +76,3 @@ class MaterialView(generics.GenericAPIView):
             response_status = status.HTTP_200_OK
 
         return JsonResponse(data=response_data, status=response_status)'''
-
