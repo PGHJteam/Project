@@ -291,8 +291,8 @@ if __name__ =="__main__":
     image_list, detect_net, recog_net, refine_net, args, converter= init_model(args)
     total_image_res = {}
     for k, image_path in enumerate(image_list):
-        # print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path))
-        name = os.path.split(image_path)[0]
+        print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path))
+        name = os.path.split(image_path)[-1]
         image = imgproc.loadImage(image_path)
 
         polys = detect(args, detect_net, image, args.text_threshold, args.link_threshold, args.low_text, args.cuda, args.poly, refine_net)
