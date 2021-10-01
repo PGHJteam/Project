@@ -1,6 +1,7 @@
 migrations/
 __pycache__/
 pptx/
+media/
 
 db.sqlite3
 *.json
