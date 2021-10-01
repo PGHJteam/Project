@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin as BaseAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from .models import User
+from users.models import User
 from files.models import Upload
 
 class UploadInline(TabularInline):

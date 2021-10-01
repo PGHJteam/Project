@@ -6,9 +6,10 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 import jwt
 from pghj_server.settings import SECRET_KEY, ALGORITHM
+from pghj_server.responses import Success, Error
 
-from .models import User
-from .serializers import UserSerializer
+from users.models import User
+from users.serializers import UserSerializer
 
 
 # 회원가입 
@@ -18,15 +19,11 @@ def SignUp(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = UserSerializer(data=data)
+
         if serializer.is_valid():
             serializer.save()
-            response_data = {'detail': 'SUCCESS'}
-            response_status = status.HTTP_201_CREATED
-        else:
-            response_data = {'detail': 'ERROR: Invalid format or invalid values.'}
-            response_status = status.HTTP_400_BAD_REQUEST
-
-        return JsonResponse(data=response_data, status=response_status)
+            return JsonResponse(data=Success(), status=status.HTTP_201_CREATED)     
+        return JsonResponse(data=Error("Sign Up Failed."), status=status.HTTP_400_BAD_REQUEST)
         
 
 # 헤더 토큰에서 유저 기본키 식별 후 해당 유저를 반환
@@ -50,20 +47,15 @@ class UserView(generics.GenericAPIView):
         user = get_user(request)
         data = JSONParser().parse(request)
         serializer = UserSerializer(user, data=data) 
-        if serializer.is_valid(): 
-            serializer.save() 
-            response_data = {'detail': 'SUCCESS'}
-            response_status = status.HTTP_201_CREATED
-        else:
-            response_data = {'detail': 'ERROR: Invalid format or invalid values.'}    
-            response_status = status.HTTP_400_BAD_REQUEST
 
-        return JsonResponse(data=response_data, status=response_status) 
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(data=Success(), status=status.HTTP_201_CREATED)
+        return JsonResponse(data=Error("User Update Failed."), status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request): # 해당 유저 정보 삭제
         user = get_user(request)    
         user.is_active = False
         user.save()
-        response_data = {'detail': 'SUCCESS'}
-        response_status = status.HTTP_200_OK
-        return JsonResponse(data=response_data, status=response_status)
+        
+        return JsonResponse(data=Success(), status=status.HTTP_200_OK)
