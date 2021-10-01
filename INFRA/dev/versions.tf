@@ -8,13 +8,9 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-2"
+  region = local.region
 
   default_tags {
-    tags = {
-      Terraform   = var.terraform == true ? "True" : "False"
-      Environment = var.env
-      Name        = var.name
-    }
+    tags = local.tags
   }
 }
