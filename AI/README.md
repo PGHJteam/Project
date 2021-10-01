@@ -16,12 +16,18 @@ wget https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj/cr
 ```
 wget https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj/TPS-ResNet-BiLSTM-Attn.pth
 ```
+```
+# 만약 wget 다운이 안 되면, https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj에서 2개 파일 다운
+```
+
 
 ### 실행 방법
 ```
-python craft --test_folder {경로}
+python craft.py --test_folder {경로}
+# 만약 gpu 없다면
+python craft.py --test_folder {경로} --cuda n
 ```
 ### example
 ```
-python craft --test_folder "eng/"
+python craft.py --test_folder "eng/"
 ```
