@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Material
+from files.models import Material
 
 class MaterialSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
@@ -9,6 +9,7 @@ class MaterialSerializer(serializers.ModelSerializer):
             material=validated_data['material'],
             material_template=validated_data['material_template']
         )
+        
         return material
 
     class Meta:
