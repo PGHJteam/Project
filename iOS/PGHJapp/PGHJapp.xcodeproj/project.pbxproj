@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182855DD60E852F986B95628 /* Pods_PGHJapp.framework */; };
 		0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */; };
+		764EEFC326FBF98100151143 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC226FBF98100151143 /* DrawingViewController.swift */; };
+		764EEFC526FBFA1600151143 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC426FBFA1600151143 /* SettingViewController.swift */; };
+		764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC626FBFBCA00151143 /* Pencil.swift */; };
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
+		76A43AC627012B660064072D /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* TextViewController.swift */; };
+		76A43AC92701FF3E0064072D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* Item.swift */; };
 		76E4098F26FAF8A3006A807F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* LoginViewController.swift */; };
 		76E4099326FB0027006A807F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099226FB0027006A807F /* User.swift */; };
 		76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099926FB9DE5006A807F /* APIConstants.swift */; };
@@ -46,8 +51,13 @@
 		182855DD60E852F986B95628 /* Pods_PGHJapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		764EEFC226FBF98100151143 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		764EEFC426FBFA1600151143 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		764EEFC626FBFBCA00151143 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		76A43AC527012B660064072D /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		76A43AC82701FF3E0064072D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		76E4098E26FAF8A3006A807F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		76E4099226FB0027006A807F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		76E4099926FB9DE5006A807F /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -124,6 +134,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		764EEFC126FBF96900151143 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				764EEFC226FBF98100151143 /* DrawingViewController.swift */,
+				764EEFC426FBFA1600151143 /* SettingViewController.swift */,
+				764EEFC626FBFBCA00151143 /* Pencil.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
 		7688946426F4215500B204C9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +165,9 @@
 		76E4098C26FAF87E006A807F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				764EEFC126FBF96900151143 /* Drawing */,
 				76E4098D26FAF885006A807F /* Login */,
+				76A43AC527012B660064072D /* TextViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -170,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				76E4099226FB0027006A807F /* User.swift */,
+				76A43AC82701FF3E0064072D /* Item.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -473,10 +496,15 @@
 				76F4180D26F1C51200D677D6 /* ViewController.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
+				764EEFC326FBF98100151143 /* DrawingViewController.swift in Sources */,
+				764EEFC526FBFA1600151143 /* SettingViewController.swift in Sources */,
 				76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */,
+				76A43AC92701FF3E0064072D /* Item.swift in Sources */,
 				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
+				764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */,
 				76E4099326FB0027006A807F /* User.swift in Sources */,
+				76A43AC627012B660064072D /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

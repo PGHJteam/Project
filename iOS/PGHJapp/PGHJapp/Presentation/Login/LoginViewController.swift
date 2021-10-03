@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire // 나중에 지우기
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         guard let username = usernameTextField.text, !username.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
                 
+      
         APIClient.login(id: username, password: password) { result in
             switch result{
             case .success(let user):

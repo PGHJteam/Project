@@ -12,6 +12,9 @@ class APIClient {
     static func login(id: String, password: String, completion: @escaping (Result<User, AFError>) -> Void){
         AF.request(APIRouter.login(id: id, password: password))
             .responseDecodable { (response: DataResponse<User, AFError>) in
+                print("**")
+                dump(response)
+                print("**")
                 completion(response.result)
             }
     }

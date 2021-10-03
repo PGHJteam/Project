@@ -23,7 +23,7 @@ enum APIRouter: URLRequestConvertible, URLConvertible {
     private var path: String {
         switch self {
         case .login:
-            return "/api/users/signin"
+            return "/api/users/signin/"
         case .uploadImage:
             return "/uploadImages"
         case .test:
