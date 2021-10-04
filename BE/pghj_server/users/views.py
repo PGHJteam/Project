@@ -12,9 +12,9 @@ from users.models import User
 from users.serializers import UserSerializer
 
 
-# 회원가입 
+# Sign Up
 @api_view(['POST'])
-@permission_classes([AllowAny]) # 누구나 접근 가능
+@permission_classes([AllowAny]) # Anyone can access
 def SignUp(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
@@ -26,36 +26,37 @@ def SignUp(request):
         return JsonResponse(data=Error("Sign Up Failed."), status=status.HTTP_400_BAD_REQUEST)
         
 
-# 헤더 토큰에서 유저 기본키 식별 후 해당 유저를 반환
+# Extract user_pk from header, get user, return user
 def get_user(request): 
-    key, token = request.headers.get("Authorization").split()
+    _, token = request.headers.get("Authorization").split()
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     user = User.objects.get(id=payload['user_id'])
     return user
 
 
-# 해당 유저 정보 조회/수정/삭제
+# Get/Update/Delete user account
 class UserView(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated,) # 인증된 사용자(토큰 있는 사용자)만 접근 가능
+    permission_classes = (IsAuthenticated,) # Only Authorized users can access
 
-    def get(self, request): # 해당 유저 정보 조회
+    # Get user information
+    def get(self, request):
         user = get_user(request)
-        serializer = UserSerializer(user) 
+        serializer = UserSerializer(user) # get user-info list
         return JsonResponse(serializer.data, status=status.HTTP_200_OK) 
 
-    def put(self, request): # 해당 유저 정보 수정
+    # Update user information
+    def put(self, request): 
         user = get_user(request)
         data = JSONParser().parse(request)
-        serializer = UserSerializer(user, data=data) 
-
-        if serializer.is_valid():
+        serializer = UserSerializer(user, data=data) # update user-info
+        if serializer.is_valid(): 
             serializer.save()
             return JsonResponse(data=Success(), status=status.HTTP_201_CREATED)
         return JsonResponse(data=Error("User Update Failed."), status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request): # 해당 유저 정보 삭제
+    # Delete user information
+    def delete(self, request): 
         user = get_user(request)    
-        user.is_active = False
+        user.is_active = False      # deactivate user
         user.save()
-        
         return JsonResponse(data=Success(), status=status.HTTP_200_OK)

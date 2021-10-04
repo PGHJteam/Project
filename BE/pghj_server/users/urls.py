@@ -6,8 +6,8 @@ from users import views
 
 
 urlpatterns = [
-    path('signup/', views.SignUp),                         # 회원가입
-    path('signin/', TokenObtainPairView.as_view()),        # 로그인 (토큰 발급)
-    path('token/refresh/', TokenRefreshView.as_view()),    # 토큰 갱신
-    path('info/', views.UserView.as_view()),               # 유저조회/수정/삭제
+    path('signup/', views.SignUp),                         # Sign Up
+    path('signin/', TokenObtainPairView.as_view()),        # Login (Obtain Tokens)
+    path('token/refresh/', TokenRefreshView.as_view()),    # Refresh Tokens
+    path('info/', views.UserView.as_view()),               # Get/Update/Delete user-info
 ]
