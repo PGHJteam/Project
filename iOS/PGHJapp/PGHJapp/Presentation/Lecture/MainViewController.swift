@@ -47,7 +47,7 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
     }
     
     func upload(image: UIImage, index: Int, progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (_ result: Bool) -> Void) {
-        
+        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         if let imageData = image.pngData() {
             AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(Data("english".utf8), withName: "image_type")
@@ -70,12 +70,18 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
     @IBAction func createButtonTouched(_ sender: Any) {
         dump(images)
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+//        var imageData = [Data]()
+//        for image in images {
+//                imageData.append(image.pngData()!)
+//        }
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(Data("english".utf8), withName: "image_type")
+//            multipartFormData.append(imageData, withName: "images+[]", fileName: "images")
+
             for (index, image) in self.images.enumerated() {
                 let imageData = image.pngData()!
-                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
-            }}, to: "http://13.125.157.223:8000/api/files/upload/images/", method: .post, headers: ["Authorization": "Bearer \(token)"])
+                multipartFormData.append(imageData, withName: "images+[]")}
+            }, to: "http://13.125.157.223:8000/api/files/upload/images/", method: .post, headers: ["Authorization": "Bearer \(token)"])
             .responseJSON { response in
                 print(response) // 처리해주기
                 

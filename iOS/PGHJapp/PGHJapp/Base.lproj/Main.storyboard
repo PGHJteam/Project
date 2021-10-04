@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="4706.1538461538457" y="86.729857819905206"/>
         </scene>
-        <!--View Controller-->
+        <!--Download View Controller-->
         <scene sceneID="97X-tx-jq5">
             <objects>
-                <viewController id="OeX-Oq-4yI" sceneMemberID="viewController">
+                <viewController id="OeX-Oq-4yI" customClass="DownloadViewController" customModule="PGHJapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wte-Xd-Frv"/>
                         <viewControllerLayoutGuide type="bottom" id="x0H-kp-7ae"/>
@@ -229,7 +229,7 @@
                                     <constraint firstAttribute="width" constant="215.33000000000001" id="Kv5-NK-PtY"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coh-JT-s8i">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coh-JT-s8i">
                                 <rect key="frame" x="151" y="529" width="88.333333333333314" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="coh-JT-s8i" secondAttribute="height" multiplier="88:31" id="aTH-93-BvZ"/>
