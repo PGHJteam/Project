@@ -18,7 +18,6 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-PPTX_DIR = os.path.join(BASE_DIR, 'files/pptx/') # ppt 저장경로
 
 
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -51,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'files',
+    'models',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -177,6 +177,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Media 파일 관련 환경설정
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 미디어 파일을 관리할 루트 media 디렉터리
-# MEDIA_URL = '/media/' # 각 media file에 대한 URL prefix
+# PPTX Template File Path
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'files/templates/')
+
+# MEDIA File Path
+MEDIA_DIR = os.path.join(BASE_DIR, 'files/media/')

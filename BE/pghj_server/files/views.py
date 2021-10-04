@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse, FileResponse
 from rest_framework import status, generics
 from rest_framework.parsers import JSONParser
@@ -5,71 +6,93 @@ from rest_framework.permissions import IsAuthenticated
 
 from files.models import Upload, Material, Image
 from files.serializers import MaterialSerializer
-from files.make_pptx import get_pptx
-
+from files.pptx import create_pptx
 from users.views import get_user
+from pghj_server.responses import Error, JsonFormat
+from models.views import detect_recognition
 
-from pghj_server.responses import Error, Success
 
-
+# View for PPTX
 class MaterialView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated, ]
 
-    def post(self, request): # ppt 파일 생성 요청
-        user = get_user(request) # 토큰에서 유저 정보 분리하여 유저 식별 (유저아이디가 넘어옴?)
+    # Create pptx, Return path
+    def post(self, request):
+        # Get user info from the header
+        user = get_user(request)
         
-        upload = Upload.objects.create(user=user)
-        data = JSONParser().parse(request) # json 에서 정보 분리하기
-        path = get_pptx(data, user.user_id, upload.id) # ppt 만들어서 저장 경로 반환하기
+        # Extract data from request
+        data = JSONParser().parse(request)
+        upload_id = data['upload_id']
+        template_id = data['template_id']
 
-        serializer = MaterialSerializer(  # DB에 저장할 정보 넣어두고, 해당정보 json으로 반환하기
+        # Make pptx
+        pptx_dir = user.user_storage + upload_id + "/" # Path to save pptx
+        path = create_pptx(data, pptx_dir, upload_id)
+
+        # Save the pptx info into database & return json format response
+        serializer = MaterialSerializer(
             data={
-                'upload': upload.id, 
+                'upload': upload_id, 
                 'material': path, 
                 'material_template': data['template_id']
             }
         )
+        if serializer.is_valid(): # If serializer is valid, save data
+            serializer.save()
+            return JsonResponse(data=serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        if serializer.is_valid():
-            serializer.save() # 데이터가 유효하면 DB에 저장
-            return JsonResponse(data=serializer.data, status=status.HTTP_200_OK) # ppt 저장된 위치에서 ppt 파일로 반환해주기
-        return JsonResponse(data=serializer.data, status=status.HTTP_400_BAD_REQUEST)
-
-
-    def get(self, request): # ppt 파일 다운로드 요청
-        data = JSONParser().parse(request)
-        path = data['path']
-
+    # Download pptx, Return pptx
+    def get(self, request):
+        data = JSONParser().parse(request) 
+        path = data['path']                
         try:
             file = open(path, 'rb')
-
         except FileNotFoundError:
             return JsonResponse(data=Error("File Not Found Error."), status=status.HTTP_400_BAD_REQUEST)
-        
-        else:
-            return FileResponse(file)
+        return FileResponse(file)
 
 
+# View for Image
 class ImageView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated, ]
 
-    # 이미지 업로드
+    # Upload images, Return text
     def post(self, request):
-        user = get_user(request) # 유저 식별
+        image_list = [] # List of Image name
+
+        # Get user info from header
+        user = get_user(request)
+
+        # Create Upload
         upload = Upload.objects.create(user=user)
+        upload.upload_path = user.user_storage + str(upload.id) + "/images/"
+        upload.save()
 
-        images = request.FILES.getlist('images') 
+        # Get image data
+        images = request.FILES
         image_type = request.POST['image_type']
+        
+        # Save images into storage & database
+        fs = FileSystemStorage(location=upload.upload_path, base_url=upload.upload_path)
+        for i in range(len(images)): 
+            image = images['image'+str(i)]          # Get json key
+            save_image = fs.save(image.name, image) # Save image into storage
+            image_name = fs.url(save_image)         # Get image_name from the saved image
 
-        for image in images:
-            Image.objects.create(
-                upload=upload,
-                image=image,
-                image_type=image_type,
+            img = Image.objects.create(             # Save image into database
+                upload = upload,
+                image_path = upload.upload_path+image_name,
+                image_type = image_type,
             )
 
-        # 인식 모델 연결하기 (함수 호출)
-        # return 값으로 text, 신뢰도 받기
-        # Json으로 response (serializer?)
+            image_list.append(image_name)            # Make image_name list
+        
+        # Extract text from mages  
+        result = detect_recognition(upload.upload_path, image_type)
 
-        return JsonResponse(data=Success(), status=status.HTTP_200_OK)
+        # Get json format response
+        data = JsonFormat(result, image_list, upload.id)
+
+        return JsonResponse(data=data, status=status.HTTP_200_OK)
