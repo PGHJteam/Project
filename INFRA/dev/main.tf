@@ -24,7 +24,6 @@ module "vpc" {
 
   subnet_num = "2"
   subnet_az  = local.availability_zones
-
 }
 
 module "ec2" {
@@ -32,7 +31,7 @@ module "ec2" {
 
   ec2_key  = var.ec2_key
   ec2_type = "t2.micro"
-  ec2_ami  = "ami-0ba5cd124d7a79612"
+  ec2_ami  = "ami-0ba5cd124d7a79612" # ubuntu 18.04
 
   ec2_name     = "${local.tags.Environment}-${local.tags.Name}-ec2"
   ec2_userdata = file("${var.ec2_filename}")
@@ -45,6 +44,7 @@ module "ec2" {
   }]
 }
 
+/*
 module "rds" {
   source = "github.com/apphia39/terraform-aws-rds"
 
@@ -72,4 +72,4 @@ module "rds" {
   rds_allow_major_version_upgrade = false
   rds_apply_immediately           = false
   rds_auto_minor_version_upgrade  = true
-}
+}*/
