@@ -220,11 +220,11 @@ class CropDataset(Dataset):
         res = self.polys[index]
 
         res = np.array(res).astype(np.int32).reshape((-1))
-        croped = cropped_image(self.image, res)
+        croped,rect = cropped_image(self.image, res)
         croped = Image.fromarray(croped).convert('L')
-        return croped, None
+        return croped, rect
 
-def recog(args,data,model,converter):
+def recog(args,data,model,converter,img_size):
     AlignCollate_demo = AlignCollate(imgH=args.imgH, imgW=args.imgW, keep_ratio_with_pad=args.PAD)
 
     data_loader = torch.utils.data.DataLoader(
@@ -236,7 +236,7 @@ def recog(args,data,model,converter):
     # predict
     model.eval()
     with torch.no_grad():
-        for image_tensors, _ in data_loader:
+        for image_tensors, rects in data_loader:
             batch_size = image_tensors.size(0)
             image = image_tensors.to(device)
             # For max length prediction
@@ -268,8 +268,10 @@ def recog(args,data,model,converter):
 
             preds_prob = F.softmax(preds, dim=2)
             preds_max_prob, _ = preds_prob.max(dim=2)
+
             one_image_res = []
-            for idx, (pred, pred_max_prob,poly) in enumerate(zip(preds_str, preds_max_prob,data.polys)):
+
+            for idx, (pred, pred_max_prob,rect) in enumerate(zip(preds_str, preds_max_prob,rects)):
                 if 'Attn' in args.Prediction:
                     pred_EOS = pred.find('[s]')
                     pred = pred[:pred_EOS]  # prune after "end of sentence" token ([s])
@@ -277,9 +279,20 @@ def recog(args,data,model,converter):
 
                 # calculate confidence score (= multiply of pred_max_prob)
                 confidence_score = pred_max_prob.cumprod(dim=0)[-1]
-                poly = np.array(poly).astype(np.int32).reshape((-1)).tolist()
-                res_form = [pred,poly,f"{confidence_score:0.2f}"]
-                one_image_res.append(res_form)
+                total_x = img_size[1]
+                total_y = img_size[0]
+                x, y, w, h = rect
+                width = w / total_x
+                height = h / total_y
+                left = x / total_x
+                top = y / total_y
+                res_dict = dict()
+                res_dict['text'] = pred
+                res_dict['coordinate'] = {"left":left,"top":top}
+                res_dict['size'] = {"width":width,"height":height}
+                res_dict['accuracy'] = f"{confidence_score:0.2f}"
+
+                one_image_res.append(res_dict)
                 # print(f'{idx:25d}_cropped\t{pred:25s}\t{confidence_score:0.4f}\t{poly}')
                 # log.write(f'{idx:25s}\t{pred:25s}\t{confidence_score:0.4f}\n')
     return one_image_res
@@ -294,10 +307,11 @@ if __name__ =="__main__":
         print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path))
         name = os.path.split(image_path)[-1]
         image = imgproc.loadImage(image_path)
+        img_size = image.shape
 
         polys = detect(args, detect_net, image, args.text_threshold, args.link_threshold, args.low_text, args.cuda, args.poly, refine_net)
         dataset = CropDataset(polys,image)
 
-        one_image_res = recog(args,dataset,recog_net,converter)
+        one_image_res = recog(args,dataset,recog_net,converter,img_size)
         total_image_res[name] = one_image_res
     sys.stdout.write(json.dumps(total_image_res))
