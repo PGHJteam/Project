@@ -2,24 +2,33 @@ import UIKit
 import PhotosUI
 import Alamofire
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+
+        results.forEach { item in
+            let itemProvider = item.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    if let myImage = image as? UIImage {
+                        self.images.append(myImage)
+                    }
+                }
+            }
+        }
+        imageCount.text = "\(results.count)"
+    }
+
 
     private var images = [UIImage]()
+    @IBOutlet weak var imageCount: UILabel!
     
-    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        let test = Temp(template_id: 0, items: [Item(text: "hello world", coordinates: Coordinates(x: 100, y: 100)),Item(text: "hello world", coordinates: Coordinates(x: 100, y: 100))])
-        let encoder = JSONEncoder()
-        let jsonData = try? encoder.encode(test)
-        if let jsonData = jsonData, let jsonString = String(data: jsonData, encoding: .utf8){
-            print(jsonString) //{"name":"Zedd","age":100}
-        }
     }
     
     func configure(){
@@ -39,76 +48,69 @@ class MainViewController: UIViewController {
     
     func upload(image: UIImage, index: Int, progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (_ result: Bool) -> Void) {
         
-        
-        
-//        if let imageData = image.pngData() {
-//            AF.upload(multipartFormData: { multipartFormData in
-//                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
-//            }, to: APIRouter.uploadImage, method: .post
-//            headers: ["Authorization": "Basic\(authorization)"],
-//            )
-//            .responseJSON { response in
-//                print(response) // 처리해주기
-//            }
+        if let imageData = image.pngData() {
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(Data("english".utf8), withName: "image_type")
+                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
+            }, to: "/api/files/upload/images/", method: .post, headers: ["Authorization": UserDefaults.standard.string(forKey: "accessToken") ?? ""])
+            .responseJSON { response in
+                print(response) // 처리해주기
+            }
 //
 //        }
 //        AF.upload(multipartFormData: { multipartFormData in
 //            multipartFormData.append(Data("english".utf8), withName: "image_type")
-//        }, to: URL(string: "https://8feaee36-6bec-4c60-a418-69f2bff63701.mock.pstmn.io/")!)
+//        }, to: URL(string: "https://8feaee36-6bec-4c60-a418-69f2bff63701.mock.pstmn.io/api/files/upload/images/")!)
 //            .responseJSON { response in
 //                dump(response)
 //            }
+        }
     }
 
     @IBAction func createButtonTouched(_ sender: Any) {
-//        progressView.progress = 0.0
-//        progressView.isHidden = false
-//        activityIndicatorView.startAnimating()
-//        dump(images)
+        dump(images)
+        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data("english".utf8), withName: "image_type")
+            for (index, image) in self.images.enumerated() {
+                let imageData = image.pngData()!
+                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
+            }}, to: "http://13.125.157.223:8000/api/files/upload/images/", method: .post, headers: ["Authorization": "Bearer \(token)"])
+            .responseJSON { response in
+                print(response) // 처리해주기
+                
+            }
+    }
+}
+
+//extension MainViewController: PHPickerViewControllerDelegate {
+//    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+//        picker.dismiss(animated: true)
 //
-//        for (index, image) in images.enumerated() {
-//            upload(image: image, index: index) { [weak self] percent in
-//                guard let strongSelf = self else {return}
-//                strongSelf.progressView.setProgress(percent, animated: true)
-//            } completion: { [weak self] result in
-//                guard let strongSelf = self else {return}
-//                strongSelf.progressView.isHidden = true
-//                strongSelf.activityIndicatorView.stopAnimating()
-//                strongSelf.images = []
-//                strongSelf.myImageView.image = nil
+//        results.forEach { item in
+//            let itemProvider = item.itemProvider
+//            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+//                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+//                    if let myImage = image as? UIImage {
+//                        self.images.append(myImage)
+//                    }
+//                }
+//            }
+//        }
+//        imageCount.text = "\(results.count)"
+//        let itemProvider = results.last?.itemProvider
+
+//        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+//            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+//                DispatchQueue.main.async {
+//                    self.myImageView.image = image as? UIImage
+//                }
 //            }
 //
+//        } else {
+//            // error 처리
 //        }
-    }
-}
-
-extension MainViewController: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-
-        results.forEach { item in
-            let itemProvider = item.itemProvider
-            if itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                    if let myImage = image as? UIImage {
-                        self.images.append(myImage)
-                    }
-                }
-            }
-        }
-        let itemProvider = results.last?.itemProvider
-
-        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                DispatchQueue.main.async {
-                    self.myImageView.image = image as? UIImage
-                }
-            }
-
-        } else {
-            // error 처리
-        }
-    }
     
     
-}
+    
+

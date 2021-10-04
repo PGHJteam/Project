@@ -23,8 +23,9 @@ class SigninViewController: UIViewController {
         guard let password = passwordTextField.text, !password.isEmpty else { return }
         let user = SigninForm(id: username, password: password)
                 
-        AF.request("https://8feaee36-6bec-4c60-a418-69f2bff63701.mock.pstmn.io/api/users/signin/", method: .post, parameters: user)
+        AF.request("http://13.125.157.223:8000/api/users/signin/", method: .post, parameters: user)
             .responseDecodable(of: TokenDTO.self)  { response in
+//                print(response)
                 switch response.result {
                 case .success(let token):
 //                    print(token)
@@ -33,7 +34,7 @@ class SigninViewController: UIViewController {
                     guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
                     self.navigationController?.pushViewController(homeVC, animated: true)
 //                    isSuccess = true
-                    print(UserDefaults.standard.string(forKey: "accessToken"))
+//                    print(UserDefaults.standard.string(forKey: "accessToken"))
                     
                 case .failure(let error):
                     print(error)
