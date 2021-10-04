@@ -15,8 +15,7 @@ class MaterialInline(admin.TabularInline):
 
 class UploadAdmin(admin.ModelAdmin):
     inlines = [ImageInline, MaterialInline]
-    list_display = ['id', 'user', 'uploaded_at']
-
+    list_display = ['id', 'user', 'upload_path', 'uploaded_at']
     search_fields = ('id', )
 
 
