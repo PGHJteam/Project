@@ -2,15 +2,14 @@ import UIKit
 import PhotosUI
 import Alamofire
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     private var images = [UIImage]()
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
-//    @IBOutlet weak var progressView: UIProgressView!
-//    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +82,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: PHPickerViewControllerDelegate {
+extension MainViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
 

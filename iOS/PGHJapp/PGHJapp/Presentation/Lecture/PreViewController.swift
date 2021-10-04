@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextViewController: UIViewController {
+class PreViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

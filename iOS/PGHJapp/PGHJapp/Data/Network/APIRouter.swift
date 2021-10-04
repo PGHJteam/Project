@@ -9,25 +9,26 @@ import Foundation
 import Alamofire
 
 enum APIRouter: URLRequestConvertible, URLConvertible {
-    case login(id: String, password: String)
+    case signin(id: String, password: String)
+//    case signup(id: String, password: String, name: String, email: String)
     case uploadImage
     case test(id: String, password: String)
     
     private var method: HTTPMethod {
         switch self {
-        case .login, .uploadImage, .test:
+        case .signin, .uploadImage, .test:
             return .post
         }
     }
     
     private var path: String {
         switch self {
-        case .login:
+        case .signin:
             return "/api/users/signin/"
         case .uploadImage:
-            return "/uploadImages"
+            return "/uploadImages/"
         case .test:
-            return "/default/SwiftCamp"
+            return "/default/SwiftCamp/"
         }
     }
     
@@ -35,7 +36,7 @@ enum APIRouter: URLRequestConvertible, URLConvertible {
         switch self {
         case .uploadImage:
             return nil // 변경 필요
-        case .login(let id, let password), .test(let id, let password):
+        case .signin(let id, let password), .test(let id, let password):
             return [
                 "user_id": id,
                 "password": password
