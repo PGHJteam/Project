@@ -89,7 +89,7 @@ class ImageView(generics.GenericAPIView):
 
             image_list.append(image_name)            # Make image_name list
         
-        # Extract text from mages  
+        # Extract text from images  
         result = detect_recognition(upload.upload_path, image_type)
 
         # Get json format response

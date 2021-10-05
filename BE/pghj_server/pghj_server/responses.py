@@ -28,10 +28,10 @@ def JsonFormat(data, image_list, upload_id):
     
     # Make Json Format
     images = []
-    for image_name in image_list:
+    for i in range(len(image_list)):
         image = {
-            "image_id": image_name,
-            "results": dict_result[image_name]
+            "image_id": i,
+            "results": dict_result[image_list[i]]
         }
         images.append(image)
     
