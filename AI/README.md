@@ -10,7 +10,8 @@ pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit
 
 ```
 # 서버가 아니라면
-pip install torch torchvision opencv-python scikit-image scipy pillow imutils tqdm lmdb natsort
+sudo apt-get install cmake
+pip install scikit-build torch torchvision opencv-python scikit-image scipy pillow imutils tqdm lmdb natsort numpy pandas
 ```
 ### 패키지 업으면, 필요한 것 있으면 다운
 
