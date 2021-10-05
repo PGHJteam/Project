@@ -159,6 +159,12 @@ def init_detect_model(args):
     if args.cuda:
         net.load_state_dict(copyStateDict(torch.load(args.trained_model)))
     else:
+#         import pickle
+#         import chardet string = "솜씨좋은장씨"
+#         print(chardet.detect(string.encode()))
+#         pickle.load = partial(pickle.load, encoding="utf-8")
+#         pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
+#         model = torch.load(model_file, map_location=lambda storage, loc: storage, pickle_module=pickle)
         net.load_state_dict(copyStateDict(torch.load(args.trained_model, map_location='cpu')))
     if args.cuda:
         net = net.cuda()
