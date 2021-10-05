@@ -17,10 +17,10 @@ pip install torch torchvision opencv-python scikit-image scipy pillow imutils tq
 
 #### pretrained model download
 ```
-wget https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj/craft_mlt_25k.pth
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0' -O TPS-ResNet-BiLSTM-Attn.pth
 ```
 ```
-wget https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj/TPS-ResNet-BiLSTM-Attn.pth
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0' -O craft_mlt_25k.pth
 ```
 ```
 # 만약 wget 다운이 안 되면, https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj에서 2개 파일 다운
