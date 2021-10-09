@@ -7,6 +7,8 @@ from torch.autograd import Variable
 from collections import OrderedDict
 from image_crop import cropped_image
 from torch.utils.data import Dataset
+from trocr_inference import init as tr_init
+from trocr_inference import get_text as tr_recog
 import string
 import torch
 import torch.backends.cudnn as cudnn
@@ -63,7 +65,8 @@ def copyStateDict(state_dict):
 def command():
     parser = argparse.ArgumentParser(description='CRAFT Text Detection')
     # detection
-    parser.add_argument('--trained_model', default='craft.pth', type=str, help='pretrained model')
+   
+    parser.add_argument('--detect_model', default='downloads/premodels/craft.pth', type=str, help='pretrained model')
     parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
     parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
@@ -81,7 +84,9 @@ def command():
     # recogntion
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
     parser.add_argument('--batch_size', type=int, default=192, help='input batch size')
-    parser.add_argument('--saved_model', default="recog.pth", help="path to saved_model to evaluation")
+    parser.add_argument('--recog_model', default="downloads/premodels/recog.pth", help="path to saved_model to evaluation")
+    parser.add_argument('--recog_name',default='trocr',help="choose trocr or naver")
+
     """ Data processing """
     parser.add_argument('--batch_max_length', type=int, default=25, help='maximum-label-length')
     parser.add_argument('--imgH', type=int, default=32, help='the height of the input image')
@@ -152,9 +157,9 @@ args = command()
 def init_detect_model(args):
     net = CRAFT()  # initialize
 
-    # print('Loading weights from checkpoint (' + args.trained_model + ')')
+    # print('Loading weights from checkpoint (' + args.detect_model + ')')
     if args.cuda:
-        net.load_state_dict(copyStateDict(torch.load(args.trained_model)))
+        net.load_state_dict(copyStateDict(torch.load(args.detect_model)))
     else:
 #         import pickle
 #         import chardet string = "솜씨좋은장씨"
@@ -162,7 +167,7 @@ def init_detect_model(args):
 #         pickle.load = partial(pickle.load, encoding="utf-8")
 #         pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
 #         model = torch.load(model_file, map_location=lambda storage, loc: storage, pickle_module=pickle)
-        net.load_state_dict(copyStateDict(torch.load(args.trained_model, map_location='cpu')))
+        net.load_state_dict(copyStateDict(torch.load(args.detect_model, map_location='cpu')))
     if args.cuda:
         net = net.cuda()
         net = torch.nn.DataParallel(net)
@@ -200,21 +205,25 @@ def init_recog_model(args):
     model = torch.nn.DataParallel(model).to(device)
 
     # load model
-    # print('loading pretrained model from %s' % args.saved_model)
-    model.load_state_dict(torch.load(args.saved_model, map_location=device))
+    # print('loading pretrained model from %s' % args.recog_model)
+    model.load_state_dict(torch.load(args.recog_model, map_location=device))
     return model,args,converter
 
-def init_model(args):
-    image_list, _, _ = get_files(args.test_folder)
-    net, refine_net, args = init_detect_model(args)
-    recog_net,args,converter = init_recog_model(args)
-    return image_list,net, recog_net, refine_net, args,converter
+# def init_model(args):
+#     image_list, _, _ = get_files(args.test_folder)
+#     net, refine_net, args = init_detect_model(args)
+#     recog_net,args,converter = init_recog_model(args)
+#     return image_list,net, recog_net, refine_net, args,converter
 
 class CropDataset(Dataset):
 
-    def __init__(self, polys, image):
+    def __init__(self, polys, image,trocr=False,naver=False,img_transform=None):
         self.image = image
         self.polys = polys
+        self.trocr = trocr
+        self.naver = naver
+        if trocr:
+            self.img_transform = img_transform
 
     def __len__(self):
         return len(self.polys)
@@ -224,10 +233,15 @@ class CropDataset(Dataset):
 
         res = np.array(res).astype(np.int32).reshape((-1))
         croped,rect = cropped_image(self.image, res)
-        croped = Image.fromarray(croped).convert('L')
+        if self.naver:
+            croped = Image.fromarray(croped).convert('L')
+        elif self.trocr:
+            croped = Image.fromarray(croped).convert('RGB').resize((384, 384))
+            cropped = self.img_transform(croped).unsqueeze(0).to(device).float()
+            croped = {'net_input': {"imgs": cropped},}
         return croped, rect
 
-def recog(args,data,model,converter,img_size):
+def naver_recog(args,data,model,converter,img_size):
     AlignCollate_demo = AlignCollate(imgH=args.imgH, imgW=args.imgW, keep_ratio_with_pad=args.PAD)
 
     data_loader = torch.utils.data.DataLoader(
@@ -303,10 +317,37 @@ def recog(args,data,model,converter,img_size):
     return one_image_res
 
 
+def trocr_recog(dataset,recog_net,img_size,tr_task):
+    one_image_res = []
+    for tr_sample,rect in dataset:
+        text = tr_recog(tr_cfg, tr_generator, recog_net, tr_sample, tr_bpe,tr_task)
+        total_x = img_size[1]
+        total_y = img_size[0]
+        x, y, w, h = rect
+        width = w / total_x
+        height = h / total_y
+        left = x / total_x
+        top = y / total_y
+        res_dict = dict()
+        res_dict['text'] = text
+        res_dict['coordinate'] = {"left":left,"top":top}
+        res_dict['size'] = {"width":width,"height":height}
+
+        
+        res_dict['accuracy'] = 1.0
+        one_image_res.append(res_dict)
+    return one_image_res
+
+
 if __name__ =="__main__":
     args = command()
-
-    image_list, detect_net, recog_net, refine_net, args, converter= init_model(args)
+    image_list, _, _ = get_files(args.test_folder)
+    detect_net, refine_net, args = init_detect_model(args)
+    if args.recog_name == 'trocr':   
+        recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform, _ = tr_init(args.recog_model, 5)
+    elif args.recog_name == 'naver':
+        recog_net,args,converter = init_recog_model(args)
+    
     total_image_res = {}
     for k, image_path in enumerate(image_list):
         print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path))
@@ -315,8 +356,16 @@ if __name__ =="__main__":
         img_size = image.shape
 
         polys = detect(args, detect_net, image, args.text_threshold, args.link_threshold, args.low_text, args.cuda, args.poly, refine_net)
-        dataset = CropDataset(polys,image)
 
-        one_image_res = recog(args,dataset,recog_net,converter,img_size)
+
+        if args.recog_name == 'trocr':
+            dataset = CropDataset(polys,image,trocr=True,img_transform=tr_img_transform)
+            one_image_res = trocr_recog(dataset,recog_net,img_size,tr_task)
+        elif args.recog_name == 'naver':
+            dataset = CropDataset(polys,image,naver=True)
+            one_image_res = naver_recog(args,dataset,recog_net,converter,img_size)
+
+                
+
         total_image_res[name] = one_image_res
     sys.stdout.write(json.dumps(total_image_res))
