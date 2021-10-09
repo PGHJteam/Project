@@ -23,9 +23,6 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
 
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
-
-
 
 def list_files(in_path):
     img_files = []
@@ -296,7 +293,9 @@ def recog(args,data,model,converter,img_size):
                 res_dict['text'] = pred
                 res_dict['coordinate'] = {"left":left,"top":top}
                 res_dict['size'] = {"width":width,"height":height}
-                res_dict['accuracy'] = f"{confidence_score:0.2f}"
+
+                
+                res_dict['accuracy'] = confidence_score.to('cpu').item()
 
                 one_image_res.append(res_dict)
                 # print(f'{idx:25d}_cropped\t{pred:25s}\t{confidence_score:0.4f}\t{poly}')
