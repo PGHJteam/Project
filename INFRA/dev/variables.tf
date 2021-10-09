@@ -1,4 +1,4 @@
-# vpc
+# network
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
@@ -17,14 +17,8 @@ variable "public_subnet_cidrs" {
   default     = []
 }
 
-variable "igw_cidr" {
-  description = "CIDR block for the INTERNET GATEWAY"
-  type        = string
-  default     = ""
-}
 
-
-# ec2
+# server
 variable "ec2_key" {
   description = "Key name of the Key Pair to use for the EC2 instance."
   type        = string
@@ -38,7 +32,7 @@ variable "ec2_filename" {
 }
 
 
-# rds
+# database
 variable "rds_dbname" {
   description = "The name of the database to create when the DB instance is created."
   type        = string

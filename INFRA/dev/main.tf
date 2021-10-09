@@ -9,65 +9,69 @@ locals {
   }
 }
 
-module "vpc" {
-  source = "github.com/apphia39/terraform-aws-vpc"
+module "network" {
+  source = "./modules/network"
 
   vpc_cidr             = var.vpc_cidr
   public_subnet_cidrs  = var.public_subnet_cidrs
   private_subnet_cidrs = var.private_subnet_cidrs
-  igw_cidr             = var.igw_cidr
-
-  vpc_name     = "${local.tags.Environment}-${local.tags.Name}-vpc"
-  public_name  = "${local.tags.Environment}-${local.tags.Name}-public"
-  private_name = "${local.tags.Environment}-${local.tags.Name}-private"
-  igw_name     = "${local.tags.Environment}-${local.tags.Name}-igw"
-
-  subnet_num = "2"
-  subnet_az  = local.availability_zones
+  igw_cidr             = "0.0.0.0/0" # 변수로 빼기
+  nat_cidr             = "0.0.0.0/0"
+  name_prefix          = "${local.tags.Environment}-${local.tags.Name}"
+  subnet_num           = "2"
+  availability_zones   = local.availability_zones
 }
 
-module "ec2" {
-  source = "github.com/apphia39/terraform-aws-ec2"
+module "server" { # 변수 통일
+  source = "./modules/server"
 
-  ec2_key  = var.ec2_key
-  ec2_type = "t2.micro"
-  ec2_ami  = "ami-0ba5cd124d7a79612" # ubuntu 18.04
+  vpc_id                   = module.network.vpc_id
+  ec2_key                  = var.ec2_key
+  ec2_type                 = "t3.xlarge" 
+  ec2_ami                  = "ami-0ba5cd124d7a79612" # ubuntu 18.04
+  name_prefix              = "${local.tags.Environment}-${local.tags.Name}"
+  ec2_userdata             = file("${var.ec2_filename}")
+  ec2_subnet_id            = module.network.public_subnet_ids[0] # private 으로 숨기기
+  ec2_iam_instance_profile = module.security.server_iam_profile
+  # 종료방지기능
 
-  ec2_name     = "${local.tags.Environment}-${local.tags.Name}-ec2"
-  ec2_userdata = file("${var.ec2_filename}")
+  ec2_sg_port = [
+    {
+      port = "22"
+    },
+    {
+      port = "8000"
+    }
+  ]
+}
 
-  ec2_subnet_id          = module.vpc.public_subnet_ids[0]
-  ec2_security_group_ids = module.vpc.ec2_sg_ids
-
-  ec2_root_volume = [{
-    volume_size = 10
-  }]
+module "security" {
+  source = "./modules/security"
 }
 
 /*
-module "rds" {
-  source = "github.com/apphia39/terraform-aws-rds"
+module "database" { # standby 추가??
+  source = "./modules/database"
+  vpc_id = module.network.vpc_id
 
-  rds_name              = "${local.tags.Environment}-${local.tags.Name}-rds"
-  rds_subnet_group_name = "${local.tags.Environment}-${local.tags.Name}-rds-subnet-group"
+  name_prefix  = "${local.tags.Environment}-${local.tags.Name}"
 
   rds_dbname   = var.rds_dbname
   rds_username = var.rds_username
   rds_password = var.rds_password
   rds_port     = var.rds_port
 
-  rds_subnet_ids         = module.vpc.private_subnet_ids
-  rds_security_group_ids = module.vpc.rds_sg_ids
+  rds_subnet_ids = module.network.private_subnet_ids
 
-  rds_type                  = "db.t2.micro"
+  rds_type                  = "db.t2.micro" # prod에서는 수정
   rds_engine                = "mysql"
   rds_engine_version        = "5.7"
-  rds_allocated_storage     = "10"
-  rds_max_allocated_storage = "50"
+  rds_allocated_storage     = "10" # 수정
+  rds_max_allocated_storage = "50" # 수정
 
-  rds_skip_final_snapshot = true
-  rds_publicly_accessible = false
-  rds_deletion_protection = false
+  rds_skip_final_snapshot = true # false
+  rds_publicly_accessible = false 
+  rds_deletion_protection = false # true
 
   rds_allow_major_version_upgrade = false
   rds_apply_immediately           = false
