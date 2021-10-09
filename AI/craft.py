@@ -63,7 +63,7 @@ def copyStateDict(state_dict):
 def command():
     parser = argparse.ArgumentParser(description='CRAFT Text Detection')
     # detection
-    parser.add_argument('--trained_model', default='craft_mlt_25k.pth', type=str, help='pretrained model')
+    parser.add_argument('--trained_model', default='craft.pth', type=str, help='pretrained model')
     parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
     parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
@@ -81,7 +81,7 @@ def command():
     # recogntion
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
     parser.add_argument('--batch_size', type=int, default=192, help='input batch size')
-    parser.add_argument('--saved_model', default="TPS-ResNet-BiLSTM-Attn.pth", help="path to saved_model to evaluation")
+    parser.add_argument('--saved_model', default="recog.pth", help="path to saved_model to evaluation")
     """ Data processing """
     parser.add_argument('--batch_max_length', type=int, default=25, help='maximum-label-length')
     parser.add_argument('--imgH', type=int, default=32, help='the height of the input image')
