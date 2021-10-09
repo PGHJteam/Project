@@ -15,26 +15,33 @@ pip install scikit-build torch torchvision opencv-python scikit-image scipy pill
 ```
 ### 패키지 업으면, 필요한 것 있으면 다운
 
-
-#### pretrained model download
+## pretrained model download
+#### craft pretrained model download
 ```
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0' -O TPS-ResNet-BiLSTM-Attn.pth
-```
-```
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0' -O craft_mlt_25k.pth
+wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1xv1gs770_HGbWdJ6EgTxo_zngiE_voWJ' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1xv1gs770_HGbWdJ6EgTxo_zngiE_voWJ" -O craft.pth && rm -rf ~/cookies.txt
 ```
 ```
-# 만약 wget 다운이 안 되면, https://drive.google.com/drive/folders/1UFAEyF5gTxioO2vsp-PjWRYeA6ajkIDj에서 2개 파일 다운
+wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1yim_nfaYOKD6jRns3YKMPcCmUYtrVYF0" -O recog.pth && rm -rf ~/cookies.txt
 ```
 
+
+#### trocr pretrained model donwload
+```
+wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1-3CrKW5v-40fDh0XXJipZw2D6YGntgdN' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1-3CrKW5v-40fDh0XXJipZw2D6YGntgdN" -O trocr.pt && rm -rf ~/cookies.txt
+```
+```
+wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA" -O trhtr.pt && rm -rf ~/cookies.txt
+```
 
 ### 실행 방법
 ```
-python craft.py --test_folder {경로}
-# 만약 gpu 없다면
-python craft.py --test_folder {경로} --cuda n
+python craft.py --test_folder {경로} --recog_name trocr 또는 naver 선택 --recog_model {경로}
+```
+### 만약 gpu 없다면
+```
+python craft.py --test_folder {경로} --cuda n --recog_name trocr 또는 naver 선택 --recog_model {경로}
 ```
 ### example
 ```
-python craft.py --test_folder "eng/"
+python craft.py --test_folder "eng/" --recog_name trocr --recog_model downloads/premodels/trhtr.pt
 ```
