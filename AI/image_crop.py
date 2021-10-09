@@ -42,4 +42,6 @@ def cropped_image(img,poly):
     x, y, w, h = rect
     croped = img[y:y + h, x:x + w].copy()
     # cv2.imwrite(f"temps/croped_{i}.jpg", croped)
+
     return croped, rect
+
