@@ -9,3 +9,17 @@ python-pptx==0.6.21
 pytz==2021.1
 sqlparse==0.4.2
 XlsxWriter==3.0.1
+numpy
+cython
+scikit-image
+scikit-build
+torch==1.5
+torchvision==0.6
+scipy
+imutils
+tqdm
+lmdb 
+natsort
+pandas
+opencv-contrib-python
+opencv-python
