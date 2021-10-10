@@ -9,7 +9,7 @@ class Upload(models.Model):
     uploaded_at = models.DateTimeField("DATE", auto_now=True)
 
     def __str__(self):
-        return "Upload id: " + str(self.id)
+        return "Upload(" + str(self.id)+")"
 
     class Meta:
         db_table = "uploads"
@@ -18,10 +18,11 @@ class Upload(models.Model):
 class Image(models.Model):
     upload = models.ForeignKey(Upload, on_delete=models.CASCADE)
     image_path = models.CharField("PATH", max_length=200)
-    image_type = models.CharField("TAG", max_length=10, default="etc-ocr")
+    image_name = models.CharField("NAME", max_length=200)
+    image_type = models.CharField("TAG", max_length=10, default="eng-ocr")
 
     def __str__(self):
-        return "Image id: " + str(self.id)
+        return "Image(" + str(self.id) + ") " + self.image_name
 
     class Meta:
         db_table = "images"
@@ -29,12 +30,12 @@ class Image(models.Model):
 
 class Material(models.Model):
     upload = models.ForeignKey(Upload, on_delete=models.CASCADE)
-    material = models.CharField("PATH", max_length=200) 
-    # material_tag = models.CharField("TAG", max_length=20)
+    material_path = models.CharField("PATH", max_length=200)
+    material_name = models.CharField("NAME", max_length=200) 
     material_template = models.CharField("TEMPLATE", max_length=20, default="template00") 
 
     def __str__(self):
-        return "Material id: " + str(self.id)
+        return "Material(" + str(self.id) + ") " + self.material_name
 
     class Meta:
         db_table = "materials"

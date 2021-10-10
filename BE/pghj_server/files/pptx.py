@@ -3,38 +3,34 @@ from pptx.util import Inches, Pt
 
 from pghj_server.settings import TEMPLATE_DIR
 
+# Change pixel into inch
+def get_inch(x, y):
+    r = x * 1280 / 96
+    c = y * 720 / 96
+    return Inches(r), Inches(c)
+
 
 # Add slides
 def add_slides(prs, items):
-    # Get the total number of slides to add
-    total_pages = items[len(items)-1]['page'] 
-
     # Add each slide
-    for cur_page in (1, total_pages):
+    for item in items:                             # one item per page
         slide_layout = prs.slide_layouts[6]        # Create slide_layout (6: BLANK)
         slide = prs.slides.add_slide(slide_layout) # Add a slide
         shapes = slide.shapes
 
-        while items != []:
-            item = items[0]    
+        sentences = item['sentences']
 
-            # Check the page
-            page = item['page'] 
-            if page > cur_page: # If next page, break
-                break
-
-            text = item['text']
-            left = Inches(item['coordinate']['left'])
-            top = Inches(item['coordinate']['top'])
-            width = Inches(item['size']['width'])
-            height = Inches(item['size']['height'])
-            font_type = item['font']['type']
-            font_size = item['font']['size']            
-            
+        for sentence_block in sentences:
+            sentence = sentence_block['sentence']
+            left, top = get_inch(sentence_block['coordinate']['left'], sentence_block['coordinate']['top'])
+            width, height = get_inch(sentence_block['size']['width'], sentence_block['size']['height'])
+            font_type = sentence_block['font']['type']
+            font_size = sentence_block['font']['size']            
+        
             text_box = shapes.add_textbox(left, top, width, height) # Create text box
             text_frame = text_box.text_frame                        # Get text frame from the text box
             p = text_frame.add_paragraph()                          # Add paragraph into text frame
-            p.text = text                                           # Write text
+            p.text = sentence                                       # Write text
 
             if font_type == "bold": 
                 p.font.bold = True
@@ -44,12 +40,11 @@ def add_slides(prs, items):
 
             p.font_size = Pt(font_size)      
 
-            items.pop(0)
     return prs
 
 
 # Make presentation
-def create_pptx(data, dir, upload_id):  
+def create_pptx(data, pptx_path, upload_id):  
     template_id = data['template_id'] # Template Design ID
     items = data['items']             # Data       
 
@@ -63,7 +58,8 @@ def create_pptx(data, dir, upload_id):
     prs = add_slides(prs, items)
 
     # Save pptx
-    pptx_path = dir + 'upload_id' + '.pptx'
-    prs.save(pptx_path)
+    pptx_name = str(upload_id) + '.pptx'
+    prs.save(pptx_path + pptx_name)
 
-    return pptx_path
+    
+    return pptx_name

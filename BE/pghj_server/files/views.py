@@ -27,15 +27,16 @@ class MaterialView(generics.GenericAPIView):
         template_id = data['template_id']
 
         # Make pptx
-        pptx_dir = user.user_storage + upload_id + "/" # Path to save pptx
-        path = create_pptx(data, pptx_dir, upload_id)
+        pptx_path = user.user_storage + str(upload_id) + "/" # Path to save pptx
+        pptx_name = create_pptx(data, pptx_path, upload_id)
 
         # Save the pptx info into database & return json format response
         serializer = MaterialSerializer(
             data={
                 'upload': upload_id, 
-                'material': path, 
-                'material_template': data['template_id']
+                'material_path': pptx_path,
+                'material_name': pptx_name, 
+                'material_template': template_id
             }
         )
         if serializer.is_valid(): # If serializer is valid, save data
@@ -46,13 +47,16 @@ class MaterialView(generics.GenericAPIView):
     # Download pptx, Return pptx
     def get(self, request):
         data = JSONParser().parse(request) 
-        path = data['path']                
+        name = data['material_name']
+        path = data['material_path']                
         try:
-            file = open(path, 'rb')
+            file = open(path+name, 'rb')
         except FileNotFoundError:
             return JsonResponse(data=Error("File Not Found Error."), status=status.HTTP_400_BAD_REQUEST)
-        return FileResponse(file)
-
+        
+        response = FileResponse(file, content_type="multipart/form-data")
+        response['Content-Disposition'] = f'attachment; filename={name}'
+        return response
 
 # View for Image
 class ImageView(generics.GenericAPIView):
@@ -67,32 +71,36 @@ class ImageView(generics.GenericAPIView):
 
         # Create Upload
         upload = Upload.objects.create(user=user)
-        upload.upload_path = user.user_storage + str(upload.id) + "/images/"
+        upload.upload_path = user.user_storage + str(upload.id)
         upload.save()
 
         # Get image data
         images = request.FILES
         image_type = request.POST['image_type']
+        image_path = upload.upload_path + "/images/"
         
         # Save images into storage & database
-        fs = FileSystemStorage(location=upload.upload_path, base_url=upload.upload_path)
+        fs = FileSystemStorage(location=image_path, base_url=image_path)
         for i in range(len(images)): 
             image = images['image'+str(i)]          # Get json key
             save_image = fs.save(image.name, image) # Save image into storage
-            image_name = fs.url(save_image)         # Get image_name from the saved image
+            image_url = fs.url(save_image)          # Get image_url from the saved image
+            image_name = image_url.split('/')[-1]   # 개발환경에서는 image_url에 이미지 이름 찍힘. 서버에서는 image_urll에 이미지 경로 찍힘
 
-            img = Image.objects.create(             # Save image into database
+            Image.objects.create(        # Save image into database (이미지 시리얼라이저?)
                 upload = upload,
-                image_path = upload.upload_path+image_name,
+                image_path = image_path,
+                image_name = image_name,
                 image_type = image_type,
             )
 
-            image_list.append(image_name)            # Make image_name list
+            image_list.append(image_name) # Make image_name list
         
         # Extract text from images  
-        result = detect_recognition(upload.upload_path, image_type)
+        result = detect_recognition(image_path, image_type)
 
         # Get json format response
         data = JsonFormat(result, image_list, upload.id)
 
+        #data ={} # compile
         return JsonResponse(data=data, status=status.HTTP_200_OK)
