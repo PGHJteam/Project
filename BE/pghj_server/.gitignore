@@ -1,8 +1,9 @@
 migrations/
 __pycache__/
 media/
-templates/
 
 db.sqlite3
 *.json
 .gitignore
+
+*.pth
