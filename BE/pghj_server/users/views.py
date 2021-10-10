@@ -3,6 +3,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
 
 import jwt
 from pghj_server.settings import SECRET_KEY, ALGORITHM
@@ -26,7 +27,20 @@ def SignUp(request):
         return JsonResponse(data=Error("Sign Up Failed."), status=status.HTTP_400_BAD_REQUEST)
         
 
-# Extract user_pk from header, get user, return user
+# Sign Out
+@api_view(['POST'])
+@permission_classes([IsAuthenticated]) # Only Authorized users can access
+def SignOut(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        refresh_token = data['refresh_token']
+        token = RefreshToken(token=refresh_token)
+        token.blacklist()
+
+        return JsonResponse(data=Success(), status=status.HTTP_205_RESET_CONTENT)
+
+
+# Extract user_pk from header, find user from database, return user
 def get_user(request): 
     _, token = request.headers.get("Authorization").split()
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
