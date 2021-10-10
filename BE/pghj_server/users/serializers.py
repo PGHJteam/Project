@@ -11,7 +11,6 @@ class UserSerializer(serializers.ModelSerializer):
             user_id = validated_data['user_id'],
             password = validated_data['password'],
             user_name = validated_data['user_name'],
-            user_email = validated_data['user_email'],
             user_storage = storage_path
         )
         
@@ -19,4 +18,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user_id', 'password', 'user_name', 'user_email')
+        fields = ('user_id', 'password', 'user_name')
