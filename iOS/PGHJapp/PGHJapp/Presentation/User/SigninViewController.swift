@@ -26,10 +26,9 @@ class SigninViewController: UIViewController {
         AF.request(Endpoint.signin, method: .post, parameters: user)
             .responseDecodable(of: Token.self)  { response in
                 
-//                print(Endpoint.signin)
                 switch response.result {
                 case .success(let token):
-//                    print(token)
+
                     UserDefaults.standard.set(token.refresh, forKey: "refreshToken")
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
                     guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
@@ -37,6 +36,7 @@ class SigninViewController: UIViewController {
 
                     
                 case .failure(let error):
+                    self.simpleAlert(title: "로그인 실패", message: "id, password 오류")
                     print(error)
                 }
             }

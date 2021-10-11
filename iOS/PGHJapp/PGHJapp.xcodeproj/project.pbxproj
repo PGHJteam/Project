@@ -17,6 +17,7 @@
 		764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC626FBFBCA00151143 /* Pencil.swift */; };
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
+		769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B912E2714AE8A0027DDE4 /* FontViewController.swift */; };
 		769CA1842713E30A001D79E4 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769CA1832713E30A001D79E4 /* User.storyboard */; };
 		769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1852713E7A0001D79E4 /* LoadingViewController.swift */; };
 		769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1872713EF3B001D79E4 /* LanguageType.swift */; };
@@ -25,6 +26,8 @@
 		76A43AC627012B660064072D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* EditViewController.swift */; };
 		76A43AC92701FF3E0064072D /* LectureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* LectureData.swift */; };
 		76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6E147270FCC9300FC5080 /* uploadData.swift */; };
+		76B5D3AC27141D090010210E /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AB27141D090010210E /* ImageButton.swift */; };
+		76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AD27141D620010210E /* TemplateViewController.swift */; };
 		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
 		76C8359D270A66E500BC5733 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8359C270A66E500BC5733 /* Token.swift */; };
 		76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* SigninViewController.swift */; };
@@ -70,6 +73,7 @@
 		764EEFC626FBFBCA00151143 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		769B912E2714AE8A0027DDE4 /* FontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
 		769CA1832713E30A001D79E4 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		769CA1852713E7A0001D79E4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		769CA1872713EF3B001D79E4 /* LanguageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageType.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		76A43AC527012B660064072D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		76A43AC82701FF3E0064072D /* LectureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureData.swift; sourceTree = "<group>"; };
 		76A6E147270FCC9300FC5080 /* uploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadData.swift; sourceTree = "<group>"; };
+		76B5D3AB27141D090010210E /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		76B5D3AD27141D620010210E /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
 		76C8359C270A66E500BC5733 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		76E4098E26FAF8A3006A807F /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +199,9 @@
 				76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */,
 				763EFB6227118D130071C22D /* LectureViewController.swift */,
 				769CA1852713E7A0001D79E4 /* LoadingViewController.swift */,
+				76B5D3AB27141D090010210E /* ImageButton.swift */,
+				76B5D3AD27141D620010210E /* TemplateViewController.swift */,
+				769B912E2714AE8A0027DDE4 /* FontViewController.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -543,11 +552,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */,
+				769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */,
 				76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */,
 				76F4180D26F1C51200D677D6 /* MainViewController.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
 				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
+				76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
 				769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */,
 				764EEFC326FBF98100151143 /* DrawingViewController.swift in Sources */,
@@ -561,6 +572,7 @@
 				764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */,
 				76E4099326FB0027006A807F /* SigninForm.swift in Sources */,
 				76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */,
+				76B5D3AC27141D090010210E /* ImageButton.swift in Sources */,
 				76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */,
 				769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */,
 				763EFB672711AA560071C22D /* MaterialDTO.swift in Sources */,
