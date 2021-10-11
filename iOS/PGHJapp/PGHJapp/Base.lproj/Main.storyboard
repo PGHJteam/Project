@@ -412,19 +412,7 @@
                     <view key="view" contentMode="scaleToFill" id="0Sj-qR-aku">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff5-JO-fGJ">
-                                <rect key="frame" x="174" y="411.66666666666669" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
-                        <constraints>
-                            <constraint firstItem="Ff5-JO-fGJ" firstAttribute="centerY" secondItem="0Sj-qR-aku" secondAttribute="centerY" id="MtK-pl-jU8"/>
-                            <constraint firstItem="Ff5-JO-fGJ" firstAttribute="centerX" secondItem="0Sj-qR-aku" secondAttribute="centerX" id="ruJ-Dt-oFJ"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8ad-T5-B4E">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="FJ2-l5-5kA">

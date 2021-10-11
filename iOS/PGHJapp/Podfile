@@ -7,7 +7,11 @@ target 'PGHJapp' do
 
   # Pods for PGHJapp
 pod 'Alamofire'
-pod 'DropDown'
+
+use_frameworks!
+pod "JLStickerTextView", :git =>
+"https://github.com/Textcat/JLStickerTextView.git"
+
   target 'PGHJappTests' do
     inherit! :search_paths
     # Pods for testing
