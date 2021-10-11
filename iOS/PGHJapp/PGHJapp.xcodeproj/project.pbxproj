@@ -9,16 +9,23 @@
 /* Begin PBXBuildFile section */
 		0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182855DD60E852F986B95628 /* Pods_PGHJapp.framework */; };
 		0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */; };
+		763EFB6327118D130071C22D /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB6227118D130071C22D /* LectureViewController.swift */; };
+		763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB642711A03F0071C22D /* SendDataDelegate.swift */; };
+		763EFB672711AA560071C22D /* MaterialDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB662711AA560071C22D /* MaterialDTO.swift */; };
 		764EEFC326FBF98100151143 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC226FBF98100151143 /* DrawingViewController.swift */; };
 		764EEFC526FBFA1600151143 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC426FBFA1600151143 /* SettingViewController.swift */; };
 		764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764EEFC626FBFBCA00151143 /* Pencil.swift */; };
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
+		769CA1842713E30A001D79E4 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769CA1832713E30A001D79E4 /* User.storyboard */; };
+		769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1852713E7A0001D79E4 /* LoadingViewController.swift */; };
 		76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */; };
-		76A43AC627012B660064072D /* PreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* PreViewController.swift */; };
-		76A43AC92701FF3E0064072D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* Item.swift */; };
+		76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3E270B10E900C882FA /* SignupViewController.swift */; };
+		76A43AC627012B660064072D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* EditViewController.swift */; };
+		76A43AC92701FF3E0064072D /* LectureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* LectureData.swift */; };
+		76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6E147270FCC9300FC5080 /* uploadData.swift */; };
 		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
-		76C8359D270A66E500BC5733 /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8359C270A66E500BC5733 /* TokenDTO.swift */; };
+		76C8359D270A66E500BC5733 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8359C270A66E500BC5733 /* Token.swift */; };
 		76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* SigninViewController.swift */; };
 		76E4099326FB0027006A807F /* SigninForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099226FB0027006A807F /* SigninForm.swift */; };
 		76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099926FB9DE5006A807F /* APIConstants.swift */; };
@@ -54,16 +61,23 @@
 		182855DD60E852F986B95628 /* Pods_PGHJapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		763EFB6227118D130071C22D /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
+		763EFB642711A03F0071C22D /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
+		763EFB662711AA560071C22D /* MaterialDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDTO.swift; sourceTree = "<group>"; };
 		764EEFC226FBF98100151143 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		764EEFC426FBFA1600151143 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		764EEFC626FBFBCA00151143 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		769CA1832713E30A001D79E4 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		769CA1852713E7A0001D79E4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
-		76A43AC527012B660064072D /* PreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewController.swift; sourceTree = "<group>"; };
-		76A43AC82701FF3E0064072D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		76A2CA3E270B10E900C882FA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		76A43AC527012B660064072D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		76A43AC82701FF3E0064072D /* LectureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureData.swift; sourceTree = "<group>"; };
+		76A6E147270FCC9300FC5080 /* uploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadData.swift; sourceTree = "<group>"; };
 		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
-		76C8359C270A66E500BC5733 /* TokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDTO.swift; sourceTree = "<group>"; };
+		76C8359C270A66E500BC5733 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		76E4098E26FAF8A3006A807F /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		76E4099226FB0027006A807F /* SigninForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninForm.swift; sourceTree = "<group>"; };
 		76E4099926FB9DE5006A807F /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -173,8 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				76F4180C26F1C51200D677D6 /* MainViewController.swift */,
-				76A43AC527012B660064072D /* PreViewController.swift */,
+				76A43AC527012B660064072D /* EditViewController.swift */,
 				76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */,
+				763EFB6227118D130071C22D /* LectureViewController.swift */,
+				769CA1852713E7A0001D79E4 /* LoadingViewController.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -182,7 +198,6 @@
 		76C8359B270A66B500BC5733 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				76C8359C270A66E500BC5733 /* TokenDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -201,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				76E4098E26FAF8A3006A807F /* SigninViewController.swift */,
+				76A2CA3E270B10E900C882FA /* SignupViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -217,8 +233,12 @@
 			isa = PBXGroup;
 			children = (
 				76E4099226FB0027006A807F /* SigninForm.swift */,
-				76A43AC82701FF3E0064072D /* Item.swift */,
+				76A43AC82701FF3E0064072D /* LectureData.swift */,
 				76C83599270A055600BC5733 /* SignupForm.swift */,
+				76C8359C270A66E500BC5733 /* Token.swift */,
+				76A6E147270FCC9300FC5080 /* uploadData.swift */,
+				763EFB642711A03F0071C22D /* SendDataDelegate.swift */,
+				763EFB662711AA560071C22D /* MaterialDTO.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -257,6 +277,7 @@
 				76F4181126F1C51200D677D6 /* Assets.xcassets */,
 				76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */,
 				76F4181626F1C51200D677D6 /* Info.plist */,
+				769CA1832713E30A001D79E4 /* User.storyboard */,
 			);
 			path = PGHJapp;
 			sourceTree = "<group>";
@@ -387,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769CA1842713E30A001D79E4 /* User.storyboard in Resources */,
 				76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */,
 				76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */,
 				76F4181026F1C51200D677D6 /* Main.storyboard in Resources */,
@@ -517,22 +539,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */,
 				76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */,
 				76F4180D26F1C51200D677D6 /* MainViewController.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
+				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
 				764EEFC326FBF98100151143 /* DrawingViewController.swift in Sources */,
 				764EEFC526FBFA1600151143 /* SettingViewController.swift in Sources */,
 				76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */,
-				76C8359D270A66E500BC5733 /* TokenDTO.swift in Sources */,
-				76A43AC92701FF3E0064072D /* Item.swift in Sources */,
+				76C8359D270A66E500BC5733 /* Token.swift in Sources */,
+				76A43AC92701FF3E0064072D /* LectureData.swift in Sources */,
 				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
+				76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
 				764EEFC726FBFBCB00151143 /* Pencil.swift in Sources */,
 				76E4099326FB0027006A807F /* SigninForm.swift in Sources */,
+				76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */,
 				76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */,
-				76A43AC627012B660064072D /* PreViewController.swift in Sources */,
+				769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */,
+				763EFB672711AA560071C22D /* MaterialDTO.swift in Sources */,
+				76A43AC627012B660064072D /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

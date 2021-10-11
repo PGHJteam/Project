@@ -23,9 +23,10 @@ class SigninViewController: UIViewController {
         guard let password = passwordTextField.text, !password.isEmpty else { return }
         let user = SigninForm(id: username, password: password)
                 
-        AF.request("http://13.125.157.223:8000/api/users/signin/", method: .post, parameters: user)
-            .responseDecodable(of: TokenDTO.self)  { response in
-//                print(response)
+        AF.request(Endpoint.signin, method: .post, parameters: user)
+            .responseDecodable(of: Token.self)  { response in
+                
+//                print(Endpoint.signin)
                 switch response.result {
                 case .success(let token):
 //                    print(token)
@@ -33,8 +34,7 @@ class SigninViewController: UIViewController {
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
                     guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
                     self.navigationController?.pushViewController(homeVC, animated: true)
-//                    isSuccess = true
-//                    print(UserDefaults.standard.string(forKey: "accessToken"))
+
                     
                 case .failure(let error):
                     print(error)

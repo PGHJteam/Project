@@ -13,7 +13,7 @@ class APIClient {
         var isSuccess: Bool = false
         print("user", id, password)
         AF.request(APIRouter.signin(id: id, password: password))
-            .responseDecodable(of: TokenDTO.self) { response in
+            .responseDecodable(of: Token.self) { response in
                 switch response.result {
                 case .success(let token):
                     UserDefaults.standard.set(token.refresh, forKey: "refreshToken")

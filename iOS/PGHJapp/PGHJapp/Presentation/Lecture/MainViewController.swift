@@ -24,7 +24,8 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
     @IBOutlet weak var imageCount: UILabel!
     
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var uploadButton: UIButton!
+    var delegate: SendDataDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
     
     func configure(){
         addButton.layer.cornerRadius = 15
-        createButton.layer.cornerRadius = 15
+        uploadButton.layer.cornerRadius = 15
     }
     
     @IBAction func addButtonTouched(_ sender: Any) {
@@ -46,77 +47,37 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
         self.present(picker, animated: true, completion: nil)
     }
     
-    func upload(image: UIImage, index: Int, progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (_ result: Bool) -> Void) {
-        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-        if let imageData = image.pngData() {
-            AF.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(Data("english".utf8), withName: "image_type")
-                multipartFormData.append(imageData, withName: "imageFile", fileName: "image\(index)")
-            }, to: "/api/files/upload/images/", method: .post, headers: ["Authorization": UserDefaults.standard.string(forKey: "accessToken") ?? ""])
-            .responseJSON { response in
-                print(response) // 처리해주기
-            }
-//
-//        }
+
+    @IBAction func uploadButtonTouched(_ sender: Any) {
+        guard let loadingVC = self.storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as? LoadingViewController else { return }
+        print(images.count)
+        loadingVC.images = images
+        self.navigationController?.pushViewController(loadingVC, animated: true)
+//        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
 //        AF.upload(multipartFormData: { multipartFormData in
-//            multipartFormData.append(Data("english".utf8), withName: "image_type")
-//        }, to: URL(string: "https://8feaee36-6bec-4c60-a418-69f2bff63701.mock.pstmn.io/api/files/upload/images/")!)
-//            .responseJSON { response in
-//                dump(response)
+//            multipartFormData.append(Data("eng-htr".utf8), withName: "image_type")
+//
+//            for (index, image) in self.images.enumerated() {
+//                let imageData = image.pngData()!
+//                print(imageData)
+//                multipartFormData.append(imageData, withName: "image\(index)", fileName: "image\(index).png")}
+//        }, to: Endpoint.uploadImage, method: .post, headers: ["Authorization": "Bearer \(token)"])
+//            .responseDecodable(of: UploadData.self) { response in
+//                print(response)
+//                switch response.result {
+//                case .success(let imageData):
+//                    guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }
+//                    lectureVC.myData = imageData
+//                    self.delegate?.sendData(data: imageData)
+//
+//                    self.navigationController?.pushViewController(lectureVC, animated: true)
+//                case .failure(let error):
+//                    print(error)
+//                }
 //            }
-        }
-    }
-
-    @IBAction func createButtonTouched(_ sender: Any) {
-        dump(images)
-        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-//        var imageData = [Data]()
-//        for image in images {
-//                imageData.append(image.pngData()!)
-//        }
-        AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(Data("english".utf8), withName: "image_type")
-//            multipartFormData.append(imageData, withName: "images+[]", fileName: "images")
-
-            for (index, image) in self.images.enumerated() {
-                let imageData = image.pngData()!
-                multipartFormData.append(imageData, withName: "images+[]")}
-            }, to: "http://13.125.157.223:8000/api/files/upload/images/", method: .post, headers: ["Authorization": "Bearer \(token)"])
-            .responseJSON { response in
-                print(response) // 처리해주기
-                
-            }
     }
 }
-
-//extension MainViewController: PHPickerViewControllerDelegate {
-//    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-//        picker.dismiss(animated: true)
-//
-//        results.forEach { item in
-//            let itemProvider = item.itemProvider
-//            if itemProvider.canLoadObject(ofClass: UIImage.self) {
-//                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-//                    if let myImage = image as? UIImage {
-//                        self.images.append(myImage)
-//                    }
-//                }
-//            }
-//        }
-//        imageCount.text = "\(results.count)"
-//        let itemProvider = results.last?.itemProvider
-
-//        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-//            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-//                DispatchQueue.main.async {
-//                    self.myImageView.image = image as? UIImage
-//                }
-//            }
-//
-//        } else {
-//            // error 처리
-//        }
     
-    
+
     
 
