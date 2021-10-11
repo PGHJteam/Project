@@ -11,30 +11,25 @@ import Alamofire
 class LectureViewController: UIViewController, SendDataDelegate {
     var myData: UploadData?
     var lectureData: LectureData?
+    @IBOutlet weak var createButton: UIButton!
     func sendData(data: UploadData) {
         myData = data
     }
+    @IBAction func languageTypeButtonTouched(_ sender: Any) {
+    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
         lectureData = Lecture.make(imageData: myData!)
+    }
+    
+    private func configure() {
+        createButton.layer.cornerRadius = 5
     }
     
     @IBAction func createButtonTouched(_ sender: Any) {
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-        print("token", token)
-        do {
-            
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(lectureData)
-//            dump(String(data: data, encoding: .utf8))
-            
-        } catch {
-            print("Whoops, I did it again: \(error)")
-        }
-        let encoder = JSONEncoder()
-        let encodedData = try? encoder.encode(lectureData)
         AF.request(Endpoint.createRequest, method: .post, parameters: lectureData, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
             .responseDecodable(of: Material.self) { response in
                 print(response)

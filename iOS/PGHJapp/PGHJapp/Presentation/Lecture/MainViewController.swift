@@ -50,7 +50,6 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
 
     @IBAction func uploadButtonTouched(_ sender: Any) {
         guard let loadingVC = self.storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as? LoadingViewController else { return }
-        print(images.count)
         loadingVC.images = images
         self.navigationController?.pushViewController(loadingVC, animated: true)
 //        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""

@@ -9,10 +9,12 @@ import UIKit
 import Alamofire
 
 class LoadingViewController: UIViewController {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var images: [UIImage]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(images?.count)
+        activityIndicator.startAnimating()
+        self.tabBarController?.tabBar.isHidden = true
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(Data("eng-htr".utf8), withName: "image_type")
@@ -37,5 +39,8 @@ class LoadingViewController: UIViewController {
                 }
             }
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        activityIndicator.stopAnimating()
+    }
 }
