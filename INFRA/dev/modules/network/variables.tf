@@ -11,7 +11,7 @@ variable "name_prefix" {
 }
 
 variable "subnet_num" {
-  description = ""
+  description = "# of subnets"
   type        = string
   default     = ""
 }
@@ -41,7 +41,7 @@ variable "nat_cidr" {
 }
 
 variable "availability_zones" {
-  description = "availability zones"
+  description = "Availability zones"
   type        = list(string)
   default     = []
 }

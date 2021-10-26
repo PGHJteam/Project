@@ -3,8 +3,8 @@ resource "aws_iam_instance_profile" "server" {
   role = aws_iam_role.server.name
 }
 
-resource "aws_iam_role_policy_attachment" "server"{
-  role = aws_iam_role.server.name
+resource "aws_iam_role_policy_attachment" "server" {
+  role       = aws_iam_role.server.name
   policy_arn = aws_iam_policy.server.arn
 }
 

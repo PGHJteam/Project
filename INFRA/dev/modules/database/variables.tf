@@ -1,11 +1,11 @@
 variable "vpc_id" {
-  description = ""
+  description = "Vpc id for the database module resources."
   type        = string
   default     = ""
 }
 
 variable "name_prefix" {
-  description = ""
+  description = "Name prefix for naming the database module resources."
   type        = string
   default     = ""
 }
@@ -289,7 +289,6 @@ variable "s3_ingestion_role" {
   default     = null
 }
 
-
 ############################################
 # for restore_to_point_in_time
 ############################################
@@ -317,12 +316,8 @@ variable "use_latest_restorable_time" {
   default     = null
 }
 
-
 variable "rds_sg_port" {
   description = "inbound rules of rds security group"
-  default = [
-    {
-      port = 3306
-    }
-  ]
+  type        = list(any)
+  default     = []
 }

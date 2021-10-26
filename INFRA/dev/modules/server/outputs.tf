@@ -1,19 +1,9 @@
-output "arn" {
-  description = "The ARN of the instance."
-  value       = aws_instance.ec2.arn
-}
-
-output "public_ip" {
-  description = "The public IP address assigned to the instance, if applicable."
-  value       = aws_instance.ec2.public_ip
-}
-
 output "instance_state" {
-  description = ""
-  value       = aws_instance.ec2.instance_state
+  description = "The state of the ec2 server."
+  value       = aws_instance.server.instance_state
 }
 
-output "s3_bucket_name"{
-  description = ""
-  value       = aws_s3_bucket.server-bucket.id
+output "s3_bucket_name" {
+  description = "Name of the s3 bucket for the media files."
+  value       = aws_s3_bucket.server.id
 }

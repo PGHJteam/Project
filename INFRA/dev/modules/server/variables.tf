@@ -1,35 +1,38 @@
 variable "vpc_id" {
-  description = ""
+  description = "Vpc id for the server module resources."
   type        = string
   default     = ""
 }
 
 variable "name_prefix" {
-  description = "Name tag of the EC2 instance."
+  description = "Name prefix for naming the server module resources."
   type        = string
   default     = ""
 }
 
+###################################################
+# ec2_instance
+###################################################
 variable "ec2_key" {
-  description = "Key name of the Key Pair to use for the EC2 instance."
+  description = "Key name of the Key Pair to use for the EC2 server instance."
   type        = string
   default     = ""
 }
 
 variable "ec2_ami" {
-  description = "AMI ID to use for the EC2 instance."
+  description = "AMI ID to use for the EC2 server instance."
   type        = string
   default     = ""
 }
 
 variable "ec2_type" {
-  description = "The instance type to use for the EC2 instance."
+  description = "The instance type to use for the EC2 server instance."
   type        = string
   default     = ""
 }
 
 variable "ec2_subnet_id" {
-  description = "VPC Subnet ID to launch in."
+  description = "VPC (Private) Subnet ID to launch in."
   type        = string
   default     = null
 }
@@ -43,7 +46,7 @@ variable "ec2_monitoring" {
 variable "ec2_associate_public_ip_address" {
   description = "Whether to associate a public IP address with EC2 instance in a VPC."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "ec2_az" {
@@ -118,8 +121,26 @@ variable "ec2_ebs_volume" {
   default     = []
 }
 
+###################################################
+# security groups
+###################################################
 variable "ec2_sg_port" {
-  description = "inbound rules of bastion host security group"
+  description = "A list of the inbound rules of ec2 server security group"
   type        = list(any)
+  default     = []
+}
+
+variable "lb_sg_port" {
+  description = "A list of the inbound rules of load balancer security group"
+  type        = list(any)
+  default     = []
+}
+
+###################################################
+# Load Balancer
+###################################################
+variable "public_subnet_ids" {
+  description = "list of public subnet ids"
+  type        = list(string)
   default     = []
 }

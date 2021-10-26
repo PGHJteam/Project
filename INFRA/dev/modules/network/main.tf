@@ -2,10 +2,10 @@
 # VPC
 ###################################
 resource "aws_vpc" "vpc" {
-  cidr_block         = var.vpc_cidr
+  cidr_block = var.vpc_cidr
 
-  #enable_dns_support   = true
-  #enable_dns_hostnames = true
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
   tags = {
     Name = "${var.name_prefix}-vpc"
@@ -72,7 +72,7 @@ resource "aws_route_table" "public_rt" {
 
   route {
     cidr_block = var.igw_cidr
-    gateway_id = aws_internet_gateway.igw.id # public subnet의 모든 트래픽이 igw로 가도록
+    gateway_id = aws_internet_gateway.igw.id
   }
 
   tags = {
@@ -85,7 +85,7 @@ resource "aws_route_table" "private_rt" {
 
   route {
     cidr_block     = var.nat_cidr
-    nat_gateway_id = aws_nat_gateway.nat.id # private subnet의 모든 트래픽이 nat로 가도록
+    nat_gateway_id = aws_nat_gateway.nat.id
   }
 
   tags = {

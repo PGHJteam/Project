@@ -1,5 +1,5 @@
 output "availability_zone" {
-  description = "The availability zone of the instance."
+  description = "The availability zone of the db instance."
   value       = aws_db_instance.rds.availability_zone
 }
 

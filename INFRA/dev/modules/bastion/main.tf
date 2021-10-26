@@ -1,38 +1,35 @@
 ##################################################
 # Key Pair
 ##################################################
-/*resource "aws_key_pair" "bastion" {
-  key_name   = var.ec2_key
-  public_key = file("${var.bastion_key}.pub")
-}*/
+resource "aws_key_pair" "bastion" {
+  key_name   = var.bastion_key
+  public_key = file("${var.bastion_key}")
+}
 
 ##################################################
 # EC2 instance
 ##################################################
-/*resource "aws_instance" "bastion" {
-  ami                         = "ami-0ba5cd124d7a79612"
+resource "aws_instance" "bastion" {
+  ami                         = var.bastion_ami
   associate_public_ip_address = true
-  availability_zone           = local.availability_zones[0]
+  availability_zone           = var.bastion_az
+  iam_instance_profile        = var.bastion_iam_profile
+  instance_type               = var.bastion_type
+  key_name                    = aws_key_pair.bastion.key_name
 
-  disable_api_termination = var.ec2_disable_api_termination
-
-  iam_instance_profile                 = var.ec2_iam_instance_profile
-  instance_type                        = "t2.micro"
-  key_name   = aws_key_pair.bastion.key_name
-
-  subnet_id             = module.network.public_subnet_ids[0]
-  user_data              = file("bastion.sh")
-  vpc_security_group_ids = aws_security_group.ec2_sg[*].id
+  subnet_id              = var.bastion_subnet_id
+  user_data              = var.bastion_userdata
+  vpc_security_group_ids = aws_security_group.bastion[*].id
 
   tags = {
-    Name = var.ec2_name
+    Name = "${var.name_prefix}-bastion"
   }
-}*/
+}
 
 ##################################################
 # Security Group
 ##################################################
-/*resource "aws_security_group" "bastion" {
+resource "aws_security_group" "bastion" {
   vpc_id = var.vpc_id
   name   = "bastion"
 
@@ -53,4 +50,4 @@
     protocol    = -1
     cidr_blocks = ["0.0.0.0/0"]
   }
-}*/
+}

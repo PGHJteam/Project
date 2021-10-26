@@ -96,7 +96,6 @@ resource "aws_security_group" "rds_sg" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
-
 }
 
 
@@ -115,7 +114,7 @@ resource "aws_s3_bucket" "snapshot-bucket" {
     Name = "${var.name_prefix}-snapshot-bucket"
   }
 
-/*
+  /*
   lifecycle {
     prevent_destroy = true 
   }

@@ -1,15 +1,15 @@
 ##################################################
 # Key Pair
 ##################################################
-resource "aws_key_pair" "ec2_key_pair" {
+resource "aws_key_pair" "server" {
   key_name   = var.ec2_key
-  public_key = file("${var.ec2_key}.pub")
+  public_key = file("${var.ec2_key}")
 }
 
 ##################################################
 # EC2 instance
 ##################################################
-resource "aws_instance" "ec2" {
+resource "aws_instance" "server" {
   ami                         = var.ec2_ami
   associate_public_ip_address = var.ec2_associate_public_ip_address
   availability_zone           = var.ec2_az
@@ -21,7 +21,7 @@ resource "aws_instance" "ec2" {
   instance_initiated_shutdown_behavior = var.ec2_instance_initiated_shutdown_behavior
   instance_type                        = var.ec2_type
 
-  key_name   = aws_key_pair.ec2_key_pair.key_name
+  key_name   = aws_key_pair.server.key_name
   monitoring = var.ec2_monitoring
 
   private_ip            = var.ec2_private_ip
@@ -29,7 +29,7 @@ resource "aws_instance" "ec2" {
   subnet_id             = var.ec2_subnet_id
 
   user_data              = var.ec2_userdata
-  vpc_security_group_ids = aws_security_group.ec2_sg[*].id
+  vpc_security_group_ids = aws_security_group.server[*].id
 
   dynamic "root_block_device" {
     for_each = var.ec2_root_volume
@@ -62,16 +62,20 @@ resource "aws_instance" "ec2" {
   }
 
   tags = {
-    Name = "${var.name_prefix}-ec2"
+    Name = "${var.name_prefix}-server"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
 ##################################################
 # Security Group
 ##################################################
-resource "aws_security_group" "ec2_sg" {
+resource "aws_security_group" "server" {
   vpc_id = var.vpc_id
-  name   = "bastion_sg"
+  name   = "${var.name_prefix}-server"
 
   dynamic "ingress" {
     for_each = var.ec2_sg_port
@@ -85,7 +89,29 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   egress {
-    description = "outbound rule for bastion host security group"
+    to_port     = 0
+    from_port   = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "lb" {
+  vpc_id = var.vpc_id
+  name   = "${var.name_prefix}-lb"
+
+  dynamic "ingress" {
+    for_each = var.lb_sg_port
+
+    content {
+      from_port   = ingress.value.port
+      to_port     = ingress.value.port
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  egress {
     to_port     = 0
     from_port   = 0
     protocol    = -1
@@ -96,24 +122,74 @@ resource "aws_security_group" "ec2_sg" {
 ##################################################
 # S3
 ##################################################
-resource "aws_s3_bucket" "server-bucket" {
-  bucket = "${var.name_prefix}-server-bucket"
+resource "aws_s3_bucket" "server" {
+  bucket = "${var.name_prefix}-server"
   acl    = "private"
 
   tags = {
-    Name = "${var.name_prefix}-server-bucket"
+    Name = "${var.name_prefix}-server"
   }
 
-/*
   lifecycle {
-    prevent_destroy = true 
+    # prevent_destroy = true 
+    create_before_destroy = true
   }
-  */
 }
 
 ##################################################
 # Load Balancer
 ##################################################
+resource "aws_lb" "lb" {
+  name               = "${var.name_prefix}-lb"
+  internal           = false
+  load_balancer_type = "application"
+  ip_address_type    = "ipv4"
 
+  security_groups = [aws_security_group.lb.id]
+  subnets         = var.public_subnet_ids
 
+  lifecycle {
+    create_before_destroy = true
+  }
+}
 
+resource "aws_lb_target_group" "lb" {
+  name     = "${var.name_prefix}-lb"
+  protocol = "HTTP"
+  port     = 8000
+  vpc_id   = var.vpc_id
+
+  tags = {
+    Name = "${var.name_prefix}-lb"
+  }
+}
+
+resource "aws_lb_target_group_attachment" "lb" {
+  target_group_arn = aws_lb_target_group.lb.arn
+  target_id        = aws_instance.server.id
+  port             = 8000
+}
+
+resource "aws_alb_listener" "http80" {
+  load_balancer_arn = aws_lb.lb.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.lb.arn
+  }
+}
+
+resource "aws_alb_listener" "http8000" {
+  load_balancer_arn = aws_lb.lb.arn
+  port              = "8000"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.lb.arn
+  }
+}
+
+/* https listener 추가 */
