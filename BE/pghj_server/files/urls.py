@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path('upload/images/', views.ImageView.as_view()),   # Upload images
-    path('download/pptx/', views.MaterialView.as_view()) # Create/Download pptx
+    path('create/pptx/', views.MaterialView.as_view()),  # Create pptx
+    path('download/pptx/', views.DownloadView.as_view()) # Download pptx
 ]

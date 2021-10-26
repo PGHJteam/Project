@@ -5,7 +5,7 @@ from users.models import User
 
 class Upload(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-    upload_path = models.CharField("Upload Path", max_length=200)
+    upload_path = models.CharField("PATH", max_length=200)
     uploaded_at = models.DateTimeField("DATE", auto_now=True)
 
     def __str__(self):

@@ -10,23 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os, json
-from django.core.exceptions import ImproperlyConfigured
+import os
+import json
+import pymysql
 
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
 from datetime import timedelta
+
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-
 # SECRET_KEY, ALGORITHM
-secret_file = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러오기
+SECRET_DIR = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러오기
 
-with open(secret_file, 'r') as f: #open as로 secrets.json 열기
+with open(SECRET_DIR, 'r') as f: #open as로 secrets.json 열기
     secrets = json.loads(f.read())
 
 def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생을 검출
@@ -38,10 +39,11 @@ def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생
 
 SECRET_KEY = get_secret("SECRET_KEY")
 ALGORITHM = get_secret("ALGORITHM")
+DATABASES = get_secret("DATABASES")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # False
 ALLOWED_HOSTS = ["*"]
 
 
@@ -123,18 +125,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pghj_server.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -159,7 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

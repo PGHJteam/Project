@@ -44,8 +44,12 @@ class MaterialView(generics.GenericAPIView):
             return JsonResponse(data=serializer.data, status=status.HTTP_200_OK)
         return JsonResponse(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# View for PPTX
+class DownloadView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated, ]
+
     # Download pptx, Return pptx
-    def get(self, request):
+    def post(self, request):
         data = JSONParser().parse(request) 
         name = data['material_name']
         path = data['material_path']                
@@ -54,8 +58,10 @@ class MaterialView(generics.GenericAPIView):
         except FileNotFoundError:
             return JsonResponse(data=Error("File Not Found Error."), status=status.HTTP_400_BAD_REQUEST)
         
-        response = FileResponse(file, content_type="multipart/form-data")
-        response['Content-Disposition'] = f'attachment; filename={name}'
+        response = FileResponse(file, headers={
+            'Content-Type': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            'Content-Disposition': 'attachment; filename={name}',
+        })
         return response
 
 # View for Image
@@ -102,5 +108,5 @@ class ImageView(generics.GenericAPIView):
         # Get json format response
         data = JsonFormat(result, image_list, upload.id)
 
-        #data ={} # compile
+        # data ={} # compile
         return JsonResponse(data=data, status=status.HTTP_200_OK)
