@@ -51,3 +51,17 @@ python craft.py --test_folder {경로} --cuda n --recog_name trocr 또는 naver 
 ```
 python craft.py --test_folder "eng/" --recog_name trocr --recog_model downloads/premodels/trhtr.pt
 ```
+### 서버용
+```
+sudo apt-get install build-essential
+sudo apt-get install python3.8-dev
+cd models/trocr
+pip3 install pybind11
+pip3 install -r requirements.txt
+cd ..
+cd ..
+
+img_path, '--cuda','n','--recog_name','trocr','--recog_model','./models/trhtr.pt','--detect_model','./models/craft.pth
+
+```
+
