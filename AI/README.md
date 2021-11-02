@@ -19,6 +19,7 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 ```
 ### 패키지 업으면, 필요한 것 있으면 다운
 
+
 ## pretrained model download
 #### craft pretrained model download
 ```
@@ -39,17 +40,21 @@ wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&co
 wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA" -O trhtr.pt && rm -rf ~/cookies.txt
 ```
 
+
 ### 실행 방법
 ```
 python craft.py --test_folder {경로} --recog_name trocr 또는 naver 선택 --recog_model {경로}
+
 ```
 ### 만약 gpu 없다면
 ```
+
 python craft.py --test_folder {경로} --cuda n --recog_name trocr 또는 naver 선택 --recog_model {경로}
 ```
 ### example
 ```
 python craft.py --test_folder "eng/" --recog_name trocr --recog_model downloads/premodels/trhtr.pt
+
 ```
 ### 서버용
 ```
@@ -62,6 +67,7 @@ cd ..
 cd ..
 
 img_path, '--cuda','n','--recog_name','trocr','--recog_model','./models/trhtr.pt','--detect_model','./models/craft.pth
+
 
 ```
 
