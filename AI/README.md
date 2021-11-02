@@ -11,6 +11,7 @@ pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit
 ```
 # 서버가 아니라면
 sudo apt-get install cmake
+pip install -r requirements.txt
 pip install scikit-build torch torchvision opencv-python scikit-image scipy pillow imutils tqdm lmdb natsort numpy pandas
 pip install pybind11
 pip timm==0.4.5 tensorboard nltk h5py fastwer
