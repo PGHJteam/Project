@@ -4,7 +4,6 @@
 torch==1.7.1+cu110
 torchvision==0.8.2+cu110
 timm==0.4.5
-pybind11
 natsort
 tensorboard
 nltk
