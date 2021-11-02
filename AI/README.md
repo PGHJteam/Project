@@ -9,14 +9,12 @@ pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit
 ```
 
 ```
-# 서버가 아니라면
+# 서버가 아니라면 / cpu 이용
 sudo apt-get install cmake
 pip install -r requirements.txt
-pip install scikit-build torch torchvision opencv-python scikit-image scipy pillow imutils tqdm lmdb natsort numpy pandas
-pip install pybind11
-pip timm==0.4.5 tensorboard nltk h5py fastwer
+%cd trocr
 git+https://github.com/liminghao1630/fairseq.git
-pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" 'git+https://github.com/NVIDIA/apex.git'
+%cd ..
 ```
 ### 패키지 업으면, 필요한 것 있으면 다운
 
