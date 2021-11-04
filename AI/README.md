@@ -37,7 +37,7 @@ wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&co
 ```
 ###### htr
 ```
-wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1YhPvf463vzhHfX2QWqjmKQRNzUlOUwVA" -O trhtr.pt && rm -rf ~/cookies.txt
+wget --load-cookies ~/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies ~/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1sJ_i_n04p1GXcfZQ0nSv8QEmdQ40aqKm' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1sJ_i_n04p1GXcfZQ0nSv8QEmdQ40aqKm" -O trhtr.pt && rm -rf ~/cookies.txt
 ```
 
 
