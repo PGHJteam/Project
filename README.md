@@ -31,4 +31,4 @@
 
 [Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
 
-[회의록](https://dour-dianella-55a.notion.site/a0722116b6bc4a73a4c9819ddf651ff0)
+[회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
