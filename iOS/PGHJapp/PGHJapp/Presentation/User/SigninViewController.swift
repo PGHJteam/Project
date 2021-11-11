@@ -12,6 +12,7 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,12 @@ class SigninViewController: UIViewController {
     @IBAction func loginButtonTouched(_ sender: Any) {
         guard let username = usernameTextField.text, !username.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
+//        guard let email = emailTextField.text, !email.isEmpty else { return }
         let user = SigninForm(id: username, password: password)
                 
         AF.request(Endpoint.signin, method: .post, parameters: user)
             .responseDecodable(of: Token.self)  { response in
-                
+                print(response)
                 switch response.result {
                 case .success(let token):
 

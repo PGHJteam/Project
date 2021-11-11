@@ -21,40 +21,45 @@ class DownloadViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    func presentAlert() {
+        let alert = UIAlertController(title: nil, message: "사용자의 Document에 저장되었습니다😎", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
+            self.navigationController?.pushViewController(homeVC, animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: false, completion: nil)
+    }
+
 
     @IBAction func downloadButtonTouched(_ sender: Any) {
         activityIndicator.startAnimating()
+        
         let fileManager = FileManager.default
-        let data = MaterialInfo(path: material!.path, name: material!.name)
-        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        let appURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileName = "Sample.pptx"
+        let fileURL = appURL.appendingPathComponent(fileName)
+        let material = MaterialInfo(path: "/home/ubuntu/pghj_api_test/pghj_server/files/media/test1/6/", name: fileName)
         let destination: DownloadRequest.Destination = { _, _ in
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
-            let fileURL = documentsURL.appendingPathComponent("\(self.material!.id).pptx")
-
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
-        print(data)
-        let encodedData = try! JSONEncoder().encode(data)
-        print(encodedData)
-//        AF.request(Endpoint.download, method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
-//            .responseJSON { response in
-//                print(response)
-//            }
-        AF.download(Endpoint.download, method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"], to: destination)
-            .response { response in
-                print(destination)
+        
+//        let data = MaterialInfo(path: material!.path, name: material!.name)
+        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
 
-                switch response.result {
-                case.success(let success):
-                    self.activityIndicator.stopAnimating()
-                    guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
-                    self.navigationController?.pushViewController(homeVC, animated: true)
-                case .failure(let error):
-                    print(error)
-
-                }
+        AF.download(Endpoint.download, method: .post, parameters: material, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)", "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"],
+                    to: destination).downloadProgress { (progress) in
+            print(progress)
+//            self.progressView.progress = Float(progress.fractionCompleted)
+//            self.progressLabel.text = "\(Int(progress.fractionCompleted * 100))%"
+        }.response{ response in
+            if response.error != nil {
+                print("파일다운로드 실패")
+            }else{
+                print("파일다운로드 완료")
             }
+        }
+
     }
     
 }

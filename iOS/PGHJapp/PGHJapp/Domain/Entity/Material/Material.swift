@@ -1,8 +1,8 @@
 //
-//  materialDTO.swift
+//  Material.swift
 //  PGHJapp
 //
-//  Created by 김지선 on 2021/10/09.
+//  Created by 김지선 on 2021/11/11.
 //
 
 import Foundation
@@ -17,14 +17,5 @@ struct Material: Codable {
         case path = "material_path"
         case name = "material_name"
         case template = "material_template"
-    }
-}
-
-struct MaterialInfo: Codable {
-    let path: String
-    let name: String
-    enum CodingKeys: String, CodingKey {
-        case path = "material_path"
-        case name = "material_name"
     }
 }

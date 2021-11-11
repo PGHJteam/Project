@@ -50,6 +50,7 @@ class LectureViewController: UIViewController, SendDataDelegate {
     }
     
     @IBAction func createButtonTouched(_ sender: Any) {
+        print(myData)
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         AF.request(Endpoint.createRequest, method: .post, parameters: lectureData, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
             .responseDecodable(of: Material.self) { response in
