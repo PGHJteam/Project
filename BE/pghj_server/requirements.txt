@@ -9,6 +9,9 @@ python-pptx==0.6.21
 pytz==2021.1
 sqlparse==0.4.2
 XlsxWriter==3.0.1
+pymysql
+boto3
+django-storages
 numpy
 cython
 scikit-image
@@ -23,5 +26,3 @@ natsort
 pandas
 opencv-contrib-python
 opencv-python
-pymysql
-mysqlclient
