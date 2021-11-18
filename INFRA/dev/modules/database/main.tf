@@ -77,6 +77,11 @@ resource "aws_db_instance" "rds" {
   #   bucket_prefix = var.s3_bucket_prefix
   #   ingestion_role = var.s3_ingestion_role
   # }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ##################################################
@@ -114,9 +119,10 @@ resource "aws_s3_bucket" "snapshot-bucket" {
     Name = "${var.name_prefix}-snapshot-bucket"
   }
 
-  /*
+  
   lifecycle {
-    prevent_destroy = true 
+    # prevent_destroy = true
+    create_before_destroy = true 
   }
-  */
+  
 }

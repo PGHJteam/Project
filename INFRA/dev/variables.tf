@@ -60,6 +60,12 @@ variable "ec2_filename" {
   default     = ""
 }
 
+variable "ec2_root_volume" {
+  description = "Root volume for the EC2 instance."
+  type        = list(any)
+  default     = []
+}
+
 variable "ec2_sg_port" {
   description = ""
   type        = list(any)

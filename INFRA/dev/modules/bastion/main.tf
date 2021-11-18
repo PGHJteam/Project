@@ -24,6 +24,11 @@ resource "aws_instance" "bastion" {
   tags = {
     Name = "${var.name_prefix}-bastion"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ##################################################

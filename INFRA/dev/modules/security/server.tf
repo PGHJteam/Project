@@ -38,10 +38,17 @@ resource "aws_iam_policy" "server" {
       {
         "Effect" : "Allow",
         "Action" : [
-          "s3:*",
-          "s3-object-lambda:*"
+          "s3:PutObject",
+          "s3:GetObjectAcl",
+          "s3:GetObject",
+          "s3:ListBucket",
+          "s3:DeleteObject",
+          "s3:PutObjectAcl"
         ],
-        "Resource" : "*"
+        "Resource" : [
+          "arn:aws:s3:::pghj_media/*",
+          "arn:aws:s3:::pghj_media"
+        ]
       },
     ]
   })

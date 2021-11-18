@@ -66,7 +66,8 @@ resource "aws_instance" "server" {
   }
 
   lifecycle {
-    create_before_destroy = true
+    # prevent_destroy = true
+    create_before_destroy = true 
   }
 }
 
@@ -144,12 +145,14 @@ resource "aws_lb" "lb" {
   internal           = false
   load_balancer_type = "application"
   ip_address_type    = "ipv4"
+  idle_timeout       = 900
 
   security_groups = [aws_security_group.lb.id]
   subnets         = var.public_subnet_ids
 
   lifecycle {
-    create_before_destroy = true
+    # prevent_destroy = true
+    create_before_destroy = true 
   }
 }
 

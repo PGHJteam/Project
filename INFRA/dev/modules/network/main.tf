@@ -10,6 +10,11 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = "${var.name_prefix}-vpc"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ###################################
@@ -24,6 +29,11 @@ resource "aws_subnet" "public_subnet" {
   tags = {
     Name = "${var.name_prefix}-public"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 resource "aws_subnet" "private_subnet" {
@@ -35,6 +45,11 @@ resource "aws_subnet" "private_subnet" {
   tags = {
     Name = "${var.name_prefix}-private"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ###################################
@@ -45,6 +60,11 @@ resource "aws_internet_gateway" "igw" {
 
   tags = {
     Name = "${var.name_prefix}-igw"
+  }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
   }
 }
 
@@ -62,6 +82,11 @@ resource "aws_nat_gateway" "nat" {
   tags = {
     Name = "${var.name_prefix}-nat"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ###################################
@@ -78,6 +103,11 @@ resource "aws_route_table" "public_rt" {
   tags = {
     Name = "${var.name_prefix}-public-rt"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 resource "aws_route_table" "private_rt" {
@@ -91,6 +121,11 @@ resource "aws_route_table" "private_rt" {
   tags = {
     Name = "${var.name_prefix}-private-rt"
   }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 ###################################
@@ -100,10 +135,20 @@ resource "aws_route_table_association" "public" {
   count          = var.subnet_num
   subnet_id      = aws_subnet.public_subnet[count.index].id
   route_table_id = aws_route_table.public_rt.id
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }
 
 resource "aws_route_table_association" "private" {
   count          = var.subnet_num
   subnet_id      = aws_subnet.private_subnet[count.index].id
   route_table_id = aws_route_table.private_rt.id
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true 
+  }
 }

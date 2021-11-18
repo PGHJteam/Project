@@ -32,6 +32,7 @@ module "server" {
   ec2_type          = var.ec2_type
   ec2_ami           = var.ec2_ami
   ec2_sg_port       = var.ec2_sg_port
+  ec2_root_volume   = var.ec2_root_volume
   lb_sg_port        = var.lb_sg_port
   # ec2_iam_instance_profile = module.security.server_iam_profile
   ec2_userdata = file("${var.ec2_filename}")
@@ -56,6 +57,7 @@ module "bastion" {
   bastion_userdata    = file("${var.bastion_filename}")
   name_prefix         = "${local.tags.Environment}-${local.tags.Name}"
 }
+
 
 module "database" {
   source = "./modules/database"

@@ -13,12 +13,15 @@ output "server_status" {
   value       = module.server.instance_state
 }
 
-
 output "server_bucket_name" {
   description = ""
   value       = module.server.s3_bucket_name
 }
 
+output "server_dns_name"{
+  description = ""
+  value       = module.server.lb_dns_name
+}
 
 output "db_endpoint" {
   description = ""

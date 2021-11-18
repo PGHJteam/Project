@@ -17,10 +17,10 @@ chmod 400 ./server_key.pem
 
 #### 4. Access ec2 server
 ```
-ssh -i "server_key.pem" ubuntu@{private IP}
+ssh -i "server_key.pem" ubuntu@172.31.4.167
 ```
 
-### 5. Write/Download server.sh & Execute
+#### 5. Write/Download server.sh & Execute
 ```
 chmod 755 server.sh
 ./server.sh
