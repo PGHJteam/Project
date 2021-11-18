@@ -39,7 +39,6 @@ def get_secret(setting, secrets=secrets): #예외 처리를 통해 오류 발생
 
 SECRET_KEY = get_secret("SECRET_KEY")
 ALGORITHM = get_secret("ALGORITHM")
-DATABASES = get_secret("DATABASES")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -51,6 +50,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'storages',
     'users',
     'files',
     'models',
@@ -125,6 +125,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pghj_server.wsgi.application'
 
+# DATABASES = get_secret("DATABASES")
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -168,8 +176,15 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 # PPTX Template File Path
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'files/templates/')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media/')
 
-# MEDIA File Path
-MEDIA_DIR = os.path.join(BASE_DIR, 'files/media/')
+# AWS s3
+AWS_ACCESS_KEY_ID = get_secret("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = get_secret("AWS_SECRET_ACCESS_KEY")
+BUCKET_NAME = get_secret("BUCKET_NAME")
+
+# FILE Path
+S3_DIR = "https://s3.ap-northeast-2.amazonaws.com/" + BUCKET_NAME + "/"

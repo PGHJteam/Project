@@ -19,7 +19,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('user_id', 'user_name', 'is_admin')
+        fields = ('user_id', 'user_name', 'user_email', 'is_admin')
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -41,20 +41,21 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('user_id', 'password', 'user_name', 'is_active', 'is_admin')
+        fields = ('user_id', 'password', 'user_name', 'user_email', 'is_active', 'is_admin')
 
 
 class UserAdmin(BaseAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('user_id', 'user_name', 'is_active', 'is_admin')
+    list_display = ('user_id', 'user_name', 'user_email', 'is_active', 'is_admin')
     list_filter = ('is_admin', 'is_active')
     search_fields = ('user_id',)
     ordering = ('user_id',)
 
     fieldsets = (
-        ('Personal info', {'fields': ('user_id', 'password', 'user_name',)}),
+        ('Login info', {'fields': ('user_id', 'password',)}),
+        ('Personal info', {'fields': ('user_name', 'user_email',)}),
         ('Activation', {'fields': ('is_active',)}),
         ('Permission', {'fields': ('is_admin',)}),
     )
@@ -62,7 +63,7 @@ class UserAdmin(BaseAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('user_id', 'password1', 'password2', 'user_name', 'is_admin'),
+            'fields': ('user_id', 'password1', 'password2', 'user_name', 'user_email', 'is_admin'),
         }),
     )
     

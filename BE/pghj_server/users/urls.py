@@ -9,5 +9,5 @@ urlpatterns = [
     path('signin/', TokenObtainPairView.as_view()),        # Login (Obtain Tokens)
     path('signout/', views.SignOut),                       # Logout (Remove all outstanding tokens)
     path('token/refresh/', TokenRefreshView.as_view()),    # Refresh Tokens
-    path('info/', views.UserView.as_view()),               # Get/Update/Delete user-info
+    path('history/', views.HistoryView.as_view()),         # User history
 ]

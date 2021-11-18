@@ -12,6 +12,7 @@ from pghj_server.responses import Success, Error
 from users.models import User
 from users.serializers import UserSerializer
 
+from files.models import Upload, Material
 
 # Sign Up
 @api_view(['POST'])
@@ -48,16 +49,34 @@ def get_user(request):
     return user
 
 
-# Get/Update/Delete user account
-class UserView(generics.GenericAPIView):
+# User History
+class HistoryView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,) # Only Authorized users can access
 
-    # Get user information
+    # Get user history information
     def get(self, request):
-        user = get_user(request)
-        serializer = UserSerializer(user) # get user-info list
-        return JsonResponse(serializer.data, status=status.HTTP_200_OK) 
+        user = get_user(request) # get user info
 
+        # find user's uploads & pptx names
+        upload_objects = Upload.objects.filter(user=user)
+        history_list = []
+        for upload in upload_objects:
+            pptx_list = []
+            material_objects = Material.objects.filter(upload=upload).values('material_name')
+            for material in material_objects:
+                pptx_list.append(material)
+
+            history_list.append({
+                "upload_id": upload.id,
+                "material_list": pptx_list
+            })
+
+        data = {
+            "history": history_list
+        }
+        return JsonResponse(data, status=status.HTTP_200_OK) 
+
+"""
     # Update user information
     def put(self, request): 
         user = get_user(request)
@@ -74,3 +93,4 @@ class UserView(generics.GenericAPIView):
         user.is_active = False      # deactivate user
         user.save()
         return JsonResponse(data=Success(), status=status.HTTP_200_OK)
+"""
