@@ -32,7 +32,7 @@ class Material(models.Model):
     upload = models.ForeignKey(Upload, on_delete=models.CASCADE)
     material_path = models.CharField("PATH", max_length=200)
     material_name = models.CharField("NAME", max_length=200) 
-    material_template = models.CharField("TEMPLATE", max_length=20, default="template00") 
+    material_template = models.CharField("TEMPLATE", max_length=100, default="template00") 
 
     def __str__(self):
         return "Material(" + str(self.id) + ") " + self.material_name
