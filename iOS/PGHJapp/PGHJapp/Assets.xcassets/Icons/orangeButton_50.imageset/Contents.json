@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "HomeIcon_orange_50.svg",
+      "filename" : "orangeButton_50.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "orangeButton_50-1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "orangeButton_50-2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

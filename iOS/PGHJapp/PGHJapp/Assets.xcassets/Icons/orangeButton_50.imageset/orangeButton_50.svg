@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110" height="110" viewBox="0 0 110 110">
+  <defs>
+    <filter id="타원_53" x="0" y="0" width="110" height="110" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.251"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="구성_요소_4_1" data-name="구성 요소 4 – 1" transform="translate(30 20)">
+    <g id="구성_요소_3_1" data-name="구성 요소 3 – 1">
+      <g transform="matrix(1, 0, 0, 1, -30, -20)" filter="url(#타원_53)">
+        <circle id="타원_53-2" data-name="타원 53" cx="25" cy="25" r="25" transform="translate(30 20)" fill="#ff6f00"/>
+      </g>
+    </g>
+    <g id="_56x56" data-name="56x56" transform="translate(5 5)">
+      <g id="그룹_10467" data-name="그룹 10467" transform="translate(4.482 9.655)">
+        <g id="그룹_10468" data-name="그룹 10468">
+          <path id="패스_82" data-name="패스 82" d="M92.572,1884.555l10.346,10.346-10.346,10.346" transform="translate(-71.881 -1884.555)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4"/>
+          <path id="패스_7617" data-name="패스 7617" d="M49.037,28H18" transform="translate(-18 -17.655)" fill="none" stroke="#fff" stroke-width="4"/>
+        </g>
+      </g>
+      <rect id="사각형_192" data-name="사각형 192" width="40" height="40" fill="none" opacity="0.5"/>
+    </g>
+  </g>
+</svg>
