@@ -2,7 +2,7 @@ import UIKit
 import PhotosUI
 import Alamofire
 
-class MainViewController: UIViewController, PHPickerViewControllerDelegate {
+class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
 
@@ -18,7 +18,6 @@ class MainViewController: UIViewController, PHPickerViewControllerDelegate {
         }
         imageCount.text = "\(results.count)"
     }
-
 
     private var images = [UIImage]()
     @IBOutlet weak var imageCount: UILabel!

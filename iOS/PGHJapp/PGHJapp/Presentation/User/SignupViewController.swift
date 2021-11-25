@@ -17,9 +17,8 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
     @IBAction func signupButtonTouched(_ sender: Any) {
         guard let id = idTextField.text, !id.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
