@@ -14,6 +14,10 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    private func configure() {
         usernameTextField.addLeftPadding()
         passwordTextField.addLeftPadding()
     }
@@ -29,13 +33,11 @@ class SigninViewController: UIViewController {
                 print(response)
                 switch response.result {
                 case .success(let token):
-
+                    print(token)
                     UserDefaults.standard.set(token.refresh, forKey: "refreshToken")
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
                     guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
                     self.navigationController?.pushViewController(homeVC, animated: true)
-
-                    
                 case .failure(let error):
                     print(error)
                 }

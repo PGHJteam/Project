@@ -34,6 +34,7 @@
 		76B5D3AC27141D090010210E /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AB27141D090010210E /* ImageButton.swift */; };
 		76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AD27141D620010210E /* TemplateViewController.swift */; };
 		76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */; };
+		76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */; };
 		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
 		76C8359D270A66E500BC5733 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8359C270A66E500BC5733 /* Token.swift */; };
 		76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* SigninViewController.swift */; };
@@ -96,6 +97,7 @@
 		76B5D3AB27141D090010210E /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		76B5D3AD27141D620010210E /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
 		76C8359C270A66E500BC5733 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		76E4098E26FAF8A3006A807F /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				7688946626F4216900B204C9 /* APIRouter.swift */,
 				7688946826F429C900B204C9 /* APIClient.swift */,
 				76E4099926FB9DE5006A807F /* APIConstants.swift */,
+				76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
 				76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
+				76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */,
 				764F6B93273CD937004E81AE /* Item.swift in Sources */,
 				764F6B95273CD955004E81AE /* Lecture.swift in Sources */,
 				769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */,
