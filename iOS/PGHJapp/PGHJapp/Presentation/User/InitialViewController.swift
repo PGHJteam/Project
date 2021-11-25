@@ -8,8 +8,25 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-
+    
+    @IBOutlet weak var progressView: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureProgressView()
     }
+    
+    private func configureProgressView() {
+        progressView.progressViewStyle = .bar
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 3)
+        progressView.progressTintColor = .white
+        progressView.trackTintColor = UIColor(named: "progressBarWhite")
+        progressView.progress = 0.5
+    }
+    
+//    @IBAction func swipeHandler(_ gestureRecognizer : UISwipeGestureRecognizer) {
+//        if gestureRecognizer.direction == .left {
+//            progressView.progress = 1.0
+//        }
+//    }
 }

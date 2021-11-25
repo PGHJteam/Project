@@ -16,22 +16,25 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
                 }
             }
         }
-        imageCount.text = "\(results.count)"
     }
 
     private var images = [UIImage]()
-    @IBOutlet weak var imageCount: UILabel!
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
-    var delegate: SendDataDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
-    func configure(){
+    private func configure(){
+        
+        let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        logoImageView.image = UIImage(named: "LogoIcon.png")
+        logoImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = logoImageView
+        
         addButton.layer.cornerRadius = 15
         uploadButton.layer.cornerRadius = 15
     }

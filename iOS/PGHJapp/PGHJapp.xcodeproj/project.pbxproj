@@ -24,6 +24,7 @@
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
 		769603BB274F548200B41F27 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BA274F548200B41F27 /* InitialViewController.swift */; };
+		769603BD274F6AE300B41F27 /* SigninSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */; };
 		769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B912E2714AE8A0027DDE4 /* FontViewController.swift */; };
 		769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1852713E7A0001D79E4 /* LoadingViewController.swift */; };
 		769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1872713EF3B001D79E4 /* LanguageType.swift */; };
@@ -88,6 +89,7 @@
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		769603BA274F548200B41F27 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSuccessViewController.swift; sourceTree = "<group>"; };
 		769B912E2714AE8A0027DDE4 /* FontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
 		769CA1852713E7A0001D79E4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		769CA1872713EF3B001D79E4 /* LanguageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageType.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				76E4098E26FAF8A3006A807F /* SigninViewController.swift */,
 				76A2CA3E270B10E900C882FA /* SignupViewController.swift */,
 				769603BA274F548200B41F27 /* InitialViewController.swift */,
+				769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
 				764F6B8D273CD8A3004E81AE /* Material.swift in Sources */,
 				76E4099326FB0027006A807F /* SigninForm.swift in Sources */,
+				769603BD274F6AE300B41F27 /* SigninSuccessViewController.swift in Sources */,
 				76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */,
 				764F6B9B273CDA72004E81AE /* Text.swift in Sources */,
 				76B5D3AC27141D090010210E /* ImageButton.swift in Sources */,
