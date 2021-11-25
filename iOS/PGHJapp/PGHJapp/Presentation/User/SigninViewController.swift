@@ -36,8 +36,9 @@ class SigninViewController: UIViewController {
                     print(token)
                     UserDefaults.standard.set(token.refresh, forKey: "refreshToken")
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
-                    guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
-                    self.navigationController?.pushViewController(homeVC, animated: true)
+                    
+                    guard let SigninSuccessVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninSuccessViewController") else { return }
+                    self.navigationController?.pushViewController(SigninSuccessVC, animated: true)
                 case .failure(let error):
                     print(error)
                 }

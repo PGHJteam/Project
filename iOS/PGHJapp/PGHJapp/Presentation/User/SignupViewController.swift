@@ -38,8 +38,8 @@ class SignupViewController: UIViewController {
             .response { response in
                 switch response.result {
                 case .success(_):
-                    guard let SignupSuccessViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccessViewController") else { return }
-                    self.navigationController?.pushViewController(SignupSuccessViewController, animated: true)
+                    guard let SignupSuccessVC = self.storyboard?.instantiateViewController(withIdentifier: "SignupSuccessViewController") else { return }
+                    self.navigationController?.pushViewController(SignupSuccessVC, animated: true)
                 case .failure(let error):
                     print(error)
                 }
