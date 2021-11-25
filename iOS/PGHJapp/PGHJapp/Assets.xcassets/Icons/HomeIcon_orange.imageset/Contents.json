@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Grey.png",
+      "filename" : "HomeIcon_orange.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "HomeIcon_orange-1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "HomeIcon_orange-2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
