@@ -1,6 +1,5 @@
 import torch
 from transformers import ViTFeatureExtractor, VisionEncoderDecoderModel
-from kobert_transformers import get_tokenizer
 from contextlib import contextmanager
 from transformers.feature_extraction_utils import FeatureExtractionMixin
 from torch import nn
@@ -33,8 +32,9 @@ class TrOCRProcessor:
         self.current_processor = self.tokenizer
         yield
         self.current_processor = self.feature_extractor
-
-kor_processor = TrOCRProcessor(get_tokenizer(), ViTFeatureExtractor(size=384))
+with open('kobert_processor.pkl','rb') as f:
+    kobert = pickle.load(f)
+kor_processor = TrOCRProcessor(kobert, ViTFeatureExtractor(size=384))
 #모델불러오기
 model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-handwritten")
 #train모드로 바꾸고 freeze하기
