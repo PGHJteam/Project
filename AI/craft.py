@@ -1,5 +1,6 @@
 import argparse,sys
 import numpy as np
+import pickle
 import cv2
 from detection import imgproc, craft_utils
 from detection.craft import CRAFT
