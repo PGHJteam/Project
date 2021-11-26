@@ -33,9 +33,11 @@ class SigninViewController: UIViewController {
                 print(response)
                 switch response.result {
                 case .success(let token):
-                    print(token)
+                    
                     UserDefaults.standard.set(token.refresh, forKey: "refreshToken")
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
+                    UserDefaults.standard.set(username, forKey: "username")
+                    UserDefaults.standard.set(Date(), forKey: "lastlog")
                     
                     guard let SigninSuccessVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninSuccessViewController") else { return }
                     self.navigationController?.pushViewController(SigninSuccessVC, animated: true)
@@ -44,4 +46,5 @@ class SigninViewController: UIViewController {
                 }
             }
     }
+    
 }

@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,51 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-b4-EUD">
-                                <rect key="frame" x="65" y="412" width="284" height="72"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반갑습니다 test님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oW3-YP-zJB">
-                                        <rect key="frame" x="79.5" y="0.0" width="125" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="oW3-YP-zJB" secondAttribute="height" multiplier="61:10" id="2HX-5w-sgi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자료메이커를 3일만에 방문해주셨군요👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNU-Pp-wx7">
-                                        <rect key="frame" x="0.0" y="51.5" width="284" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="YNU-Pp-wx7" secondAttribute="height" multiplier="277:20" id="ifV-G9-hS2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="oW3-YP-zJB" firstAttribute="centerX" secondItem="pBt-b4-EUD" secondAttribute="centerX" id="1QE-q5-8az"/>
-                                    <constraint firstAttribute="width" secondItem="pBt-b4-EUD" secondAttribute="height" multiplier="71:18" id="xT4-sf-36i"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pBt-b4-EUD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2lZ-Im-SiC"/>
-                            <constraint firstItem="pBt-b4-EUD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Trc-Mf-B79"/>
-                        </constraints>
+                        <color key="backgroundColor" name="lightOrange"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="-1536" y="54"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightOrange">
+            <color red="1" green="0.82400000095367432" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

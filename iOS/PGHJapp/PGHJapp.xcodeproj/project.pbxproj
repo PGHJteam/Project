@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182855DD60E852F986B95628 /* Pods_PGHJapp.framework */; };
 		0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */; };
+		762DCB4327505F2D00C1D53E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DCB4227505F2C00C1D53E /* MyPageViewController.swift */; };
 		763EFB6327118D130071C22D /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB6227118D130071C22D /* LectureViewController.swift */; };
 		763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB642711A03F0071C22D /* SendDataDelegate.swift */; };
 		763EFB672711AA560071C22D /* MaterialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB662711AA560071C22D /* MaterialInfo.swift */; };
@@ -74,6 +75,7 @@
 		182855DD60E852F986B95628 /* Pods_PGHJapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		762DCB4227505F2C00C1D53E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		763EFB6227118D130071C22D /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		763EFB642711A03F0071C22D /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
 		763EFB662711AA560071C22D /* MaterialInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialInfo.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				76A2CA3E270B10E900C882FA /* SignupViewController.swift */,
 				769603BA274F548200B41F27 /* InitialViewController.swift */,
 				769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */,
+				762DCB4227505F2C00C1D53E /* MyPageViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				764F6B8F273CD8EF004E81AE /* Font.swift in Sources */,
 				76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */,
 				764F6B99273CD99F004E81AE /* Size.swift in Sources */,
+				762DCB4327505F2D00C1D53E /* MyPageViewController.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
 				764F6B8D273CD8A3004E81AE /* Material.swift in Sources */,
 				76E4099326FB0027006A807F /* SigninForm.swift in Sources */,
