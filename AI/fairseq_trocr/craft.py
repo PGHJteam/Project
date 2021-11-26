@@ -1,5 +1,6 @@
 import argparse,sys
 import numpy as np
+import pickle
 import cv2
 from detection import imgproc, craft_utils
 from detection.craft import CRAFT
@@ -314,12 +315,21 @@ def trocr_recog(dataset,recog_net,img_size,tr_task):
 if __name__ =="__main__":
     args = command()
     image_list, _, _ = get_files(args.test_folder)
-    detect_net, refine_net, args = init_detect_model(args)
-    if args.recog_name == 'trocr':   
-        recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform, _ = tr_init(args.recog_model, 5)
-    elif args.recog_name == 'naver':
-        recog_net,args,converter = init_recog_model(args)
-    
+    if os.path.isfile('./craft.pkl'):
+        with open('craft.pkl','rb') as f:
+            detect_net = pickle.load(f)
+        with open('trhtr.pkl','rb') as f2:
+            recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform = pickle.load(f2)
+    else:
+        detect_net, refine_net, args = init_detect_model(args)
+        if args.recog_name == 'trocr':   
+            recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform, _ = tr_init(args.recog_model, 5)
+        elif args.recog_name == 'naver':
+            recog_net,args,converter = init_recog_model(args)
+        with open('./craft.pkl','wb') as f:
+            pickle.dump(detect_net,f)
+        with open('./trhtr.pkl','wb') as f2:
+             pickle.dump([recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform],f2)
     total_image_res = {}
     for k, image_path in enumerate(image_list):
         print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path))
