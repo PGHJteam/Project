@@ -262,7 +262,7 @@ def trocr_recog(dataset,recog_net,img_size,tr_task):
     one_image_res = []
     for tr_sample,rect in dataset:
         generated_ids = recog_net.generate(tr_sample)
-        text = dataset.processor.decode(generated_ids, skip_special_tokens=True)[0] #0이 맞나?
+        text = dataset.processor.decode(generated_ids, skip_special_tokens=True)
         total_x = img_size[1]
         total_y = img_size[0]
         x, y, w, h = rect
