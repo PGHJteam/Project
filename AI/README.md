@@ -48,8 +48,10 @@ python craft.py --test_folder {경로} --recog_name trocr 또는 naver 선택 --
 ```
 ### 만약 gpu 없다면
 ```
-
-python craft.py --test_folder {경로} --cuda n --recog_name trocr 또는 naver 선택 --recog_model {경로}
+#한국어
+python craft_kor.py --test_folder {경로} --cuda n --recog_name {trocr 또는 naver 선택} --recog_model {경로}
+#영어
+python craft_eng.py --test_folder {경로} --cuda n --recog_name {trocr 또는 naver 선택} --recog_model {경로}
 ```
 ### example
 ```
