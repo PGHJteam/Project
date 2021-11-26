@@ -95,7 +95,7 @@ if __name__ == '__main__':
     
     roots = os.getcwd()
     model_path = os.path.join(roots,'downloads/premodels/trhtr.pt')
-    jpg_path = os.path.join(roots,"downloads/naver_crop")
+    jpg_path = os.path.join(roots, "../downloads/naver_crop")
     entries = os.scandir(jpg_path)
     imgs = []
     for entry in entries:
@@ -106,16 +106,14 @@ if __name__ == '__main__':
     model, cfg, task, generator, bpe, img_transform, device = init(model_path, beam)
 
     results = []
-    # for filename in tqdm.tqdm(imgs):
+
     for filename in imgs:
         img = os.path.join(jpg_path,filename)
         sample = preprocess(img, img_transform)
         text = get_text(cfg, generator, model, sample, bpe,task)
         results.append(text)
         break
-    # os.system('cls' if os.name == 'nt' else 'clear')
-    # time.sleep(0.1)
-    # os.system('clear')
+
     
     print(results,end='')
 #     model_path = '../../premodels/trocr-large-handwritten.pt'
