@@ -4,8 +4,8 @@ import Alamofire
  struct APIConstants {
      // MARK: - Start Endpoint
      static var baseURL: URL {
-         return URL(string: "http://dev-pghj-lb-713486149.ap-northeast-2.elb.amazonaws.com:8000")!
-//         return URL(string: "https://d9c53cef-5902-4d3f-843e-cd96a5ae9d95.mock.pstmn.io")! //mock server
+//         return URL(string: "http://dev-pghj-lb-713486149.ap-northeast-2.elb.amazonaws.com:8000")!
+         return URL(string: "https://d9c53cef-5902-4d3f-843e-cd96a5ae9d95.mock.pstmn.io")! //mock server
      }
  }
 
