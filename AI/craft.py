@@ -344,10 +344,10 @@ if __name__ =="__main__":
     args = command()
     image_list, _, _ = get_files(args.test_folder)
     if os.path.isfile('./craft.pkl'):
-            with open('craft.pkl','rb') as f:
-                detect_net = pickle.load(f)
-            with open('trhtr.pkl','rb') as f2:
-                recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform = pickle.load(f2)
+        with open('craft.pkl','rb') as f:
+            detect_net = pickle.load(f)
+        with open('trhtr.pkl','rb') as f2:
+            recog_net, tr_cfg, tr_task, tr_generator, tr_bpe, tr_img_transform = pickle.load(f2)
     else:
         detect_net, refine_net, args = init_detect_model(args)
         if args.recog_name == 'trocr':   
