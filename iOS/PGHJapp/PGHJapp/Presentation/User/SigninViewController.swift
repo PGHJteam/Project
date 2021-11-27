@@ -30,7 +30,6 @@ class SigninViewController: UIViewController {
                 
         AF.request(Endpoint.signin, method: .post, parameters: user)
             .responseDecodable(of: Token.self)  { response in
-                print(response)
                 switch response.result {
                 case .success(let token):
                     

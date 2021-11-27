@@ -11,7 +11,3 @@ struct Token: Decodable {
     let refresh: String
     let access: String
 }
-
-struct RefreshToken: Codable {
-    let refresh: String
-}
