@@ -8,10 +8,10 @@ class LectureViewController: UIViewController, SendDataDelegate {
     var titleFont = "bold"
     var bodyFont = "bold"
     
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var materialNameTextField: UITextField!
+    @IBOutlet weak var progressBarImageView: UIImageView!
     @IBOutlet weak var languageTypeButton: UIButton!
     @IBOutlet weak var templateTypeButton: UIButton!
-    @IBOutlet weak var fontTypeButton: UIButton!
     @IBAction func languageTypeButtonTouched(_ sender: Any) {
         
     }
@@ -23,7 +23,7 @@ class LectureViewController: UIViewController, SendDataDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        lectureData = Lecture.make(imageData: myData!)
+//        lectureData = Lecture.make(imageData: myData!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,18 +34,13 @@ class LectureViewController: UIViewController, SendDataDelegate {
     }
     
     private func configure() {
-        createButton.layer.cornerRadius = 5
-
-        let englishPrinting = UIAction(title: "영어 인쇄체", handler: { _ in print("영어 인쇄체") })
-        let englishHandwritting = UIAction(title: "영어 필기체", handler: { _ in print("영어 필기체") })
-        let koreanPrinting = UIAction(title: "한글 인쇄체", handler: { _ in print("한글 인쇄체") })
-        let koreanHandwritting = UIAction(title: "한글 필기체", handler: { _ in print("한글 필기체") })
-        let mathPrinting = UIAction(title: "수식 인쇄체", handler: { _ in print("수식 인쇄체") })
-        let mathHandwriting = UIAction(title: "수식 필기체", handler: { _ in print("수식 필기체") })
-
-        languageTypeButton.menu = UIMenu(children: [englishPrinting, englishHandwritting,
-                                                   koreanPrinting, koreanHandwritting,
-                                                   mathPrinting, mathHandwriting])
+        progressBarImageView.addShadowToUnder()
+        materialNameTextField.addLeftPadding()
+        
+        let english = UIAction(title: "영어", handler: { _ in print("영어") })
+        let korean = UIAction(title: "한글", handler: { _ in print("한글 ") })
+        languageTypeButton.menu = UIMenu(children: [english,
+                                                   korean])
         templateTypeButton.titleLabel?.text = templateID
     }
     

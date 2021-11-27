@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
 
     private var images = [UIImage]()
     
+    @IBOutlet weak var progressBarImageView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
 
@@ -28,15 +29,31 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     private func configure(){
+        progressBarImageView.addShadowToUnder()
         
-        let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
-        logoImageView.image = UIImage(named: "LogoIcon.png")
-        logoImageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = logoImageView
+//        let titleView = UIView()
+//        let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+//        logoImageView.image = UIImage(named: "LogoIcon.png")
+//        logoImageView.contentMode = .scaleAspectFit
+//        let logoLabel = UILabel()
+//        logoLabel.text = "자료메이커 홈"
+//        
+//        titleView.addSubview(logoLabel)
+//        titleView.addSubview(logoImageView)
+//        navigationItem.titleView = titleView
+        navigationItem.title = "자료메이커 홈"
         
         addButton.layer.cornerRadius = 15
-        uploadButton.layer.cornerRadius = 15
+//        uploadButton.layer.cornerRadius = 15
     }
     
     @IBAction func addButtonTouched(_ sender: Any) {
