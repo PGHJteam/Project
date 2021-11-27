@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kIg-mW-oXw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hRD-kV-Lgw">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -59,6 +59,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="progress_dots_1" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-7U-Tmz">
+                                <rect key="frame" x="151" y="718" width="153" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -74,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3786.1538461538462" y="88.151658767772503"/>
+            <point key="canvasLocation" x="3785.0467289719622" y="88.120950323974085"/>
         </scene>
         <!--Lecture View Controller-->
         <scene sceneID="Ydy-Vo-9gm">
@@ -1012,41 +1016,6 @@
             </objects>
             <point key="canvasLocation" x="1833.8461538461538" y="389.57345971563979"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Fnk-Ol-eie">
-            <objects>
-                <viewController id="NnR-OV-vOX" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="19B-Ao-oWy"/>
-                        <viewControllerLayoutGuide type="bottom" id="CMq-en-R3K"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hvc-nS-G1S">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAQ-1b-oxM">
-                                <rect key="frame" x="204" y="453" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="R8M-Qf-MBT"/>
-                                    <constraint firstAttribute="width" constant="20" id="uFM-qj-AEY"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="button_proceed">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="default"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HAQ-1b-oxM" firstAttribute="centerX" secondItem="Hvc-nS-G1S" secondAttribute="centerX" id="BpS-Xo-Vge"/>
-                            <constraint firstItem="HAQ-1b-oxM" firstAttribute="centerY" secondItem="Hvc-nS-G1S" secondAttribute="centerY" id="afI-R8-J6y"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KUb-5l-1pG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2316" y="-581"/>
-        </scene>
         <!--Initial View Controller-->
         <scene sceneID="lPw-FU-9V2">
             <objects>
@@ -1098,7 +1067,7 @@
                                                         <color key="textColor" name="textGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlM-RI-0Tq">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlM-RI-0Tq">
                                                         <rect key="frame" x="278" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="FPq-3i-OXs"/>
@@ -1334,6 +1303,7 @@
         <image name="LogoIcon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="PersonIcon_orange_40" width="40" height="40"/>
         <image name="button_proceed" width="66" height="66"/>
+        <image name="progress_dots_1" width="222" height="37"/>
         <namedColor name="buttonOrange">
             <color red="1" green="0.43500000238418579" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

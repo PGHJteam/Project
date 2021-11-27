@@ -19,7 +19,10 @@ class MyPageViewController: UIViewController {
     @IBAction func historyButtonTouched(_ sender: Any) {
         let accessToken = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         AF.request(Endpoint.history, method: .get, headers: ["Authorization": "Bearer \(accessToken)"])
-            .responseDecodable(of: History.self) { response in
+//            .responseDecodable(of: History.self) { response in
+//                print(response)
+//            }
+            .responseJSON { response in
                 print(response)
             }
     }
