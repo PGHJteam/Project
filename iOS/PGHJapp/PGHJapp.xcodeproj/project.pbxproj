@@ -40,6 +40,8 @@
 		76AD3EF7275219AC001DBAC0 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF6275219AC001DBAC0 /* UIImageViewExtension.swift */; };
 		76B5D3AC27141D090010210E /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AB27141D090010210E /* ImageButton.swift */; };
 		76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AD27141D620010210E /* TemplateViewController.swift */; };
+		76B7981927590EA400402604 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7981727590EA400402604 /* ImageCell.swift */; };
+		76B7981A27590EA400402604 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B7981827590EA400402604 /* ImageCell.xib */; };
 		76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */; };
 		76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */; };
 		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
@@ -110,6 +112,8 @@
 		76AD3EF6275219AC001DBAC0 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		76B5D3AB27141D090010210E /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		76B5D3AD27141D620010210E /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		76B7981727590EA400402604 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		76B7981827590EA400402604 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				76B5D3AB27141D090010210E /* ImageButton.swift */,
 				76B5D3AD27141D620010210E /* TemplateViewController.swift */,
 				769B912E2714AE8A0027DDE4 /* FontViewController.swift */,
+				76B7981727590EA400402604 /* ImageCell.swift */,
+				76B7981827590EA400402604 /* ImageCell.xib */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */,
+				76B7981A27590EA400402604 /* ImageCell.xib in Resources */,
 				76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */,
 				76F4181026F1C51200D677D6 /* Main.storyboard in Resources */,
 			);
@@ -629,6 +636,7 @@
 				769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */,
 				76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */,
 				76F4180D26F1C51200D677D6 /* HomeViewController.swift in Sources */,
+				76B7981927590EA400402604 /* ImageCell.swift in Sources */,
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
 				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,

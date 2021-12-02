@@ -2,28 +2,13 @@ import UIKit
 import PhotosUI
 import Alamofire
 
-class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-
-        results.forEach { item in
-            let itemProvider = item.itemProvider
-            if itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                    if let myImage = image as? UIImage {
-                        self.images.append(myImage)
-                    }
-                }
-            }
-        }
-    }
-
-    private var images = [UIImage]()
+class HomeViewController: UIViewController {
     
+    private var images = [UIImage]()
     @IBOutlet weak var progressBarImageView: UIImageView!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var uploadButton: UIButton!
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var progressButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -31,11 +16,9 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+        
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true
-    }
+
     
     private func configure(){
         progressBarImageView.addShadowToUnder()
@@ -51,9 +34,9 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
 //        titleView.addSubview(logoImageView)
 //        navigationItem.titleView = titleView
         navigationItem.title = "자료메이커 홈"
-        
-        addButton.layer.cornerRadius = 15
-//        uploadButton.layer.cornerRadius = 15
+        progressButton.addShadowToUnder()
+        collectionView.register(UINib(nibName: "ImageCell", bundle: .main), forCellWithReuseIdentifier: "ImageCell")
+        setupLayout()
     }
     
     @IBAction func addButtonTouched(_ sender: Any) {
@@ -71,31 +54,75 @@ class HomeViewController: UIViewController, PHPickerViewControllerDelegate {
         guard let loadingVC = self.storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as? LoadingViewController else { return }
         loadingVC.images = images
         self.navigationController?.pushViewController(loadingVC, animated: true)
-//        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-//        AF.upload(multipartFormData: { multipartFormData in
-//            multipartFormData.append(Data("eng-htr".utf8), withName: "image_type")
-//
-//            for (index, image) in self.images.enumerated() {
-//                let imageData = image.pngData()!
-//                print(imageData)
-//                multipartFormData.append(imageData, withName: "image\(index)", fileName: "image\(index).png")}
-//        }, to: Endpoint.uploadImage, method: .post, headers: ["Authorization": "Bearer \(token)"])
-//            .responseDecodable(of: UploadData.self) { response in
-//                print(response)
-//                switch response.result {
-//                case .success(let imageData):
-//                    guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }
-//                    lectureVC.myData = imageData
-//                    self.delegate?.sendData(data: imageData)
-//
-//                    self.navigationController?.pushViewController(lectureVC, animated: true)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
+        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data("eng-htr".utf8), withName: "image_type") // 여기서 eng, kor만 나눌지
+
+            for (index, image) in self.images.enumerated() {
+                let imageData = image.pngData()!
+                print(imageData)
+                multipartFormData.append(imageData, withName: "image\(index)", fileName: "image\(index).png")}
+        }, to: Endpoint.uploadImage, method: .post, headers: ["Authorization": "Bearer \(token)"])
+            .responseDecodable(of: UploadData.self) { response in
+                print(response)
+                switch response.result {
+                case .success(let imageData):
+                    guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }
+                    lectureVC.myData = imageData
+
+                    self.navigationController?.pushViewController(lectureVC, animated: true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
 }
+
+extension HomeViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        results.forEach { item in
+            let itemProvider = item.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    if let myImage = image as? UIImage {
+                        self.images.append(myImage)
+                    }
+                }
+            }
+        }
+        print("리로드")
+        collectionView.reloadData()
+    }
+
+}
+
+extension HomeViewController: UICollectionViewDataSource {
     
+    private func setupLayout() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets.zero
+//        flowLayout.minimumInteritemSpacing = 2
+//        flowLayout.minimumLineSpacing = 2
+        let width = collectionView.frame.width
+        let height = collectionView.frame.height
+        
+        flowLayout.itemSize = CGSize(width: (width/4)*1.1 , height: height / 5)
+        self.collectionView.collectionViewLayout = flowLayout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+//        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell else { return UICollectionViewCell() }
+        let image = images[indexPath.row]
+        cell.configure(image: image)
+        return cell
+    }
+}
 
     
 

@@ -26,6 +26,10 @@ class LectureViewController: UIViewController, SendDataDelegate {
 //        lectureData = Lecture.make(imageData: myData!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "font" {
             let viewController: FontViewController = segue.destination as! FontViewController

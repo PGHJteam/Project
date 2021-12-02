@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,38 +25,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hem-Ke-OC2">
-                                <rect key="frame" x="89" y="181" width="250" height="164"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bw-zx-4B7">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="57"/>
-                                        <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="8dh-2h-YDL"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="CBL-ia-NiM"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="이미지 가져오기">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4sE-Qn-E2k"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdT-DQ-Ev8">
-                                        <rect key="frame" x="0.0" y="107" width="250" height="57"/>
-                                        <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="gOg-tk-OOO"/>
-                                            <constraint firstAttribute="height" constant="57" id="zju-dP-YP9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="이미지 분석 요청">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_dots_1" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-7U-Tmz">
                                 <rect key="frame" x="164" y="753" width="100" height="70"/>
                                 <constraints>
@@ -64,34 +33,100 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-6t-ErR">
-                                <rect key="frame" x="328" y="763" width="50" height="50"/>
+                                <rect key="frame" x="318" y="753" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WHH-jW-Nlz"/>
-                                    <constraint firstAttribute="width" constant="50" id="zSA-Ld-EN3"/>
+                                    <constraint firstAttribute="height" constant="60" id="WHH-jW-Nlz"/>
+                                    <constraint firstAttribute="width" constant="60" id="zSA-Ld-EN3"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title=" " image="button_proceed">
+                                <state key="normal" title=" " image="button_proceed_88">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bga-ta-KEP" kind="show" id="rsJ-sw-Ifq"/>
+                                    <action selector="uploadButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JMh-a5-ZAb"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWK-8C-yI5">
+                                <rect key="frame" x="74.666666666666657" y="138" width="278.66666666666674" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="자료로 만들 사진을 추가해주세요.   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzX-eB-yi4">
+                                        <rect key="frame" x="0.0" y="0.0" width="236.66666666666666" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fa-EN-I9X">
+                                        <rect key="frame" x="236.66666666666663" y="0.0" width="42" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SpR-af-oLT"/>
+                                        </constraints>
+                                        <color key="tintColor" name="buttonOrange"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="plus" catalog="system">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="사진 선택">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <font key="NSFont" size="17" name="AppleSDGothicNeo-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="gray">
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                            <attributedString key="attributedTitle"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcu-F8-hfZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YNh-xf-5bA">
+                                <rect key="frame" x="30" y="228" width="368" height="485"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pgF-eI-tdd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="ZAg-gZ-4bn" customClass="ImageCell" customModule="PGHJapp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tnf-FQ-SoC">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ser-Om-2LY"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hem-Ke-OC2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="4Ds-VU-JYa"/>
+                            <constraint firstItem="hWK-8C-yI5" firstAttribute="top" secondItem="1sv-hD-ubb" secondAttribute="bottom" constant="50" id="2Ry-Bq-jjy"/>
+                            <constraint firstItem="hWK-8C-yI5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B0B-4E-d9I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dGP-6t-ErR" secondAttribute="trailing" constant="30" id="InB-NE-28f"/>
                             <constraint firstItem="j0F-7U-Tmz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xup-SF-upz"/>
+                            <constraint firstItem="j0F-7U-Tmz" firstAttribute="top" secondItem="YNh-xf-5bA" secondAttribute="bottom" constant="40" id="YF4-og-wxj"/>
                             <constraint firstItem="hnH-QL-ldA" firstAttribute="top" secondItem="dGP-6t-ErR" secondAttribute="bottom" constant="30" id="btK-BY-uxP"/>
-                            <constraint firstItem="hem-Ke-OC2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eQf-zn-KCd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YNh-xf-5bA" secondAttribute="trailing" constant="10" id="gyQ-lF-XH3"/>
+                            <constraint firstItem="YNh-xf-5bA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="h6W-wB-aAm"/>
                             <constraint firstItem="hnH-QL-ldA" firstAttribute="top" secondItem="j0F-7U-Tmz" secondAttribute="bottom" constant="20" id="l6V-OT-yyC"/>
+                            <constraint firstItem="YNh-xf-5bA" firstAttribute="top" secondItem="hWK-8C-yI5" secondAttribute="bottom" constant="40" id="sfY-3y-3rn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uSe-Hl-2AL"/>
                     <connections>
-                        <outlet property="addButton" destination="2bw-zx-4B7" id="3yr-UQ-IaO"/>
+                        <outlet property="collectionView" destination="YNh-xf-5bA" id="iUG-ST-tvm"/>
                         <outlet property="progressBarImageView" destination="j0F-7U-Tmz" id="s5f-Bd-3xT"/>
+                        <outlet property="progressButton" destination="dGP-6t-ErR" id="vnX-O2-bcf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -111,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="112" translatesAutoresizingMaskIntoConstraints="NO" id="naW-XF-TH2">
-                                <rect key="frame" x="50" y="188" width="328" height="655"/>
+                                <rect key="frame" x="50" y="94" width="328" height="798"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="자료의 이름을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-Sj-ywt">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
@@ -180,13 +215,13 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_dots_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ybr-oT-Yvd">
-                                        <rect key="frame" x="114" y="383" width="100" height="110"/>
+                                        <rect key="frame" x="114" y="383" width="100" height="253"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Ah2-98-Klh"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHP-35-fjt">
-                                        <rect key="frame" x="0.0" y="605" width="328" height="50"/>
+                                        <rect key="frame" x="0.0" y="748" width="328" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="TOP-yN-RnP"/>
                                         </constraints>
@@ -220,7 +255,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="naW-XF-TH2" firstAttribute="top" secondItem="A5B-rc-ckl" secondAttribute="bottom" constant="100" id="0Q4-7S-vSK"/>
+                            <constraint firstItem="naW-XF-TH2" firstAttribute="top" secondItem="A5B-rc-ckl" secondAttribute="bottom" constant="50" id="0Q4-7S-vSK"/>
                             <constraint firstItem="lmS-db-A5T" firstAttribute="top" secondItem="naW-XF-TH2" secondAttribute="bottom" id="DDb-l7-Fa8"/>
                             <constraint firstItem="naW-XF-TH2" firstAttribute="leading" secondItem="JO1-p3-RKO" secondAttribute="leadingMargin" constant="30" id="ZTV-fV-EsY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="naW-XF-TH2" secondAttribute="trailing" constant="30" id="iie-pa-HF8"/>
@@ -997,39 +1032,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CHA-a5-IWx">
-                                <rect key="frame" x="50" y="96" width="328" height="747"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eyx-QZ-SAU">
+                                <rect key="frame" x="20" y="88" width="388" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="59N-GT-ff0">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Zr2-fe-mIH">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xKo-Wb-qrX">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ajn-2B-KIz">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="388" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajn-2B-KIz" id="hCK-Z2-zf1">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CHA-a5-IWx" firstAttribute="top" secondItem="pXS-Jg-Acf" secondAttribute="bottom" constant="8" symbolic="YES" id="AZa-cf-Vxk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CHA-a5-IWx" secondAttribute="trailing" constant="30" id="RId-uD-1IG"/>
-                            <constraint firstItem="CHA-a5-IWx" firstAttribute="leading" secondItem="2rl-pk-i8U" secondAttribute="leadingMargin" constant="30" id="U9W-Qg-awg"/>
-                            <constraint firstItem="kZP-hO-vQ7" firstAttribute="top" secondItem="CHA-a5-IWx" secondAttribute="bottom" id="roh-Hf-ipS"/>
+                            <constraint firstItem="kZP-hO-vQ7" firstAttribute="top" secondItem="eyx-QZ-SAU" secondAttribute="bottom" id="Rfj-LN-2fJ"/>
+                            <constraint firstItem="eyx-QZ-SAU" firstAttribute="top" secondItem="pXS-Jg-Acf" secondAttribute="bottom" id="WAT-pT-h1T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eyx-QZ-SAU" secondAttribute="trailing" id="YRM-H0-7xF"/>
+                            <constraint firstItem="eyx-QZ-SAU" firstAttribute="leading" secondItem="2rl-pk-i8U" secondAttribute="leadingMargin" id="y6U-aR-AH7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MEN-lb-gab"/>
-                    <connections>
-                        <outlet property="collectionView" destination="CHA-a5-IWx" id="Rga-Z0-r0D"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcp-nN-ycf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1093,28 +1119,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iP-7Q-GBu">
-                                                <rect key="frame" x="0.0" y="88" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="88" width="50" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="textGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fJD-b5-jIp">
-                                                <rect key="frame" x="0.0" y="146" width="328" height="50"/>
+                                                <rect key="frame" x="0.0" y="136" width="328" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="나만의 학습자료를 만들어보세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxQ-pW-F3p">
-                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="textGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlM-RI-0Tq">
-                                                        <rect key="frame" x="278" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="268" y="0.0" width="60" height="60"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="FPq-3i-OXs"/>
-                                                            <constraint firstAttribute="width" constant="50" id="bjP-HW-fUA"/>
+                                                            <constraint firstAttribute="height" constant="60" id="FPq-3i-OXs"/>
+                                                            <constraint firstAttribute="width" constant="60" id="bjP-HW-fUA"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title=" " image="button_proceed_76">
+                                                        <state key="normal" title=" " image="button_proceed_88">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                         </state>
                                                         <connections>
@@ -1151,6 +1177,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WCC-QY-llB"/>
                     <connections>
+                        <outlet property="progressButton" destination="UlM-RI-0Tq" id="eko-0D-srI"/>
                         <outlet property="progressView" destination="oBe-M1-eOq" id="dvE-Jr-luL"/>
                     </connections>
                 </viewController>
@@ -1342,8 +1369,8 @@
         <image name="HomeIcon_orange_40" width="40" height="40"/>
         <image name="LogoIcon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="PersonIcon_orange_40" width="40" height="40"/>
-        <image name="button_proceed" width="66" height="66"/>
-        <image name="button_proceed_76" width="136" height="140"/>
+        <image name="button_proceed_88" width="148" height="148"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="progress_dots_1" width="222" height="37"/>
         <image name="progress_dots_2" width="222" height="37"/>
         <namedColor name="buttonOrange">

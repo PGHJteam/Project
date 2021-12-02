@@ -11,9 +11,11 @@ class InitialViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIProgressView!
     
+    @IBOutlet weak var progressButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProgressView()
+        progressButton.addShadowToUnder()
     }
     
     private func configureProgressView() {
