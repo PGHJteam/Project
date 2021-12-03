@@ -20,4 +20,6 @@ imutils
 tqdm
 lmdb
 pandas
-
+matplotlib
+transformers
+kobert_transformers
