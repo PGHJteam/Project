@@ -68,7 +68,7 @@ model.decoder.model.decoder.embed_tokens = new_embed
 model.config.decoder_start_token_id = kor_processor.tokenizer.cls_token_id
 model.config.pad_token_id = kor_processor.tokenizer.pad_token_id
 model.config.vocab_size = model.config.decoder.vocab_size
-model.load_state_dict(torch.load('./kotrocr.pth', map_location='cpu'))
+model.load_state_dict(torch.load('./kocrnn.pth', map_location='cpu'))
 model.eval()
 model.decoder.eval()
 model.encoder.eval()
