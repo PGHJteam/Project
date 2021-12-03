@@ -299,11 +299,11 @@ def trocr_recog(dataset,recog_net,img_size,tr_task):
                     t = ''
                 else:
                     if temp.startswith('[SEP]'):
-                        end_idx = temp[5:].find(end_tok)
+                        end_idx = temp[len(start_tok):].find(end_tok)
                         if end_idx == 0:
                             t = ''
                         else:
-                            t = temp[5:end_idx]
+                            t = temp[len(start_tok):end_idx]
                 x, y, w, h = rect
                 width = w / total_x
                 height = h / total_y
