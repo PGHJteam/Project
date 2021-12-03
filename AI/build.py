@@ -52,7 +52,7 @@ class TrOCRProcessor:
         self.current_processor = self.tokenizer
         yield
         self.current_processor = self.feature_extractor
-kor_processor = TrOCRProcessor(kobert, ViTFeatureExtractor(size=384))
+kor_processor = TrOCRProcessor(ViTFeatureExtractor(size=384),kobert)
 
 
 with open('kor_processor.pkl','wb') as f:
