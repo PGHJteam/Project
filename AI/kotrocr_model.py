@@ -1,4 +1,5 @@
 import torch
+import pickle
 from transformers import ViTFeatureExtractor, VisionEncoderDecoderModel
 from contextlib import contextmanager
 from transformers.feature_extraction_utils import FeatureExtractionMixin
@@ -35,8 +36,12 @@ class TrOCRProcessor:
 with open('kobert_processor.pkl','rb') as f:
     kobert = pickle.load(f)
 kor_processor = TrOCRProcessor(kobert, ViTFeatureExtractor(size=384))
+with open('kor_processor.pkl','wb') as f:
+    pickle.dump(kor_processor,f)
 #모델불러오기
-model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-handwritten")
+with open('eng_htr_model.pkl','rb') as f:
+    model = pickle.load(f)
+# model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-handwritten")
 #train모드로 바꾸고 freeze하기
 new_output_projection = nn.Linear(1024,8002);torch.nn.init.xavier_uniform_(new_output_projection.weight)
 model.decoder.output_projection = new_output_projection
@@ -58,4 +63,8 @@ for param in model.parameters():
 for param in model.encoder.parameters():
     param.requires_grad = False
 kor_model = model
+
+with open('kor_htr_model.pkl','wb') as f:
+    pickle.dump(kor_model,f)
+
 
