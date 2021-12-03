@@ -286,7 +286,10 @@ if __name__ =="__main__":
     image_list, _, _ = get_files(args.test_folder)
     detect_net, refine_net, args = init_detect_model(args)
     if args.recog_name == 'trocr':
-        from kotrocr_model import kor_model, kor_processor
+        with open('kor_processor.pkl','rb') as f:
+          kor_processor = pickle.load(f)
+        with open('kor_htr_model.pkl','rb') as f:
+          kor_model = pickle.load(f)
     elif args.recog_name == 'naver':
         recog_net,args,converter = init_recog_model(args)
     
