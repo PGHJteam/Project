@@ -260,7 +260,7 @@ def naver_recog(args,data,model,converter,img_size):
     return one_image_res
 
 
-def trocr_recog(dataset,recog_net,img_size,tr_task):
+def trocr_recog(dataset,recog_net,img_size):
     one_image_res = []
     for tr_sample,rect in dataset:
         generated_ids = recog_net.generate(tr_sample)
