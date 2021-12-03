@@ -100,6 +100,7 @@ def command():
     parser.add_argument('--output_channel', type=int, default=512,
                         help='the number of output channel of Feature extractor')
     parser.add_argument('--hidden_size', type=int, default=256, help='the size of the LSTM hidden state')
+    parser.add_argument('--detect_text',required=True, help='htr or ocr')
 
 
     args = parser.parse_args()
@@ -287,7 +288,14 @@ if __name__ =="__main__":
     image_list, _, _ = get_files(args.test_folder)
     detect_net, refine_net, args = init_detect_model(args)
     if args.recog_name == 'trocr':
-        from trocr_model import eng_model, eng_processor
+        with open('eng_processor.pkl','rb') as f:
+          eng_processor = pickle.load(f)
+        if args.detect_text == 'htr':
+            with open('eng_htr_model.pkl','rb') as f:
+              eng_model = pickle.load(f)
+        elif args.detect_text == 'ocr':
+            with open('eng_ocr_model.pkl','rb') as f:
+              eng_model = pickle.load(f)
     elif args.recog_name == 'naver':
         recog_net,args,converter = init_recog_model(args)
     
