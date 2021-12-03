@@ -1,6 +1,6 @@
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 from kobert_transformers import get_tokenizer
-with import pickle
+import pickle
 eng_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
 eng_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-handwritten")
 ocr_model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-large-printed")
