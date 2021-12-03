@@ -100,7 +100,7 @@ def command():
     parser.add_argument('--output_channel', type=int, default=512,
                         help='the number of output channel of Feature extractor')
     parser.add_argument('--hidden_size', type=int, default=256, help='the size of the LSTM hidden state')
-
+    parser.add_argument('--detect_text',required=True, help='htr or ocr')
     args = parser.parse_args()
     if args.sensitive:
         args.character = string.printable[:-6]  # same with ASTER setting (use 94 char).
