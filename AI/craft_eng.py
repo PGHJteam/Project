@@ -263,7 +263,7 @@ def naver_recog(args,data,model,converter,img_size):
 def trocr_recog(dataset,recog_net,img_size):
     one_image_res = []
     for tr_sample,rect in dataset:
-        generated_ids = recog_net.generate(tr_sample)
+        generated_ids = recog_net.generate(tr_sample)[0]
         text = dataset.processor.decode(generated_ids, skip_special_tokens=True)
         total_x = img_size[1]
         total_y = img_size[0]
