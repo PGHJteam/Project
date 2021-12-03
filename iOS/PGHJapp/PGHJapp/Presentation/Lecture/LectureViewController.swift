@@ -1,12 +1,14 @@
 import UIKit
 import Alamofire
 
-class LectureViewController: UIViewController, SendDataDelegate {
-    var myData: UploadData?
+class LectureViewController: UIViewController {
+    var imageData: UploadData?
     var lectureData: LectureData?
-    var templateID = "template01-01"
+    var templateID: String?
+    var languageType: String?
     var titleFont = "bold"
     var bodyFont = "bold"
+    
     
     @IBOutlet weak var materialNameTextField: UITextField!
     @IBOutlet weak var progressBarImageView: UIImageView!
@@ -15,15 +17,11 @@ class LectureViewController: UIViewController, SendDataDelegate {
     @IBAction func languageTypeButtonTouched(_ sender: Any) {
         
     }
-    
-    func sendData(data: UploadData) {
-        myData = data
-    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-//        lectureData = Lecture.make(imageData: myData!)
+        print(imageData!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,19 +36,25 @@ class LectureViewController: UIViewController, SendDataDelegate {
     }
     
     private func configure() {
+        materialNameTextField.delegate = self
         progressBarImageView.addShadowToUnder()
         materialNameTextField.addLeftPadding()
         
-        let english = UIAction(title: "영어", handler: { _ in print("영어") })
-        let korean = UIAction(title: "한글", handler: { _ in print("한글 ") })
+        let english = UIAction(title: "영어", handler: { _ in self.languageType = "eng" })
+        let korean = UIAction(title: "한글", handler: { _ in self.languageType = "kor" })
         languageTypeButton.menu = UIMenu(children: [english,
                                                    korean])
         templateTypeButton.titleLabel?.text = templateID
     }
     
     @IBAction func createButtonTouched(_ sender: Any) {
-        print(myData)
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        let materialName = (materialNameTextField.text ?? "sample") + ".pptx"
+        UserDefaults.standard.set(materialName, forKey: "materialName")
+//        let templateID = templateTypeButton.currentTitle ?? "template01-01"
+        let templateID = "template04-01"
+        let lectureData = Lecture.make(imageData: imageData!, materialName: materialName, templateID: templateID, fontSize: 12, fontType: "CookieRun Bold")
+        print(lectureData)
         AF.request(Endpoint.createRequest, method: .post, parameters: lectureData, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
             .responseDecodable(of: Material.self) { response in
                 print(response)
@@ -70,5 +74,12 @@ extension LectureViewController: FontViewControllerDelegate {
     func sendData(titleFont: String, bodyFont: String) {
         self.titleFont = titleFont
         self.bodyFont = bodyFont
+    }
+}
+
+extension LectureViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

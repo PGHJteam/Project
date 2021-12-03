@@ -8,12 +8,12 @@
 import Foundation
 
 struct Lecture {
-    static func make(imageData: UploadData) -> LectureData {
-        let upload_id = imageData.id
-        let template_id = "template01-01"
-        let fileName = "sample.pptx"
+    static func make(imageData: UploadData, materialName: String, templateID: String, fontSize: Int, fontType: String) -> LectureData {
+        let uploadID = imageData.id
+        let templateID = templateID
+        let materialName = materialName
         var items = [Item]()
-        let font = Font(size: 20, type: "bold")
+        let font = Font(size: fontSize, type: fontType) // fontType
         for image in imageData.images {
             var sentences = [Sentence]()
             for text in image.results {
@@ -23,6 +23,6 @@ struct Lecture {
             let item = Item(page: image.id, sentences: sentences)
             items.append(item)
         }
-        return LectureData(uploadID: upload_id, templateID: template_id, fileName: fileName, items: items)
+        return LectureData(uploadID: uploadID, templateID: templateID, materialName: materialName, items: items)
     }
 }

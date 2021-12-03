@@ -23,15 +23,14 @@ class LoadingViewController: UIViewController {
                     let imageData = image.pngData()!
                     print(imageData)
                     multipartFormData.append(imageData, withName: "image\(index)", fileName: "image\(index).png")}
-            }
-            
+            }            
         }, to: Endpoint.uploadImage, method: .post, headers: ["Authorization": "Bearer \(token)"])
             .responseDecodable(of: UploadData.self) { response in
                 print(response)
                 switch response.result {
                 case .success(let imageData):
                     guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }
-                    lectureVC.myData = imageData
+                    lectureVC.imageData = imageData
 
                     self.navigationController?.pushViewController(lectureVC, animated: true)
                 case .failure(let error):

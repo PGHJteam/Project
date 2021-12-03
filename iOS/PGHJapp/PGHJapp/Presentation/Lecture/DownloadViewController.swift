@@ -10,8 +10,8 @@ import Alamofire
 
 class DownloadViewController: UIViewController {
     var material: Material?
+    var materialName: String?
     
-    @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.hidesBackButton = true
@@ -57,6 +57,8 @@ class DownloadViewController: UIViewController {
                 print("파일다운로드 실패")
             }else{
                 print("파일다운로드 완료")
+                guard let downloadSuccessVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadSuccessViewController") as? DownloadSuccessViewController else { return }
+                self.navigationController?.pushViewController(downloadSuccessVC, animated: true)
             }
         }
 

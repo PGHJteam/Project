@@ -42,6 +42,7 @@
 		76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AD27141D620010210E /* TemplateViewController.swift */; };
 		76B7981927590EA400402604 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7981727590EA400402604 /* ImageCell.swift */; };
 		76B7981A27590EA400402604 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B7981827590EA400402604 /* ImageCell.xib */; };
+		76B7981C2759F68B00402604 /* DownloadSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */; };
 		76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */; };
 		76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */; };
 		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
@@ -114,6 +115,7 @@
 		76B5D3AD27141D620010210E /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		76B7981727590EA400402604 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		76B7981827590EA400402604 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSuccessViewController.swift; sourceTree = "<group>"; };
 		76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				769B912E2714AE8A0027DDE4 /* FontViewController.swift */,
 				76B7981727590EA400402604 /* ImageCell.swift */,
 				76B7981827590EA400402604 /* ImageCell.xib */,
+				76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
 				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
+				76B7981C2759F68B00402604 /* DownloadSuccessViewController.swift in Sources */,
 				76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
 				76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */,

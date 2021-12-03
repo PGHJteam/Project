@@ -54,27 +54,6 @@ class HomeViewController: UIViewController {
         guard let loadingVC = self.storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as? LoadingViewController else { return }
         loadingVC.images = images
         self.navigationController?.pushViewController(loadingVC, animated: true)
-        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-        AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(Data("eng-htr".utf8), withName: "image_type") // 여기서 eng, kor만 나눌지
-
-            for (index, image) in self.images.enumerated() {
-                let imageData = image.pngData()!
-                print(imageData)
-                multipartFormData.append(imageData, withName: "image\(index)", fileName: "image\(index).png")}
-        }, to: Endpoint.uploadImage, method: .post, headers: ["Authorization": "Bearer \(token)"])
-            .responseDecodable(of: UploadData.self) { response in
-                print(response)
-                switch response.result {
-                case .success(let imageData):
-                    guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }
-                    lectureVC.myData = imageData
-
-                    self.navigationController?.pushViewController(lectureVC, animated: true)
-                case .failure(let error):
-                    print(error)
-                }
-            }
     }
 }
 
@@ -113,7 +92,6 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
-//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
