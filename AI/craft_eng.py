@@ -262,24 +262,61 @@ def naver_recog(args,data,model,converter,img_size):
 
 def trocr_recog(dataset,recog_net,img_size):
     one_image_res = []
-    for tr_sample,rect in dataset:
-        generated_ids = recog_net.generate(tr_sample)[0]
-        text = dataset.processor.decode(generated_ids, skip_special_tokens=True)
-        total_x = img_size[1]
-        total_y = img_size[0]
-        x, y, w, h = rect
-        width = w / total_x
-        height = h / total_y
-        left = x / total_x
-        top = y / total_y
-        res_dict = dict()
-        res_dict['text'] = text
-        res_dict['coordinate'] = {"left":left,"top":top}
-        res_dict['size'] = {"width":width,"height":height}
+    total_x = img_size[1]
+    total_y = img_size[0]
+    start_tok = '<s>'
+    end_tok = '</s>'
+    data_loader = torch.utils.data.DataLoader(
+        dataset, batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=int(args.workers), pin_memory=True)
+    recog_net.eval()
+    with torch.no_grad():
+        for tr_sample,rect in data_loader:
+            generated_ids = recog_net.generate(tr_sample,max_length=5)
+            text = dataset.processor.batch_decode(generated_ids)
+            for t in text:
+                temp = re.sub(start_tok,"",t)
+                if len(temp) == 0:
+                    t = ''
+                else:
+                    if temp.startswith(start_tok):
+                        end_idx = temp[len(start_tok):].find(end_tok)
+                        if end_idx == 0:
+                            t = ''
+                        else:
+                            t = temp[len(start_tok):end_idx]
+                x, y, w, h = rect
+                width = w / total_x
+                height = h / total_y
+                left = x / total_x
+                top = y / total_y
+                res_dict = dict()
+                res_dict['text'] = t
+                res_dict['coordinate'] = {"left":left,"top":top}
+                res_dict['size'] = {"width":width,"height":height}
+
+
+                res_dict['accuracy'] = 1.0
+            one_image_res.append(res_dict)
+#     for tr_sample,rect in dataset:
+#         generated_ids = recog_net.generate(tr_sample)[0]
+#         text = dataset.processor.decode(generated_ids, skip_special_tokens=True)
+#         total_x = img_size[1]
+#         total_y = img_size[0]
+#         x, y, w, h = rect
+#         width = w / total_x
+#         height = h / total_y
+#         left = x / total_x
+#         top = y / total_y
+#         res_dict = dict()
+#         res_dict['text'] = text
+#         res_dict['coordinate'] = {"left":left,"top":top}
+#         res_dict['size'] = {"width":width,"height":height}
 
         
-        res_dict['accuracy'] = 1.0
-        one_image_res.append(res_dict)
+#         res_dict['accuracy'] = 1.0
+#         one_image_res.append(res_dict)
     return one_image_res
 
 
