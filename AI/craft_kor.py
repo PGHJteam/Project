@@ -102,6 +102,7 @@ def command():
     parser.add_argument('--hidden_size', type=int, default=256, help='the size of the LSTM hidden state')
     parser.add_argument('--detect_text',required=True, help='htr or ocr')
     parser.add_argument('--recog_name',help='naver or trocr')
+    parser.add_argument('--recog_model',help='naver path')
     args = parser.parse_args()
     if args.sensitive:
         args.character = string.printable[:-6]  # same with ASTER setting (use 94 char).
