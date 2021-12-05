@@ -31,7 +31,7 @@ class LectureViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "font" {
             let viewController: FontViewController = segue.destination as! FontViewController
-            viewController.delegate = self
+//            viewController.delegate = self
         }
     }
     
@@ -49,7 +49,13 @@ class LectureViewController: UIViewController {
     
     @IBAction func createButtonTouched(_ sender: Any) {
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-        let materialName = (materialNameTextField.text ?? "sample") + ".pptx"
+        var materialName = ""
+        if materialNameTextField.text == "" {
+            materialName = "sample.pptx"
+        } else {
+            materialName = materialNameTextField.text! + ".pptx"
+        }
+        
         UserDefaults.standard.set(materialName, forKey: "materialName")
 //        let templateID = templateTypeButton.currentTitle ?? "template01-01"
         let templateID = "template04-01"
@@ -70,12 +76,12 @@ class LectureViewController: UIViewController {
     }
 }
 
-extension LectureViewController: FontViewControllerDelegate {
-    func sendData(titleFont: String, bodyFont: String) {
-        self.titleFont = titleFont
-        self.bodyFont = bodyFont
-    }
-}
+//extension LectureViewController: FontViewControllerDelegate {
+//    func sendData(titleFont: String, bodyFont: String) {
+//        self.titleFont = titleFont
+//        self.bodyFont = bodyFont
+//    }
+//}
 
 extension LectureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

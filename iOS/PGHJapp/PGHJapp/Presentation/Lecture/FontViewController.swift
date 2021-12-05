@@ -7,34 +7,19 @@
 
 import UIKit
 
-protocol FontViewControllerDelegate{
-    func sendData(titleFont: String, bodyFont: String)
-}
-
-class FontViewController: UIViewController {
-    
-    var delegate: FontViewControllerDelegate?
-
-    private var titleFont: String?
-    private var bodyFont: String?
-
-    @IBOutlet weak var titleFontButton: UIButton!
-    @IBOutlet weak var bodyFontButton: UIButton!
-    
-    @IBAction func saveButtonTouched(_ sender: Any) {
-        delegate?.sendData(titleFont: titleFont ?? "font1", bodyFont: bodyFont ?? "font1") // default = font1
-        dismiss(animated: true, completion: nil)
-    }
-    
+class FontViewController: UIViewController {    
+    @IBOutlet weak var previewLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
     private func configure() {
-        let font1 = UIAction(title: "font1", handler: { _ in self.titleFont = "font1" })
-        let font2 = UIAction(title: "font2", handler: { _ in self.titleFont = "font2" })
-        titleFontButton.menu = UIMenu(children: [font1, font2])
-        bodyFontButton.menu = UIMenu(children: [font1, font2])
+        previewLabel.font = previewLabel.font.withSize(30)
+        previewLabel.font = UIFont(name: "CookieRun Regular", size: 10)
+//        previewLabel.font = previewLabel.font.na
+    }
+    
+    @IBAction func EditButtonTouched(_ sender: Any) {
     }
 }

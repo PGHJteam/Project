@@ -9,6 +9,22 @@ import Foundation
 
 struct History: Codable {
     let history: [HistoryItem]
+    
+    func totalCount() -> Int {
+        var totalCount = 0
+        for item in history {
+            totalCount += item.materialList.count
+        }
+        return totalCount
+    }
+    
+    func totalMaterials() -> [String] {
+        var totalMaterials = [String]()
+        for item in history {
+            totalMaterials += item.materialList
+        }
+        return totalMaterials
+    }
 }
 
 struct HistoryItem: Codable {

@@ -8,10 +8,13 @@
 import UIKit
 
 class DownloadSuccessViewController: UIViewController {
+    
 
     @IBOutlet weak var locationLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+        
     }
     
     private func configure() {

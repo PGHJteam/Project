@@ -8,10 +8,31 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
+    var history: History? = nil
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerXib()
+        
     }
+    
+    private func registerXib() {
+        let nibName = UINib(nibName: HistoryCell.id, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: HistoryCell.id)
+    }
+}
+
+extension HistoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        history?.totalCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.id, for: indexPath) as? HistoryCell else{return UITableViewCell()}
+        cell.historyLabel.text = history?.totalMaterials()[indexPath.row]
+        return cell
+    }
+    
+    
 }

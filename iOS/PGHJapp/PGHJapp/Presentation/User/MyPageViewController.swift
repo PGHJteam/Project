@@ -19,11 +19,15 @@ class MyPageViewController: UIViewController {
     @IBAction func historyButtonTouched(_ sender: Any) {
         let accessToken = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         AF.request(Endpoint.history, method: .get, headers: ["Authorization": "Bearer \(accessToken)"])
-//            .responseDecodable(of: History.self) { response in
-//                print(response)
-//            }
-            .responseJSON { response in
-                print(response)
+            .responseDecodable(of: History.self) { response in
+                switch response.result {
+                case .success(_):
+                    guard let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController else { return }
+                    historyVC.history = response.value
+                    self.navigationController?.pushViewController(historyVC, animated: true)
+                case .failure(let error):
+                    print(error)
+                }
             }
     }
     
@@ -50,7 +54,6 @@ class MyPageViewController: UIViewController {
         let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") ?? ""
         let temp = RefreshToken(refresh: refreshToken)
         
-        print(accessToken)
         AF.request(Endpoint.tokenRefresh, method: .post, parameters: temp, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(accessToken)"])
             .responseDecodable(of: Token.self) { response in
                 switch response.result {

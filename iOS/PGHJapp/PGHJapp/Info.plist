@@ -29,7 +29,16 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>paybooc ExtraBold.ttf</string>
+		<string>CookieRun Regular.ttf</string>
+		<string>Cafe24Dangdanghae.ttf</string>
+		<string>Wemakeprice-Bold.ttf</string>
+		<string>MaruBuri-ExtraLight.ttf</string>
+		<string>ONE Mobile POP.ttf</string>
+		<string>ONE Mobile Regular.ttf</string>
+		<string>NanumGothicExtraBold.ttf</string>
+		<string>ELAND 초이스 L.ttf</string>
+		<string>Wemakeprice-SemiBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
