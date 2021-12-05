@@ -510,7 +510,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="fontStyleButtonTouched:" destination="EWd-Li-hqG" eventType="touchUpInside" id="7sd-lX-JZx"/>
-                                                    <segue destination="pEK-bq-XfY" kind="presentation" id="4bH-Re-YoI"/>
+                                                    <segue destination="pEK-bq-XfY" kind="presentation" identifier="showFontList" id="4bH-Re-YoI"/>
                                                 </connections>
                                             </button>
                                         </subviews>

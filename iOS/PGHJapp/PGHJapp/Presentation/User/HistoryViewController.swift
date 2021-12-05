@@ -31,10 +31,7 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.id, for: indexPath) as? HistoryCell else{return UITableViewCell()}
         let materialName = history?.totalMaterials()[indexPath.row] ?? "sample.pptx"
-//        cell.historyLabel.text = history?.totalMaterials()[indexPath.row]
         cell.configure(name: materialName)
         return cell
     }
-    
-    
 }

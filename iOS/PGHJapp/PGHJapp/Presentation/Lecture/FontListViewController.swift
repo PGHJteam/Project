@@ -7,20 +7,30 @@
 
 import UIKit
 
+protocol FontDelegate {
+    func sendFontStyle(name: String?)
+}
+
 class FontListViewController: UIViewController {
+    private var selectedFontStyle: String?
+    var delegate: FontDelegate?
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
-
     }
     private func registerXib() {
         let nibName = UINib(nibName: FontCell.id, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: FontCell.id)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.sendFontStyle(name: selectedFontStyle)
+    }
 
     @IBAction func selectButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -38,5 +48,7 @@ extension FontListViewController: UITableViewDataSource {
 }
 
 extension FontListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedFontStyle = Fonts.list[indexPath.row]
+    }
 }

@@ -14,13 +14,13 @@ class FontCell: UITableViewCell {
     @IBOutlet weak var previewLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor(named: "lightOrange")
+        self.selectedBackgroundView = selectedBackgroundView
     }
     
     func configure(fontName: String) {

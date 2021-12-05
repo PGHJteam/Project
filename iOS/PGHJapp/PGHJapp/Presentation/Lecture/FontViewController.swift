@@ -30,7 +30,8 @@ class FontViewController: UIViewController {
     }
     
     @IBAction func stepperTouched(_ sender: UIStepper) { // min:10, max:40
-        fontSizeLabel.text = Int(sender.value).description
+        fontSize = Int(sender.value)
+        fontSizeLabel.text = fontSize.description
         previewLabel.font = previewLabel.font.withSize(CGFloat(sender.value))
     }
     
@@ -39,4 +40,19 @@ class FontViewController: UIViewController {
     }
 }
 
+extension FontViewController: FontDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFontList" {
+            guard let fontListVC: FontListViewController = segue.destination as? FontListViewController else { return }
+            fontListVC.delegate = self
+        }
+    }
+    
+    func sendFontStyle(name: String?) {
+        guard let newFontStyle = name else {return}
+        fontStyle = newFontStyle
+//        viewDidLoad()
+        configure()
+    }
+}
 
