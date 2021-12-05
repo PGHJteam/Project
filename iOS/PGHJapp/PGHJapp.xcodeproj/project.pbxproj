@@ -127,6 +127,9 @@
 		766C1FF1275C512E007E9258 /* ELAND 초이스 B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8B275C512E007E9258 /* ELAND 초이스 B.ttf */; };
 		766C1FF2275C512E007E9258 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8C275C512E007E9258 /* NotoSansKR-Regular.otf */; };
 		766C1FF3275C512E007E9258 /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8D275C512E007E9258 /* NanumBarunGothicBold.ttf */; };
+		766C1FF5275C5BA1007E9258 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF4275C5BA1007E9258 /* Fonts.swift */; };
+		766C1FF8275C635D007E9258 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF6275C635D007E9258 /* FontCell.swift */; };
+		766C1FF9275C635D007E9258 /* FontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766C1FF7275C635D007E9258 /* FontCell.xib */; };
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
 		769603BB274F548200B41F27 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BA274F548200B41F27 /* InitialViewController.swift */; };
@@ -305,6 +308,9 @@
 		766C1F8B275C512E007E9258 /* ELAND 초이스 B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ELAND 초이스 B.ttf"; sourceTree = "<group>"; };
 		766C1F8C275C512E007E9258 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		766C1F8D275C512E007E9258 /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
+		766C1FF4275C5BA1007E9258 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		766C1FF6275C635D007E9258 /* FontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
+		766C1FF7275C635D007E9258 /* FontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCell.xib; sourceTree = "<group>"; };
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		769603BA274F548200B41F27 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -430,6 +436,7 @@
 				764F6B96273CD984004E81AE /* Coordinate.swift */,
 				764F6B98273CD99F004E81AE /* Size.swift */,
 				764F6B9A273CDA72004E81AE /* Text.swift */,
+				766C1FF4275C5BA1007E9258 /* Fonts.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -631,6 +638,8 @@
 				76B7981827590EA400402604 /* ImageCell.xib */,
 				76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */,
 				766C1F23275C47DD007E9258 /* FontListViewController.swift */,
+				766C1FF6275C635D007E9258 /* FontCell.swift */,
+				766C1FF7275C635D007E9258 /* FontCell.xib */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -907,6 +916,7 @@
 				766C1FAD275C512E007E9258 /* tway_air.ttf in Resources */,
 				766C1FA0275C512E007E9258 /* esamanru Medium.ttf in Resources */,
 				766C1FEC275C512E007E9258 /* .gitignore in Resources */,
+				766C1FF9275C635D007E9258 /* FontCell.xib in Resources */,
 				766C1FB0275C512E007E9258 /* Wemakeprice-Regular.ttf in Resources */,
 				766C1F8F275C512E007E9258 /* CookieRun Regular.ttf in Resources */,
 				766C1F9A275C512E007E9258 /* esamanru Bold.ttf in Resources */,
@@ -1087,11 +1097,13 @@
 				766C1F24275C47DD007E9258 /* FontListViewController.swift in Sources */,
 				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
 				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
+				766C1FF5275C5BA1007E9258 /* Fonts.swift in Sources */,
 				76B7981C2759F68B00402604 /* DownloadSuccessViewController.swift in Sources */,
 				766C1F21275B7E9C007E9258 /* HistoryCell.swift in Sources */,
 				76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */,
 				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
 				76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */,
+				766C1FF8275C635D007E9258 /* FontCell.swift in Sources */,
 				764F6B93273CD937004E81AE /* Item.swift in Sources */,
 				764F6B95273CD955004E81AE /* Lecture.swift in Sources */,
 				769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */,

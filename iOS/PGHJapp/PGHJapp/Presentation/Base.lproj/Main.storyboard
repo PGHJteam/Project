@@ -482,60 +482,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DXi-mo-C0C">
-                                <rect key="frame" x="59" y="138" width="310.33333333333331" height="76"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DXi-mo-C0C">
+                                <rect key="frame" x="73.333333333333343" y="138" width="281.33333333333326" height="76"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="iED-yb-mkB">
-                                        <rect key="frame" x="0.0" y="0.0" width="310.33333333333331" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281.33333333333331" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폰트 타입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aN-j1-dF2">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="21.666666666666668"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye8-6N-Pfq">
-                                                <rect key="frame" x="113.33333333333334" y="0.0" width="67" height="31"/>
+                                                <rect key="frame" x="117.00000000000001" y="0.0" width="164.33333333333337" height="24"/>
                                                 <color key="tintColor" name="buttonOrange"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Button">
+                                                            <attributes>
+                                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </buttonConfiguration>
                                                 <connections>
+                                                    <action selector="fontStyleButtonTouched:" destination="EWd-Li-hqG" eventType="touchUpInside" id="7sd-lX-JZx"/>
                                                     <segue destination="pEK-bq-XfY" kind="presentation" id="4bH-Re-YoI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbX-bn-zex">
-                                                <rect key="frame" x="230.33333333333331" y="0.0" width="80" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="ZRj-Gc-QbB"/>
-                                                    <constraint firstAttribute="height" constant="32" id="wVp-aj-SQD"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="yXJ-a8-AeF">
-                                        <rect key="frame" x="0.0" y="44" width="310.33333333333331" height="32"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="yXJ-a8-AeF">
+                                        <rect key="frame" x="0.0" y="44" width="281.33333333333331" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="폰트 크기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1o8-UL-Twa">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="32"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXD-Yg-11Y">
-                                                <rect key="frame" x="148.33333333333334" y="0.0" width="16" height="32"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" name="buttonOrange"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXD-Yg-11Y">
+                                                <rect key="frame" x="117.00000000000001" y="0.0" width="20.333333333333329" height="32"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="10">
+                                                        <attributes>
+                                                            <color key="NSColor" name="buttonOrange"/>
+                                                            <font key="NSFont" size="18" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="750" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xv8-Sy-9rC">
-                                                <rect key="frame" x="216.33333333333331" y="0.0" width="94" height="32"/>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="750" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="xv8-Sy-9rC">
+                                                <rect key="frame" x="187.33333333333337" y="0.0" width="94" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="muI-SO-XTt"/>
                                                     <constraint firstAttribute="width" constant="94" id="nR5-1e-0DM"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="stepperTouched:" destination="EWd-Li-hqG" eventType="valueChanged" id="gge-8O-lnw"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
@@ -615,7 +625,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="DIM-xl-Wsh"/>
                     <connections>
-                        <outlet property="previewLabel" destination="ZNg-VW-Ecx" id="hao-Qi-e1c"/>
+                        <outlet property="fontSizeLabel" destination="dXD-Yg-11Y" id="7sf-Uz-CA5"/>
+                        <outlet property="fontStyleButton" destination="Ye8-6N-Pfq" id="eGm-Qx-ewP"/>
+                        <outlet property="previewLabel" destination="ZNg-VW-Ecx" id="IVy-4d-f3N"/>
+                        <outlet property="progressBarImageView" destination="PkV-om-5eR" id="peA-mU-7je"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rh-Wj-oQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -637,17 +650,27 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CO8-qq-ipR">
                                 <rect key="frame" x="20" y="60" width="388" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-EX-Ffe">
-                                <rect key="frame" x="358" y="15" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1PZ-k4-8xF"/>
-                                    <constraint firstAttribute="width" constant="50" id="M5B-bU-Gab"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="button_check_50"/>
                                 <connections>
-                                    <action selector="checkButtonTouched:" destination="pEK-bq-XfY" eventType="touchUpInside" id="GZH-9X-tNE"/>
+                                    <outlet property="dataSource" destination="pEK-bq-XfY" id="ciE-kT-CBb"/>
+                                    <outlet property="delegate" destination="pEK-bq-XfY" id="mpl-o7-rRx"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVr-Kh-3LU">
+                                <rect key="frame" x="302" y="15" width="106" height="37"/>
+                                <color key="tintColor" name="buttonOrange"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content=" Select">
+                                            <attributes>
+                                                <font key="NSFont" size="19" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectButtonTouched:" destination="pEK-bq-XfY" eventType="touchUpInside" id="8dU-P7-HCh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -655,9 +678,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CO8-qq-ipR" secondAttribute="trailing" id="7GR-QL-olc"/>
                             <constraint firstItem="v3m-jX-26c" firstAttribute="top" secondItem="CO8-qq-ipR" secondAttribute="bottom" id="Amo-af-lzj"/>
-                            <constraint firstAttribute="trailing" secondItem="TTm-EX-Ffe" secondAttribute="trailing" constant="20" id="E6F-tF-8gs"/>
                             <constraint firstItem="CO8-qq-ipR" firstAttribute="leading" secondItem="j5Y-Mm-qD9" secondAttribute="leadingMargin" id="Fnb-qp-MIV"/>
-                            <constraint firstItem="TTm-EX-Ffe" firstAttribute="top" secondItem="baf-xO-JaT" secondAttribute="bottom" constant="15" id="SCF-Jc-r3e"/>
+                            <constraint firstItem="YVr-Kh-3LU" firstAttribute="top" secondItem="baf-xO-JaT" secondAttribute="bottom" constant="15" id="GHc-To-NzF"/>
+                            <constraint firstItem="YVr-Kh-3LU" firstAttribute="trailing" secondItem="j5Y-Mm-qD9" secondAttribute="trailingMargin" id="YKj-z5-410"/>
+                            <constraint firstItem="CO8-qq-ipR" firstAttribute="top" secondItem="YVr-Kh-3LU" secondAttribute="bottom" constant="8" symbolic="YES" id="aXk-E9-Hfc"/>
                             <constraint firstItem="CO8-qq-ipR" firstAttribute="top" secondItem="baf-xO-JaT" secondAttribute="bottom" constant="60" id="wEa-wb-Pxx"/>
                         </constraints>
                     </view>
@@ -1700,8 +1724,8 @@
         <image name="HomeIcon_orange_40" width="40" height="40"/>
         <image name="LogoIcon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="PersonIcon_orange_40" width="40" height="40"/>
-        <image name="button_check_50" width="110" height="110"/>
         <image name="button_proceed_88" width="148" height="148"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="progress_dots_1" width="222" height="37"/>
         <image name="progress_dots_2" width="222" height="37"/>
