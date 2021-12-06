@@ -22,13 +22,11 @@ class FontViewController: UIViewController {
     
     private func configure() {
         previewLabel.font = UIFont(name: fontStyle, size: CGFloat(fontSize))
-        fontStyleButton.titleLabel?.text = fontStyle
+//        fontStyleButton.titleLabel?.text = fontStyle
+        fontStyleButton.setTitle(fontStyle, for: .normal)
         progressBarImageView.addShadowToUnder()
     }
-    
-    @IBAction func fontStyleButtonTouched(_ sender: Any) {
-    }
-    
+
     @IBAction func stepperTouched(_ sender: UIStepper) { // min:10, max:40
         fontSize = Int(sender.value)
         fontSizeLabel.text = fontSize.description
@@ -51,6 +49,7 @@ extension FontViewController: FontDelegate {
     func sendFontStyle(name: String?) {
         guard let newFontStyle = name else {return}
         fontStyle = newFontStyle
+        print(fontStyle, newFontStyle)
 //        viewDidLoad()
         configure()
     }
