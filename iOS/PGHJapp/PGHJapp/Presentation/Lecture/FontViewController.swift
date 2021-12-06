@@ -22,7 +22,6 @@ class FontViewController: UIViewController {
     
     private func configure() {
         previewLabel.font = UIFont(name: fontStyle, size: CGFloat(fontSize))
-//        fontStyleButton.titleLabel?.text = fontStyle
         fontStyleButton.setTitle(fontStyle, for: .normal)
         progressBarImageView.addShadowToUnder()
     }
@@ -34,7 +33,7 @@ class FontViewController: UIViewController {
     }
     
     @IBAction func EditButtonTouched(_ sender: Any) {
-        
+        // fontStyle,fontSize 넘기기
     }
 }
 

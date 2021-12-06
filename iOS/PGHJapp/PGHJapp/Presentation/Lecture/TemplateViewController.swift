@@ -9,10 +9,14 @@ import UIKit
 
 class TemplateViewController: UIViewController {
     
+//    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        // Do any additional setup after loading the view.
+        imageView.image = UIImage(named: "template_test.png")
     }
     
+    @IBAction func selectButtonTouched(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

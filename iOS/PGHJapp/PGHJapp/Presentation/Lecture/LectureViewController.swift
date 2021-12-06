@@ -21,19 +21,18 @@ class LectureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        print(imageData!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "font" {
-            let viewController: FontViewController = segue.destination as! FontViewController
-//            viewController.delegate = self
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "font" {
+//            let viewController: FontViewController = segue.destination as! FontViewController
+////            viewController.delegate = self
+//        }
+//    }
     
     private func configure() {
         materialNameTextField.delegate = self
@@ -76,12 +75,6 @@ class LectureViewController: UIViewController {
     }
 }
 
-//extension LectureViewController: FontViewControllerDelegate {
-//    func sendData(titleFont: String, bodyFont: String) {
-//        self.titleFont = titleFont
-//        self.bodyFont = bodyFont
-//    }
-//}
 
 extension LectureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
