@@ -19,7 +19,6 @@
 		764F6B8F273CD8EF004E81AE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B8E273CD8EF004E81AE /* Font.swift */; };
 		764F6B91273CD917004E81AE /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B90273CD917004E81AE /* Sentence.swift */; };
 		764F6B93273CD937004E81AE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B92273CD937004E81AE /* Item.swift */; };
-		764F6B95273CD955004E81AE /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B94273CD955004E81AE /* Lecture.swift */; };
 		764F6B97273CD984004E81AE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B96273CD984004E81AE /* Coordinate.swift */; };
 		764F6B99273CD99F004E81AE /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B98273CD99F004E81AE /* Size.swift */; };
 		764F6B9B273CDA72004E81AE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B9A273CDA72004E81AE /* Text.swift */; };
@@ -202,7 +201,6 @@
 		764F6B8E273CD8EF004E81AE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		764F6B90273CD917004E81AE /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		764F6B92273CD937004E81AE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		764F6B94273CD955004E81AE /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		764F6B96273CD984004E81AE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		764F6B98273CD99F004E81AE /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		764F6B9A273CDA72004E81AE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 				764F6B8E273CD8EF004E81AE /* Font.swift */,
 				764F6B90273CD917004E81AE /* Sentence.swift */,
 				764F6B92273CD937004E81AE /* Item.swift */,
-				764F6B94273CD955004E81AE /* Lecture.swift */,
 				764F6B96273CD984004E81AE /* Coordinate.swift */,
 				764F6B98273CD99F004E81AE /* Size.swift */,
 				764F6B9A273CDA72004E81AE /* Text.swift */,
@@ -1111,7 +1108,6 @@
 				76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */,
 				766C1FF8275C635D007E9258 /* FontCell.swift in Sources */,
 				764F6B93273CD937004E81AE /* Item.swift in Sources */,
-				764F6B95273CD955004E81AE /* Lecture.swift in Sources */,
 				769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */,
 				764F6B9D273CDA8E004E81AE /* Image.swift in Sources */,
 				769603BB274F548200B41F27 /* InitialViewController.swift in Sources */,

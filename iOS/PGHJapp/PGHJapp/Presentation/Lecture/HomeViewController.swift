@@ -1,10 +1,14 @@
 import UIKit
 import PhotosUI
 import Alamofire
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
-    
     private var images = [UIImage]()
+    private var imagesObservable: Observable<[UIImage]>?
+    private let disposeBa = DisposeBag()
+    
     @IBOutlet weak var progressBarImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var progressButton: UIButton!
@@ -16,10 +20,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
-        
     }
 
-    
     private func configure(){
         progressBarImageView.addShadowToUnder()
         
@@ -71,7 +73,6 @@ extension HomeViewController: PHPickerViewControllerDelegate {
             }
         }
         print("리로드")
-        collectionView.reloadData()
     }
 
 }

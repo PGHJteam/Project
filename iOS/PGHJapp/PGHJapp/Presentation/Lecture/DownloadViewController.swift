@@ -31,7 +31,6 @@ class DownloadViewController: UIViewController {
         present(alert, animated: false, completion: nil)
     }
 
-
     @IBAction func downloadButtonTouched(_ sender: Any) {
         activityIndicator.startAnimating()
         

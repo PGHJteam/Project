@@ -51,7 +51,7 @@ class LectureViewController: UIViewController {
         UserDefaults.standard.set(materialName, forKey: "materialName")
 //        let templateID = templateTypeButton.currentTitle ?? "template01-01"
         let templateID = "template04-01"
-        let lectureData = Lecture.make(imageData: imageData!, materialName: materialName, templateID: templateID, fontSize: 12, fontType: "CookieRun Bold")
+        let lectureData = LectureData.make(imageData: imageData!, name: materialName, templateID: templateID, fontSize: 12, fontType: "CookieRun Bold")
         print(lectureData)
         AF.request(Endpoint.createRequest, method: .post, parameters: lectureData, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
             .responseDecodable(of: Material.self) { response in
