@@ -4,8 +4,8 @@ import Alamofire
 class LectureViewController: UIViewController {
     var imageData: UploadData?
     var lectureData: LectureData?
-    var templateID: String = "template01-01"
-    var languageType: String?
+    var templateID: String = Templates.getID(number: 0)
+    var languageType: String = "eng"
     var titleFont = "bold"
     var bodyFont = "bold"
     
@@ -27,13 +27,6 @@ class LectureViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "font" {
-//            let viewController: FontViewController = segue.destination as! FontViewController
-////            viewController.delegate = self
-//        }
-//    }
-    
     private func configure() {
         materialNameTextField.delegate = self
         progressBarImageView.addShadowToUnder()
@@ -43,7 +36,7 @@ class LectureViewController: UIViewController {
         let korean = UIAction(title: "한글", handler: { _ in self.languageType = "kor" })
         languageTypeButton.menu = UIMenu(children: [english,
                                                    korean])
-        templateTypeButton.titleLabel?.text = templateID
+        templateTypeButton.setTitle(templateID, for: .normal)
     }
     
     @IBAction func createButtonTouched(_ sender: Any) {
@@ -80,5 +73,20 @@ extension LectureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension LectureViewController: TemplateDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTemplateList" {
+            guard let templateVC: TemplateViewController = segue.destination as? TemplateViewController else { return }
+            templateVC.delegate = self
+        }
+    }
+    
+    func sendTemplateStyle(id: String?) {
+        guard let newTemplateStyle = id else {return}
+        templateID = newTemplateStyle
+        templateTypeButton.setTitle(templateID, for: .normal)
     }
 }

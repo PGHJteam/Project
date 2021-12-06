@@ -13,6 +13,8 @@
 		763EFB6327118D130071C22D /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB6227118D130071C22D /* LectureViewController.swift */; };
 		763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB642711A03F0071C22D /* SendDataDelegate.swift */; };
 		763EFB672711AA560071C22D /* MaterialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB662711AA560071C22D /* MaterialInfo.swift */; };
+		76406325275E2AC400C37335 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76406324275E2AC400C37335 /* Templates.swift */; };
+		76406327275E2FD400C37335 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76406326275E2FD400C37335 /* TemplateCell.swift */; };
 		764F6B8D273CD8A3004E81AE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B8C273CD8A3004E81AE /* Material.swift */; };
 		764F6B8F273CD8EF004E81AE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B8E273CD8EF004E81AE /* Font.swift */; };
 		764F6B91273CD917004E81AE /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B90273CD917004E81AE /* Sentence.swift */; };
@@ -194,6 +196,8 @@
 		763EFB6227118D130071C22D /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		763EFB642711A03F0071C22D /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
 		763EFB662711AA560071C22D /* MaterialInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialInfo.swift; sourceTree = "<group>"; };
+		76406324275E2AC400C37335 /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
+		76406326275E2FD400C37335 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
 		764F6B8C273CD8A3004E81AE /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		764F6B8E273CD8EF004E81AE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		764F6B90273CD917004E81AE /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
@@ -437,6 +441,7 @@
 				764F6B98273CD99F004E81AE /* Size.swift */,
 				764F6B9A273CDA72004E81AE /* Text.swift */,
 				766C1FF4275C5BA1007E9258 /* Fonts.swift */,
+				76406324275E2AC400C37335 /* Templates.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				766C1F23275C47DD007E9258 /* FontListViewController.swift */,
 				766C1FF6275C635D007E9258 /* FontCell.swift */,
 				766C1FF7275C635D007E9258 /* FontCell.xib */,
+				76406326275E2FD400C37335 /* TemplateCell.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -1111,6 +1117,7 @@
 				769603BB274F548200B41F27 /* InitialViewController.swift in Sources */,
 				76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */,
 				76C8359D270A66E500BC5733 /* Token.swift in Sources */,
+				76406327275E2FD400C37335 /* TemplateCell.swift in Sources */,
 				76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */,
 				76A43AC92701FF3E0064072D /* LectureData.swift in Sources */,
 				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
@@ -1128,6 +1135,7 @@
 				769603BD274F6AE300B41F27 /* SigninSuccessViewController.swift in Sources */,
 				76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */,
 				764F6B9B273CDA72004E81AE /* Text.swift in Sources */,
+				76406325275E2AC400C37335 /* Templates.swift in Sources */,
 				76B5D3AC27141D090010210E /* ImageButton.swift in Sources */,
 				76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */,
 				769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */,
