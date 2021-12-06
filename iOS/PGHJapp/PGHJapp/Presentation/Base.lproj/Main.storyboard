@@ -205,7 +205,6 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0d-1b-lpC">
                                                                 <rect key="frame" x="110" y="0.0" width="204" height="31"/>
-                                                                <color key="backgroundColor" red="0.88300544023513794" green="0.80785006284713745" blue="0.95045679807662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" name="buttonOrange"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="template01-01">
@@ -285,6 +284,7 @@
                         <outlet property="languageTypeButton" destination="8Tp-z0-4Sj" id="pWo-M0-ezU"/>
                         <outlet property="materialNameTextField" destination="l0V-Sj-ywt" id="Lok-OP-a62"/>
                         <outlet property="progressBarImageView" destination="Ybr-oT-Yvd" id="Tdc-b1-PdK"/>
+                        <outlet property="templateTypeButton" destination="m0d-1b-lpC" id="kfR-4L-ynP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fn7-Oi-4X6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

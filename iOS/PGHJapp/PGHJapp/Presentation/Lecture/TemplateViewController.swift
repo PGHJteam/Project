@@ -13,7 +13,7 @@ class TemplateViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: "template_test.png")
+        imageView.image = UIImage(named: "template01-01.png")
     }
     
     @IBAction func selectButtonTouched(_ sender: Any) {

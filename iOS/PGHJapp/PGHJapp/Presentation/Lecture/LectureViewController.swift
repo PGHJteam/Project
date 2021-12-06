@@ -4,7 +4,7 @@ import Alamofire
 class LectureViewController: UIViewController {
     var imageData: UploadData?
     var lectureData: LectureData?
-    var templateID: String?
+    var templateID: String = "template01-01"
     var languageType: String?
     var titleFont = "bold"
     var bodyFont = "bold"
