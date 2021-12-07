@@ -300,7 +300,7 @@ def trocr_recog(dataset,recog_net,img_size):
 
 
                 res_dict['accuracy'] = 1.0
-            one_image_res.append(res_dict)
+                one_image_res.append(res_dict)
 #     for tr_sample,rect in dataset:
 #         generated_ids = recog_net.generate(tr_sample)[0]
 #         text = dataset.processor.decode(generated_ids, skip_special_tokens=True)
