@@ -273,7 +273,7 @@ def trocr_recog(dataset,recog_net,img_size):
     recog_net.eval()
     with torch.no_grad():
         for tr_sample,rect in data_loader:
-            generated_ids = recog_net.generate(tr_sample,max_length=5)
+            generated_ids = recog_net.generate(tr_sample)
             text = dataset.processor.batch_decode(generated_ids)
             for t in text:
                 temp = re.sub(start_tok,"",t)
