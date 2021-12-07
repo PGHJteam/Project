@@ -76,7 +76,6 @@ def command():
     parser.add_argument('--refiner_model', default='weights/craft_refiner_CTW1500.pth', type=str, help='pretrained refiner model')
 
     # naver recogntion
-    parser.add_argument('--test_folder', required=True, help='path to image_folder which contains text images')
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
     parser.add_argument('--batch_size', type=int, default=192, help='input batch size')
     parser.add_argument('--saved_model', default='downloads/premodels/pretrained_ocr.pth', help="path to saved_model to evaluation")
