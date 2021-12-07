@@ -274,9 +274,9 @@ def trocr_recog(dataset,recog_net,img_size):
     recog_net.eval()
     with torch.no_grad():
         for tr_sample,rect in data_loader:
-            generated_ids = recog_net.generate(tr_sample,max_length=14)
+            generated_ids = recog_net.generate(tr_sample,max_length=8)
             text = dataset.processor.batch_decode(generated_ids)
-            for t in text:
+            for idx,t in enumerate(text):
                 temp = re.sub(start_tok,"",t)
                 if len(temp) == 0:
                     t = ''
@@ -289,13 +289,13 @@ def trocr_recog(dataset,recog_net,img_size):
 
                     else:
                         t = temp[:end_idx]
-                x, y, w, h = rect
+                x, y, w, h = rect[0][idx].numpy(),rect[1][idx].numpy(),rect[2][idx].numpy(),rect[3][idx].numpy()
                 width = w / total_x
                 height = h / total_y
                 left = x / total_x
                 top = y / total_y
                 res_dict = dict()
-                res_dict['text'] = t
+                res_dict['text'] = t.lower()
                 res_dict['coordinate'] = {"left":left,"top":top}
                 res_dict['size'] = {"width":width,"height":height}
 
