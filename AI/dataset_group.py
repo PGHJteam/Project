@@ -35,6 +35,6 @@ class TrocrDataset(Dataset):
         res = self.polys[idx]
         res = np.array(res).astype(np.int32).reshape((-1))
         croped,rect = cropped_image(self.image, res)
-        croped = self.processor(croped, return_tensors="pt").pixel_values
+        croped = self.processor(croped, return_tensors="pt").pixel_values.squeeze()
 
         return croped, rect
