@@ -23,7 +23,7 @@ class SigninSuccessViewController: UIViewController {
         welcomeTextLabel.text = "\(username)님 반갑습니다"
     }
     @IBAction func homeButtonTouched(_ sender: Any) {
-        guard let TabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
+        guard let TabBarController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") else { return }
         self.navigationController?.pushViewController(TabBarController, animated: true)
     }
 }

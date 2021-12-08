@@ -12,4 +12,8 @@ struct Sentence: Codable {
     var coordinate: Coordinate
     var size: Size
     var font: Font
+    
+    mutating func changeFont(font: Font) {
+        self.font = font
+    }
 }

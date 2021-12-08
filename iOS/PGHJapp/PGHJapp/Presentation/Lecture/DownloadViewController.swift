@@ -13,44 +13,41 @@ class DownloadViewController: UIViewController {
     var materialName: String?
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var progressBarImageView: UIImageView!
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.hidesBackButton = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+        // 여기서 create/pptx 요청하기 완료되면 -> self.activityIndicator.stopAnimating()
     }
     
-    func presentAlert() {
-        let alert = UIAlertController(title: nil, message: "사용자의 Document에 저장되었습니다😎", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") else { return }
-            self.navigationController?.pushViewController(homeVC, animated: true)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: false, completion: nil)
-    }
-
-    @IBAction func downloadButtonTouched(_ sender: Any) {
+    private func configure() {
+        progressBarImageView.addShadowToUnder()
         activityIndicator.startAnimating()
-        
+    }
+    
+    @IBAction func downloadButtonTouched(_ sender: Any) {
+        let materialName = UserDefaults.standard.string(forKey: "materialName")
         let fileManager = FileManager.default
         let appURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileName = "Sample.pptx"
+        let fileName = materialName ?? "sample.pptx"
         let fileURL = appURL.appendingPathComponent(fileName)
-        let material = MaterialInfo(path: "/home/ubuntu/pghj_api_test/pghj_server/files/media/test1/6/", name: fileName)
         let destination: DownloadRequest.Destination = { _, _ in
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-//        let data = MaterialInfo(path: material!.path, name: material!.name)
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        guard let myMaterial = material else {return}
+        let materialInfo = MaterialInfo(material: myMaterial)
 
-        AF.download(Endpoint.download, method: .post, parameters: material, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)", "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"],
+        AF.download(Endpoint.download, method: .post, parameters: materialInfo, encoder: JSONParameterEncoder.default,
+                    headers: ["Authorization": "Bearer \(token)",
+                              "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"],
                     to: destination).downloadProgress { (progress) in
-            print(progress)
-//            self.progressView.progress = Float(progress.fractionCompleted)
-//            self.progressLabel.text = "\(Int(progress.fractionCompleted * 100))%"
         }.response{ response in
             if response.error != nil {
                 print("파일다운로드 실패")

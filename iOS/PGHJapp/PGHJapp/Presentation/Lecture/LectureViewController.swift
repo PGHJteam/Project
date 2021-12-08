@@ -2,22 +2,21 @@ import UIKit
 import Alamofire
 
 class LectureViewController: UIViewController {
+
     var imageData: UploadData?
-    var lectureData: LectureData?
-    var templateID: String = Templates.getID(number: 0)
-    var languageType: String = "eng"
+    //    var lectureData: LectureData?
+    private var name: String = "sample"
+    private var templateID: String = Templates.getID(number: 0)
+
     var titleFont = "bold"
     var bodyFont = "bold"
     
-    
     @IBOutlet weak var materialNameTextField: UITextField!
-    @IBOutlet weak var progressBarImageView: UIImageView!
-    @IBOutlet weak var languageTypeButton: UIButton!
     @IBOutlet weak var templateTypeButton: UIButton!
-    @IBAction func languageTypeButtonTouched(_ sender: Any) {
-        
-    }
-   
+    @IBOutlet weak var templateImageView: UIImageView!
+    @IBOutlet weak var progressBarImageView: UIImageView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -31,46 +30,30 @@ class LectureViewController: UIViewController {
         materialNameTextField.delegate = self
         progressBarImageView.addShadowToUnder()
         materialNameTextField.addLeftPadding()
-        
-        let english = UIAction(title: "영어", handler: { _ in self.languageType = "eng" })
-        let korean = UIAction(title: "한글", handler: { _ in self.languageType = "kor" })
-        languageTypeButton.menu = UIMenu(children: [english,
-                                                   korean])
-        templateTypeButton.setTitle(templateID, for: .normal)
+        configureTemplate()
     }
     
+    private func configureTemplate() {
+        templateTypeButton.setTitle(templateID, for: .normal)
+        templateImageView.image = UIImage(named: templateID+".png")
+    }
+    
+    
     @IBAction func createButtonTouched(_ sender: Any) {
-        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
-        var materialName = ""
-        if materialNameTextField.text == "" {
-            materialName = "sample.pptx"
-        } else {
-            materialName = materialNameTextField.text! + ".pptx"
-        }
-        
-        UserDefaults.standard.set(materialName, forKey: "materialName")
-//        let templateID = templateTypeButton.currentTitle ?? "template01-01"
-        let templateID = "template04-01"
-        let lectureData = LectureData.make(imageData: imageData!, name: materialName, templateID: templateID, fontSize: 12, fontType: "CookieRun Bold")
-        print(lectureData)
-        AF.request(Endpoint.createRequest, method: .post, parameters: lectureData, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
-            .responseDecodable(of: Material.self) { response in
-                print(response)
-                switch response.result {
-                case .success(let material):
-                    guard let downloadVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadViewController") as? DownloadViewController else { return }
-                    downloadVC.material = material
-                    self.navigationController?.pushViewController(downloadVC, animated: true)
-                case .failure(let error):
-                    print(error)
-                }
-            }
+        // lecture만든 뒤 넘기기
+        guard let fontVC = self.storyboard?.instantiateViewController(withIdentifier: "FontViewController") as? FontViewController else { return }
+        var lecture = Lecture(name: name, templateID: templateID)
+        lecture.fetchImageData(imageData: imageData!, font: Font(size: 10, type: "NanumBarunGothic"))
+        fontVC.lecture = lecture
+        self.navigationController?.pushViewController(fontVC, animated: true)
     }
 }
 
 
 extension LectureViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        name = textField.text ?? "sample"
+        UserDefaults.standard.set(name+".pptx", forKey: "materialName")
         textField.resignFirstResponder()
         return true
     }
@@ -87,6 +70,6 @@ extension LectureViewController: TemplateDelegate {
     func sendTemplateStyle(id: String?) {
         guard let newTemplateStyle = id else {return}
         templateID = newTemplateStyle
-        templateTypeButton.setTitle(templateID, for: .normal)
+        configureTemplate()
     }
 }

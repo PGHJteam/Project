@@ -131,6 +131,7 @@
 		766C1FF5275C5BA1007E9258 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF4275C5BA1007E9258 /* Fonts.swift */; };
 		766C1FF8275C635D007E9258 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF6275C635D007E9258 /* FontCell.swift */; };
 		766C1FF9275C635D007E9258 /* FontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766C1FF7275C635D007E9258 /* FontCell.xib */; };
+		767E3F252760ABBB00D85FFA /* LoadingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */; };
 		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
 		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
 		769603BB274F548200B41F27 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BA274F548200B41F27 /* InitialViewController.swift */; };
@@ -141,7 +142,7 @@
 		76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */; };
 		76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3E270B10E900C882FA /* SignupViewController.swift */; };
 		76A43AC627012B660064072D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* EditViewController.swift */; };
-		76A43AC92701FF3E0064072D /* LectureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* LectureData.swift */; };
+		76A43AC92701FF3E0064072D /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* Lecture.swift */; };
 		76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6E147270FCC9300FC5080 /* uploadData.swift */; };
 		76AD3EF12751FFFE001DBAC0 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF02751FFFE001DBAC0 /* RefreshToken.swift */; };
 		76AD3EF327520174001DBAC0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF227520174001DBAC0 /* History.swift */; };
@@ -313,6 +314,7 @@
 		766C1FF4275C5BA1007E9258 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		766C1FF6275C635D007E9258 /* FontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
 		766C1FF7275C635D007E9258 /* FontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCell.xib; sourceTree = "<group>"; };
+		767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSuccessViewController.swift; sourceTree = "<group>"; };
 		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		769603BA274F548200B41F27 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -323,7 +325,7 @@
 		76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		76A2CA3E270B10E900C882FA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		76A43AC527012B660064072D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		76A43AC82701FF3E0064072D /* LectureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureData.swift; sourceTree = "<group>"; };
+		76A43AC82701FF3E0064072D /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		76A6E147270FCC9300FC5080 /* uploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadData.swift; sourceTree = "<group>"; };
 		76AD3EF02751FFFE001DBAC0 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		76AD3EF227520174001DBAC0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -430,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				769CA1872713EF3B001D79E4 /* LanguageType.swift */,
-				76A43AC82701FF3E0064072D /* LectureData.swift */,
+				76A43AC82701FF3E0064072D /* Lecture.swift */,
 				764F6B8E273CD8EF004E81AE /* Font.swift */,
 				764F6B90273CD917004E81AE /* Sentence.swift */,
 				764F6B92273CD937004E81AE /* Item.swift */,
@@ -643,6 +645,7 @@
 				766C1FF6275C635D007E9258 /* FontCell.swift */,
 				766C1FF7275C635D007E9258 /* FontCell.xib */,
 				76406326275E2FD400C37335 /* TemplateCell.swift */,
+				767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */,
 			);
 			path = Lecture;
 			sourceTree = "<group>";
@@ -1115,13 +1118,14 @@
 				76C8359D270A66E500BC5733 /* Token.swift in Sources */,
 				76406327275E2FD400C37335 /* TemplateCell.swift in Sources */,
 				76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */,
-				76A43AC92701FF3E0064072D /* LectureData.swift in Sources */,
+				76A43AC92701FF3E0064072D /* Lecture.swift in Sources */,
 				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
 				76AD3EF7275219AC001DBAC0 /* UIImageViewExtension.swift in Sources */,
 				764F6B97273CD984004E81AE /* Coordinate.swift in Sources */,
 				764F6B8F273CD8EF004E81AE /* Font.swift in Sources */,
 				76AD3EF527520721001DBAC0 /* HistoryViewController.swift in Sources */,
 				76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */,
+				767E3F252760ABBB00D85FFA /* LoadingSuccessViewController.swift in Sources */,
 				764F6B99273CD99F004E81AE /* Size.swift in Sources */,
 				762DCB4327505F2D00C1D53E /* MyPageViewController.swift in Sources */,
 				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,

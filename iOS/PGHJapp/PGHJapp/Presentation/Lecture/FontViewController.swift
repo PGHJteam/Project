@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Alamofire
 
 class FontViewController: UIViewController {
+    var lecture: Lecture?
     private var fontSize: Int = 10
     private var fontStyle: String = "NanumBarunGothic"
     @IBOutlet weak var fontStyleButton: UIButton!
@@ -22,10 +24,14 @@ class FontViewController: UIViewController {
     
     private func configure() {
         previewLabel.font = UIFont(name: fontStyle, size: CGFloat(fontSize))
-        fontStyleButton.setTitle(fontStyle, for: .normal)
+        configureFont()
         progressBarImageView.addShadowToUnder()
     }
-
+    
+    private func configureFont() {
+        fontStyleButton.setTitle(fontStyle, for: .normal)
+    }
+    
     @IBAction func stepperTouched(_ sender: UIStepper) { // min:10, max:40
         fontSize = Int(sender.value)
         fontSizeLabel.text = fontSize.description
@@ -33,7 +39,11 @@ class FontViewController: UIViewController {
     }
     
     @IBAction func EditButtonTouched(_ sender: Any) {
-        // fontStyle,fontSize 넘기기
+        let font = Font(size: fontSize, type: fontStyle)
+        lecture?.fetchFont(font: font)
+        guard let editVC = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
+        editVC.lecture = lecture
+        self.navigationController?.pushViewController(editVC, animated: true)
     }
 }
 
@@ -49,8 +59,7 @@ extension FontViewController: FontDelegate {
         guard let newFontStyle = name else {return}
         fontStyle = newFontStyle
         print(fontStyle, newFontStyle)
-//        viewDidLoad()
-        configure()
+        configureFont()
     }
 }
 

@@ -6,19 +6,21 @@
 //
 
 import UIKit
+import Alamofire
 
 class EditViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var templateID: String?
+    var lecture: Lecture?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        configureBackground(template: templateID)
+        print(lecture)
+//        configureBackground(template: templateID)
     }
     
     func configureBackground(template: String?) {
-        let background = UIImage(named: template ?? "template01-1")
+        let background = UIImage(named: lecture!.templateID)
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
@@ -28,6 +30,23 @@ class EditViewController: UIViewController {
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
     }
+    
+    // 저장 button click시 create 요청
+    //crete 요청
+    //        let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+    //
+    //        AF.request(Endpoint.createRequest, method: .post, parameters: lecture, encoder: JSONParameterEncoder.default, headers: ["Authorization": "Bearer \(token)"])
+    //            .responseDecodable(of: Material.self) { response in
+    //                print(response)
+    //                switch response.result {
+    //                case .success(let material):
+    //                    guard let downloadVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadViewController") as? DownloadViewController else { return }
+    //                    downloadVC.material = material
+    //                    self.navigationController?.pushViewController(downloadVC, animated: true)
+    //                case .failure(let error):
+    //                    print(error)
+    //                }
+    //            }
 }
 
 extension EditViewController {

@@ -28,7 +28,7 @@ class SigninViewController: UIViewController {
 
         let user = SigninForm(id: username, password: password)
                 
-        AF.request(Endpoint.signin, method: .post, parameters: user)
+        AF.request(Endpoint.signin, method: .post, parameters: user, encoder: JSONParameterEncoder.default)
             .responseDecodable(of: Token.self)  { response in
                 switch response.result {
                 case .success(let token):
@@ -37,7 +37,7 @@ class SigninViewController: UIViewController {
                     UserDefaults.standard.set(token.access, forKey: "accessToken")
                     UserDefaults.standard.set(username, forKey: "username")
                     UserDefaults.standard.set(Date(), forKey: "lastlog")
-                    
+                    print(token)
                     guard let SigninSuccessVC = self.storyboard?.instantiateViewController(withIdentifier: "SigninSuccessViewController") else { return }
                     self.navigationController?.pushViewController(SigninSuccessVC, animated: true)
                 case .failure(let error):

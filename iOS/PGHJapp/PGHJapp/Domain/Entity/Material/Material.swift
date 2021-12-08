@@ -13,7 +13,7 @@ struct Material: Codable {
     let name: String
     let template: String
     enum CodingKeys: String, CodingKey {
-        case id = "upload_id"
+        case id = "upload"
         case path = "material_path"
         case name = "material_name"
         case template = "material_template"

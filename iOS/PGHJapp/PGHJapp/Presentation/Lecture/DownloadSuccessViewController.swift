@@ -8,9 +8,8 @@
 import UIKit
 
 class DownloadSuccessViewController: UIViewController {
-    
-
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var progressBarImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -20,6 +19,7 @@ class DownloadSuccessViewController: UIViewController {
     private func configure() {
         let materialName = UserDefaults.standard.string(forKey: "materialName") ?? "sample.pptx"
         locationLabel.text = "나의 iPhone/자료메이커" + materialName
+        progressBarImageView.addShadowToUnder()
     }
     
     @IBAction func HomeButtonTouched(_ sender: Any) {
