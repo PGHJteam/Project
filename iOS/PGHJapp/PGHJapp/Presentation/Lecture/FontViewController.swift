@@ -13,10 +13,10 @@ class FontViewController: UIViewController {
     private var fontSize: Int = 10
     private var fontStyle: String = "NanumBarunGothic"
     @IBOutlet weak var fontStyleButton: UIButton!
-    
     @IBOutlet weak var fontSizeLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var progressBarImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

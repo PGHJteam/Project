@@ -15,7 +15,6 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        print(lecture)
 //        configureBackground(template: templateID)
     }
     
@@ -52,9 +51,15 @@ class EditViewController: UIViewController {
 extension EditViewController {
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.sholdSupportLandscapeRight = true
+        let orientation = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         appDelegate.sholdSupportLandscapeRight = false
+        let orientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
 }

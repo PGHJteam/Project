@@ -17,6 +17,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+        
+//        let orientation = UIInterfaceOrientation.portrait.rawValue
+//        UIDevice.current.setValue(orientation, forKey: "orientation")
+//        UINavigationController.attemptRotationToDeviceOrientation()
     }
 
     private func configure(){
