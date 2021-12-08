@@ -29,14 +29,6 @@ class LoadingViewController: UIViewController {
         configureBannerView()
     }
     
-    private func configureBannerView() {
-//        bannerView.adUnitID = "ca-app-pub-5273303934305782/6840111681"
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test ad mode
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerView.load(GADRequest())
-    }
-    
     private func uploadImages() {
         let token = UserDefaults.standard.string(forKey: "accessToken") ?? ""
         AF.upload(multipartFormData: { multipartFormData in
@@ -68,4 +60,11 @@ class LoadingViewController: UIViewController {
 
 extension LoadingViewController: GADBannerViewDelegate {
 //    alert창을 띄워야 리젝이 안된다는 이야기가 있다. https://nsios.tistory.com/116
+    private func configureBannerView() {
+        bannerView.adUnitID = "ca-app-pub-5273303934305782/6840111681"
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test ad mode
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
+    }
 }

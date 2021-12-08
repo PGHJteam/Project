@@ -34,6 +34,10 @@ struct Lecture: Codable {
         self.pages = pages
     }
     
+    func getPage(id: Int) -> Page {
+        return pages[id]
+    }
+    
     mutating func fetchImageData(imageData: UploadData, font: Font) {
         self.uploadID = imageData.id
         for image in imageData.images {

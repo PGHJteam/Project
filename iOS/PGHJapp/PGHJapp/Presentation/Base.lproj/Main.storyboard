@@ -633,7 +633,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXE-F7-bE1">
-                                                            <rect key="frame" x="50" y="11.5" width="43.5" height="20.5"/>
+                                                            <rect key="frame" x="40" y="11.5" width="43.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" name="buttonOrange"/>
                                                             <nil key="highlightedColor"/>
@@ -642,7 +642,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oXE-F7-bE1" secondAttribute="trailing" constant="20" symbolic="YES" id="JYy-4n-EY1"/>
                                                         <constraint firstItem="oXE-F7-bE1" firstAttribute="centerY" secondItem="h9N-5D-vS6" secondAttribute="centerY" id="fYm-qE-asA"/>
-                                                        <constraint firstItem="oXE-F7-bE1" firstAttribute="leading" secondItem="h9N-5D-vS6" secondAttribute="leadingMargin" constant="30" id="ub0-eR-BFa"/>
+                                                        <constraint firstItem="oXE-F7-bE1" firstAttribute="leading" secondItem="h9N-5D-vS6" secondAttribute="leadingMargin" constant="20" id="ub0-eR-BFa"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -729,7 +729,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="lXS-JL-Wrr">
-                                <rect key="frame" x="50" y="244" width="314" height="107.5"/>
+                                <rect key="frame" x="50" y="244" width="314" height="441"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자료 생성 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6b-Kh-N9e">
                                         <rect key="frame" x="91.5" y="0.0" width="131" height="20.5"/>
@@ -740,7 +740,15 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FZB-dA-2QU">
                                         <rect key="frame" x="138.5" y="70.5" width="37" height="37"/>
                                     </activityIndicatorView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="urJ-5B-ZcO" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="157.5" width="314" height="283.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="urJ-5B-ZcO" secondAttribute="trailing" id="NIX-ao-whh"/>
+                                    <constraint firstItem="urJ-5B-ZcO" firstAttribute="leading" secondItem="lXS-JL-Wrr" secondAttribute="leading" id="gaj-LY-Jcb"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkN-Vf-ZqJ">
                                 <rect key="frame" x="50" y="782" width="314" height="50"/>
@@ -778,6 +786,7 @@
                         <constraints>
                             <constraint firstItem="lXS-JL-Wrr" firstAttribute="leading" secondItem="cOY-3i-oVf" secondAttribute="leadingMargin" constant="30" id="3aP-vR-pJe"/>
                             <constraint firstItem="XkN-Vf-ZqJ" firstAttribute="centerX" secondItem="cOY-3i-oVf" secondAttribute="centerX" id="KDn-NI-KdG"/>
+                            <constraint firstItem="heN-8I-EIm" firstAttribute="top" secondItem="lXS-JL-Wrr" secondAttribute="bottom" constant="30" id="LeL-a5-cMe"/>
                             <constraint firstItem="heN-8I-EIm" firstAttribute="centerX" secondItem="cOY-3i-oVf" secondAttribute="centerX" id="OFg-I2-u8p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lXS-JL-Wrr" secondAttribute="trailing" constant="30" id="R8N-GR-ppl"/>
                             <constraint firstItem="XkN-Vf-ZqJ" firstAttribute="leading" secondItem="cOY-3i-oVf" secondAttribute="leadingMargin" constant="30" id="ei2-VP-KGk"/>
@@ -789,6 +798,7 @@
                     <navigationItem key="navigationItem" id="289-hn-eKR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="FZB-dA-2QU" id="4H9-8S-Xg7"/>
+                        <outlet property="bannerView" destination="urJ-5B-ZcO" id="s0F-dm-Ark"/>
                         <outlet property="downloadButton" destination="XkN-Vf-ZqJ" id="GGm-ip-7Lh"/>
                         <outlet property="progressBarImageView" destination="heN-8I-EIm" id="5dV-XV-qi5"/>
                     </connections>
@@ -1644,11 +1654,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3nG-uR-gy6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3nG-uR-gy6">
                                 <rect key="frame" x="30" y="144" width="354" height="618"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE1-Ct-nEK">
-                                        <rect key="frame" x="31.5" y="0.0" width="291.5" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="53"/>
                                         <string key="text">자료 분석이 완료되었습니다! 
 분석된 자료를 지금부터 수정할 수 있습니다.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1656,13 +1666,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-Pn-ago">
-                                        <rect key="frame" x="152" y="103" width="50" height="405"/>
+                                        <rect key="frame" x="304" y="103" width="50" height="405"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-ux-5vw">
-                                        <rect key="frame" x="147" y="558" width="60" height="60"/>
+                                        <rect key="frame" x="294" y="558" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="RfR-cx-emT"/>
                                             <constraint firstAttribute="height" constant="60" id="Ymv-xp-pKm"/>
@@ -1677,6 +1687,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KE1-Ct-nEK" secondAttribute="trailing" id="XXE-0g-HIj"/>
+                                    <constraint firstItem="KE1-Ct-nEK" firstAttribute="leading" secondItem="3nG-uR-gy6" secondAttribute="leading" id="aVt-4h-VcG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

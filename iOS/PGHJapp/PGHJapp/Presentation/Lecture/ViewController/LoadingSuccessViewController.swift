@@ -18,6 +18,7 @@ class LoadingSuccessViewController: UIViewController {
     private func configure() {
         nextButton.addShadowToUnder()
     }
+    
     @IBAction func nextButtonTouched(_ sender: Any) {
         // lectureView로 넘어가기
         guard let lectureVC = self.storyboard?.instantiateViewController(withIdentifier: "LectureViewController") as? LectureViewController else { return }

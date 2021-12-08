@@ -744,12 +744,12 @@
 		76F4180726F1C51200D677D6 /* PGHJapp */ = {
 			isa = PBXGroup;
 			children = (
+				76F4181626F1C51200D677D6 /* Info.plist */,
 				761FD8B1273C469B00C845D1 /* Supporting files */,
 				76E4099026FAFFE0006A807F /* Domain */,
 				76E4098C26FAF87E006A807F /* Presentation */,
 				7688946426F4215500B204C9 /* Data */,
 				76F4181126F1C51200D677D6 /* Assets.xcassets */,
-				76F4181626F1C51200D677D6 /* Info.plist */,
 			);
 			path = PGHJapp;
 			sourceTree = "<group>";

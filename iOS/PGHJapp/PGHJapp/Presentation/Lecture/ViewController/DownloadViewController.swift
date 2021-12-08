@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import GoogleMobileAds
 import Alamofire
 
-class DownloadViewController: UIViewController {
+class DownloadViewController: UIViewController, GADBannerViewDelegate {
     var lecture: Lecture?
     var material: Material?
     var materialName: String?
@@ -16,6 +17,7 @@ class DownloadViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressBarImageView: UIImageView!
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.hidesBackButton = true
@@ -30,6 +32,14 @@ class DownloadViewController: UIViewController {
     private func configure() {
         progressBarImageView.addShadowToUnder()
         downloadButton.isHidden = true
+    }
+    
+    private func configureBannerView() {
+//        bannerView.adUnitID = "ca-app-pub-5273303934305782/6840111681"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // test ad mode
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
     }
     
     private func createLecture() {

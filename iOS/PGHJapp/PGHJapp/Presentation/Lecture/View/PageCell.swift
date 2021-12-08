@@ -18,8 +18,9 @@ class PageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor(named: "lightOrange")
+        self.selectedBackgroundView = selectedBackgroundView
     }
     
     func configure(id: Int?) {
