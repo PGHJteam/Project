@@ -45,6 +45,7 @@ class EditViewController: UIViewController {
         guard let pageListVC = self.storyboard?.instantiateViewController(withIdentifier: "PageListViewController") as? PageListViewController else { return }
 //        pageListVC.lecture = lecture
 //        self.navigationController?.pushViewController(pageListVC, animated: true)
+
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -16,8 +16,7 @@ class PageListViewController: UIViewController {
                                   Page(id: 2, sentences: [Sentence(sentence: "three", coordinate: Coordinate(left: 0.34, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic"))])])
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureDelegate()
-        print(lecture)
+//        configureDelegate()
     }
     
     private func configureDelegate() {
@@ -27,6 +26,7 @@ class PageListViewController: UIViewController {
     
     @IBAction func nextButtonTouched(_ sender: Any) {
         guard let downloadVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadViewController") as? DownloadViewController else { return }
+        print(lecture)
         downloadVC.lecture = lecture
         self.navigationController?.pushViewController(downloadVC, animated: true)
     }
@@ -52,6 +52,7 @@ extension PageListViewController: UITableViewDelegate {
         guard let editVC = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
         editVC.pageID = pageID
         editVC.lecture = lecture
+        editVC.delegate = self
         self.navigationController?.pushViewController(editVC, animated: true)
     }
 }
@@ -60,7 +61,5 @@ extension PageListViewController: EditDelegate {
     func sendEditedLecture(lecture: Lecture?) {
         guard let lecture = lecture else {return}
         self.lecture = lecture
-        print(lecture)
-        
     }
 }
