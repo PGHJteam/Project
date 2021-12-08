@@ -41,9 +41,9 @@ class FontViewController: UIViewController {
     @IBAction func EditButtonTouched(_ sender: Any) {
         let font = Font(size: fontSize, type: fontStyle)
         lecture?.fetchFont(font: font)
-        guard let editVC = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
-        editVC.lecture = lecture
-        self.navigationController?.pushViewController(editVC, animated: true)
+        guard let pageListVC = self.storyboard?.instantiateViewController(withIdentifier: "PageListViewController") as? PageListViewController else { return }
+//        pageListVC.lecture = lecture
+        self.navigationController?.pushViewController(pageListVC, animated: true)
     }
 }
 

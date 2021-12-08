@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct Item: Codable {
-    let page: Int
+struct Page: Codable {
+    let id: Int
     var sentences: [Sentence]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "page"
+        case sentences
+    }
     
     mutating func changeFont(font: Font) {
         (0..<sentences.count).forEach {
