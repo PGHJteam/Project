@@ -18,7 +18,7 @@ class DownloadSuccessViewController: UIViewController {
     
     private func configure() {
         let materialName = UserDefaults.standard.string(forKey: "materialName") ?? "sample.pptx"
-        locationLabel.text = "나의 iPhone/자료메이커" + materialName
+        locationLabel.text = "나의 iPhone>자료메이커>" + materialName
         progressBarImageView.addShadowToUnder()
     }
     

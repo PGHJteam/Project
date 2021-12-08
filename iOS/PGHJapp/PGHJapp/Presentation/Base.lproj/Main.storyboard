@@ -621,19 +621,8 @@
                                         <color key="textColor" name="textGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="060-Tb-TOC">
-                                        <rect key="frame" x="30" y="40.5" width="314" height="40.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTd-AQ-e5Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="40.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qXn-5q-z5n">
-                                        <rect key="frame" x="0.0" y="101" width="374" height="643"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="703.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PageCell" id="tV1-6x-gwq" customClass="PageCell" customModule="PGHJapp" customModuleProvider="target">
@@ -669,9 +658,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qXn-5q-z5n" firstAttribute="leading" secondItem="YQM-w5-nd1" secondAttribute="leading" id="GwB-W7-AJc"/>
-                                    <constraint firstItem="060-Tb-TOC" firstAttribute="leading" secondItem="YQM-w5-nd1" secondAttribute="leading" constant="30" id="NJt-fL-ftX"/>
                                     <constraint firstAttribute="trailing" secondItem="qXn-5q-z5n" secondAttribute="trailing" id="d9b-fc-deF"/>
-                                    <constraint firstAttribute="trailing" secondItem="060-Tb-TOC" secondAttribute="trailing" id="uQ6-PH-LSb"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -696,6 +683,9 @@
                                         <fragment content=" "/>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextButtonTouched:" destination="sWU-MR-HPY" eventType="touchUpInside" id="Bl8-9d-xiQ"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -799,6 +789,7 @@
                     <navigationItem key="navigationItem" id="289-hn-eKR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="FZB-dA-2QU" id="4H9-8S-Xg7"/>
+                        <outlet property="downloadButton" destination="XkN-Vf-ZqJ" id="GGm-ip-7Lh"/>
                         <outlet property="progressBarImageView" destination="heN-8I-EIm" id="5dV-XV-qi5"/>
                     </connections>
                 </viewController>

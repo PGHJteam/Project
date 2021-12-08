@@ -9,6 +9,8 @@ import UIKit
 
 class PageListViewController: UIViewController {
 //    var lecture: Lecture?
+
+  
     var lecture = Lecture(uploadID: 1, name: "sample.pptx", templateID: "template01-01",
                           pages: [Page(id: 0, sentences: [Sentence(sentence: "important", coordinate: Coordinate(left: 0.34, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic")), Sentence(sentence: "task", coordinate: Coordinate(left: 0.5, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic"))]),
                                   Page(id: 1, sentences: [Sentence(sentence: "second", coordinate: Coordinate(left: 0.34, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic"))]),
@@ -16,6 +18,12 @@ class PageListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(lecture)        
+    }
+    
+    @IBAction func nextButtonTouched(_ sender: Any) {
+        guard let downloadVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadViewController") as? DownloadViewController else { return }
+        downloadVC.lecture = lecture
+        self.navigationController?.pushViewController(downloadVC, animated: true)
     }
 }
 
