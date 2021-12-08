@@ -57,6 +57,10 @@ struct Lecture: Codable {
         }
     }
     
+    mutating func editPage(id: Int, page: Page) {
+        self.pages[id] = page
+    }
+    
 //    static func make(imageData: UploadData, name: String, templateID: String, fontSize: Int, fontType: String) -> Lecture {
 //        let uploadID = imageData.id
 //        let templateID = templateID

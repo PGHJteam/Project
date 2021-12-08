@@ -58,7 +58,6 @@ extension FontViewController: FontDelegate {
     func sendFontStyle(name: String?) {
         guard let newFontStyle = name else {return}
         fontStyle = newFontStyle
-        print(fontStyle, newFontStyle)
         configureFont()
     }
 }

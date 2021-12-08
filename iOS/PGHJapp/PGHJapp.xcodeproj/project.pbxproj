@@ -656,11 +656,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		76BE1D7B274F19BB00E38C5B /* View */ = {
+		76BE1D7B274F19BB00E38C5B /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = View;
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		76C835982709FA6A00BC5733 /* Lecture */ = {
@@ -675,7 +675,7 @@
 		76E4098C26FAF87E006A807F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				76BE1D7B274F19BB00E38C5B /* View */,
+				76BE1D7B274F19BB00E38C5B /* StoryBoard */,
 				76F4180E26F1C51200D677D6 /* Main.storyboard */,
 				76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */,
 				76C835982709FA6A00BC5733 /* Lecture */,
