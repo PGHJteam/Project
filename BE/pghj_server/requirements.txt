@@ -12,17 +12,29 @@ XlsxWriter==3.0.1
 pymysql
 boto3
 django-storages
+
+-f https://download.pytorch.org/whl/torch_stable.html
+-f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html
 numpy
+h5py
+nltk
 cython
 scikit-image
 scikit-build
-torch==1.5
-torchvision==0.6
+torch==1.7.1+cu110
+torchvision==0.8.2+cu110
+timm==0.4.5
 scipy
 imutils
+pybind11
+# fastwer
 tqdm
 lmdb 
 natsort
+tensorboard
 pandas
 opencv-contrib-python
 opencv-python
+matplotlib
+transformers
+kobert_transformers 
