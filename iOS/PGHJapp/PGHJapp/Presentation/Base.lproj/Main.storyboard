@@ -727,7 +727,7 @@
                                                 <color key="textColor" name="buttonOrange"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-Nh-fHP">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-Nh-fHP">
                                                 <rect key="frame" x="0.0" y="51" width="63.5" height="32"/>
                                             </stepper>
                                         </subviews>
@@ -752,6 +752,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="fontSizeLabel" destination="kx3-So-Imj" id="xnj-c0-LVy"/>
                         <outlet property="templateImageView" destination="wje-4d-2gD" id="JLy-VT-o6x"/>
                     </connections>
                 </viewController>
