@@ -5,13 +5,14 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-
 from users.models import User
 from files.models import Upload
+
 
 class UploadInline(TabularInline):
     model = Upload
     extra = 0
+
 
 class UserCreationForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
@@ -19,7 +20,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('user_id', 'user_name', 'user_email', 'is_admin')
+        fields = ('user_id', 'user_name', 'is_admin')
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -41,21 +42,21 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('user_id', 'password', 'user_name', 'user_email', 'is_active', 'is_admin')
+        fields = ('user_id', 'password', 'user_name', 'is_active', 'is_admin')
 
 
 class UserAdmin(BaseAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('user_id', 'user_name', 'user_email', 'is_active', 'is_admin')
+    list_display = ('user_id', 'user_name', 'is_active', 'is_admin')
     list_filter = ('is_admin', 'is_active')
     search_fields = ('user_id',)
     ordering = ('user_id',)
 
     fieldsets = (
         ('Login info', {'fields': ('user_id', 'password',)}),
-        ('Personal info', {'fields': ('user_name', 'user_email',)}),
+        ('Personal info', {'fields': ('user_name',)}),
         ('Activation', {'fields': ('is_active',)}),
         ('Permission', {'fields': ('is_admin',)}),
     )
@@ -63,14 +64,13 @@ class UserAdmin(BaseAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('user_id', 'password1', 'password2', 'user_name', 'user_email', 'is_admin'),
+            'fields': ('user_id', 'password1', 'password2', 'user_name', 'is_admin'),
         }),
     )
     
     inlines = [UploadInline]
 
     filter_horizontal = ()
-
 
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
