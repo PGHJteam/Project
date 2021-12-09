@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from files.models import Upload, Image, Material
 
 
