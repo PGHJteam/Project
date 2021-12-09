@@ -28,14 +28,15 @@ module "server" {
   vpc_id            = module.network.vpc_id
   public_subnet_ids = module.network.public_subnet_ids
   ec2_subnet_id     = module.network.private_subnet_ids[0]
+  # ec2_iam_instance_profile = module.security.server_iam_profile
   ec2_key           = var.ec2_key
   ec2_type          = var.ec2_type
   ec2_ami           = var.ec2_ami
   ec2_sg_port       = var.ec2_sg_port
   ec2_root_volume   = var.ec2_root_volume
   lb_sg_port        = var.lb_sg_port
-  ec2_userdata      = file("${var.ec2_filename}")
-  name_prefix       = "${local.tags.Environment}-${local.tags.Name}"
+  ec2_userdata = file("${var.ec2_filename}")
+  name_prefix  = "${local.tags.Environment}-${local.tags.Name}"
 }
 
 module "security" {

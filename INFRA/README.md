@@ -1,9 +1,9 @@
-# 필기해줘 Backend
-"필기해줘" 모바일 앱 서비스의 인프라 프로비저닝을 위한 테라폼 코드를 개발합니다.
+# 자료메이커 Infra
+"자료메이커" 모바일 앱 서비스의 인프라 프로비저닝을 위한 테라폼 코드를 개발합니다.
 <br><br>
 
 ## 인프라 구성
-![image](https://user-images.githubusercontent.com/67676029/136682312-22874173-febc-4257-ba81-b6d6bd506d04.png)
+
 
 <br>
 
@@ -20,8 +20,8 @@
 #### [Security] 
 * IAM
 
-![image](https://user-images.githubusercontent.com/67676029/136682314-d54fe25d-9cd9-4efb-b59f-65268bbd3ee4.png)
-
+#### [Bastion]
+* EC2, Security Group
 <br>
 
 ## 리소스 구성
@@ -45,7 +45,6 @@
 #### [Security] 
 * IAM – aws_iam_policy / aws_iam_role / aws_iam_role_policy_attachment / aws_iam_instance_profile
 
-#### [Root Module]
-* Each child modules
-* Bastion host – aws_key_pair / aws_instance / aws_security_group
-
+#### [Bastion]
+* EC2 - aws_key_pair / aws_instance
+* Security Group - aws_security_group

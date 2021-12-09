@@ -1,13 +1,13 @@
 variable "vpc_id" {
-  description = ""
+  description = "Vpc id for the database module resources."
   type        = string
   default     = ""
 }
 
-variable "rds_subnet_group_name" {
-  description = "Subnet group name for RDS subnet group."
+variable "name_prefix" {
+  description = "Name prefix for naming the database module resources."
   type        = string
-  default     = "rds_subnet_group"
+  default     = ""
 }
 
 variable "rds_subnet_ids" {
@@ -26,12 +26,6 @@ variable "rds_max_allocated_storage" {
   description = "When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance."
   type        = string
   default     = null
-}
-
-variable "rds_name" {
-  description = "The name of the RDS instance."
-  type        = string
-  default     = ""
 }
 
 variable "rds_type" {
@@ -82,7 +76,6 @@ variable "rds_port" {
   default     = ""
 }
 
-
 variable "rds_skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted."
   type        = bool
@@ -108,9 +101,9 @@ variable "rds_copy_tags_to_snapshot" {
 }
 
 variable "rds_publicly_accessible" {
-  description = "Bool to control if instance is publicly accessible."
-  type        = bool
-  default     = null
+  description = "Control if instance is publicly accessible."
+  type        = string
+  default     = ""
 }
 
 variable "rds_az" {
@@ -121,26 +114,26 @@ variable "rds_az" {
 
 variable "rds_allow_major_version_upgrade" {
   description = "Indicates that major version upgrades are allowed. "
-  type        = bool
-  default     = null
+  type        = string
+  default     = ""
 }
 
 variable "rds_apply_immediately" {
   description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window."
-  type        = bool
-  default     = null
+  type        = string
+  default     = ""
 }
 
 variable "rds_auto_minor_version_upgrade" {
   description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window."
-  type        = bool
-  default     = null
+  type        = string
+  default     = ""
 }
 
 variable "rds_deletion_protection" {
   description = "If the DB instance should have deletion protection enabled."
-  type        = bool
-  default     = null
+  type        = string
+  default     = ""
 }
 
 variable "rds_monitoring_interval" {
@@ -176,12 +169,6 @@ variable "rds_backup_window" {
 variable "rds_delete_automated_backups" {
   description = "Specifies whether to remove automated backups immediately after the DB instance is deleted."
   type        = bool
-  default     = null
-}
-
-variable "rds_ca_cert_name" {
-  description = "The identifier of the CA certificate for the DB instance."
-  type        = string
   default     = null
 }
 
@@ -269,6 +256,12 @@ variable "rds_performance_insights_retention_period" {
   default     = null
 }
 
+variable "rds_sg_port" {
+  description = "Inbound rules of rds security group"
+  type        = list(any)
+  default     = []
+}
+
 ############################################
 # for s3_import
 ############################################
@@ -302,7 +295,6 @@ variable "s3_ingestion_role" {
   default     = null
 }
 
-
 ############################################
 # for restore_to_point_in_time
 ############################################
@@ -328,14 +320,4 @@ variable "use_latest_restorable_time" {
   description = "A boolean value that indicates whether the DB instance is restored from the latest backup time."
   type        = bool
   default     = null
-}
-
-
-variable "rds_sg_port" {
-  description = "inbound rules of rds security group"
-  default = [
-    {
-      port = 3306
-    }
-  ]
 }

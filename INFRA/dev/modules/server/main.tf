@@ -66,8 +66,7 @@ resource "aws_instance" "server" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -84,8 +83,8 @@ resource "aws_security_group" "server" {
     content {
       from_port   = ingress.value.port
       to_port     = ingress.value.port
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
 
@@ -107,8 +106,8 @@ resource "aws_security_group" "lb" {
     content {
       from_port   = ingress.value.port
       to_port     = ingress.value.port
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
 
@@ -132,7 +131,6 @@ resource "aws_s3_bucket" "server" {
   }
 
   lifecycle {
-    # prevent_destroy = true 
     create_before_destroy = true
   }
 }
@@ -142,17 +140,16 @@ resource "aws_s3_bucket" "server" {
 ##################################################
 resource "aws_lb" "lb" {
   name               = "${var.name_prefix}-lb"
-  internal           = false
-  load_balancer_type = "application"
-  ip_address_type    = "ipv4"
-  idle_timeout       = 900
+  internal           = var.lb_internal
+  load_balancer_type = var.lb_type
+  ip_address_type    = var.lb_ip_address_type
+  idle_timeout       = var.lb_idle_timeout
 
   security_groups = [aws_security_group.lb.id]
   subnets         = var.public_subnet_ids
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -194,5 +191,3 @@ resource "aws_alb_listener" "http8000" {
     target_group_arn = aws_lb_target_group.lb.arn
   }
 }
-
-/* https listener 추가 */

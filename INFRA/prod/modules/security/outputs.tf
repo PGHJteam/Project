@@ -1,4 +1,4 @@
-output "bastion_iam_profile" {
-  description = ""
-  value       = aws_iam_instance_profile.bastion.name
+output "server_iam_profile" {
+  description = "Name of the IAM Profile for the ec2 server."
+  value       = aws_iam_instance_profile.server.name
 }

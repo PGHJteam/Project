@@ -62,25 +62,8 @@ resource "aws_db_instance" "rds" {
   username               = var.rds_username
   vpc_security_group_ids = aws_security_group.rds_sg[*].id
 
-  # restore_to_point_in_time {
-  #   restore_time                  = var.restore_time
-  #   source_db_instance_identifier = var.source_db_instance_identifier
-  #   source_dbi_resource_id        = var.source_dbi_resource_id
-  #   use_latest_restorable_time    = var.use_latest_restorable_time
-  # }
-
-  # need S3 resource  
-  # s3_import{
-  #   source_engine = var.s3_engine
-  #   source_engine_version = var.s3_engine_version
-  #   bucket_name = var.s3_bucket_name
-  #   bucket_prefix = var.s3_bucket_prefix
-  #   ingestion_role = var.s3_ingestion_role
-  # }
-
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -89,7 +72,7 @@ resource "aws_db_instance" "rds" {
 ##################################################
 resource "aws_security_group" "rds_sg" {
   vpc_id = var.vpc_id
-  name   = "rds_sg"
+  name   = "${var.name_prefix}-rds_sg"
 
   dynamic "ingress" {
     for_each = var.rds_sg_port
@@ -97,32 +80,8 @@ resource "aws_security_group" "rds_sg" {
     content {
       from_port   = ingress.value.port
       to_port     = ingress.value.port
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
-}
-
-
-##################################################
-# S3 bucket for snapshot backup
-##################################################
-resource "aws_s3_bucket" "snapshot-bucket" {
-  bucket = "${var.name_prefix}-snapshot-bucket"
-  acl    = "private"
-
-  versioning {
-    enabled = true
-  }
-
-  tags = {
-    Name = "${var.name_prefix}-snapshot-bucket"
-  }
-
-  
-  lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
-  }
-  
 }

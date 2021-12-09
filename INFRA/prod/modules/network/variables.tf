@@ -10,6 +10,24 @@ variable "name_prefix" {
   default     = ""
 }
 
+variable "subnet_num" {
+  description = "# of subnets"
+  type        = string
+  default     = ""
+}
+
+variable "vpc_enable_dns_hostnames"{
+  description = "Whether to enable dns hostnames."
+  type        = bool
+  default     = true
+}
+
+variable "vpc_enable_dns_support"{
+  description = "Whether to enable dns support."
+  type        = bool
+  default     = true
+}
+
 variable "private_subnet_cidrs" {
   description = "CIDR blocks for the PRIVATE SUBNET"
   type        = list(string)
@@ -28,7 +46,14 @@ variable "igw_cidr" {
   default     = ""
 }
 
-variable "subnet_az" {
-  description = "availability zones"
+variable "nat_cidr" {
+  description = "CIDR block for the NAT GATEWAY"
+  type        = string
+  default     = ""
+}
+
+variable "availability_zones" {
+  description = "Availability zones"
+  type        = list(string)
   default     = []
 }

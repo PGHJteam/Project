@@ -256,66 +256,6 @@ variable "rds_performance_insights_retention_period" {
   default     = null
 }
 
-############################################
-# for s3_import
-############################################
-variable "s3_engine" {
-  description = "(Required) Source engine for the backup."
-  type        = string
-  default     = null
-}
-
-variable "s3_engine_version" {
-  description = "(Required) Version of the source engine used to make the backup."
-  type        = string
-  default     = null
-}
-
-variable "s3_bucket_name" {
-  description = "(Required) The bucket name where your backup is stored."
-  type        = string
-  default     = null
-}
-
-variable "s3_bucket_prefix" {
-  description = "(Optional) Can be blank, but is the path to your backup."
-  type        = string
-  default     = null
-}
-
-variable "s3_ingestion_role" {
-  description = "(Required) Role applied to load the data."
-  type        = string
-  default     = null
-}
-
-############################################
-# for restore_to_point_in_time
-############################################
-variable "restore_time" {
-  description = "The date and time to restore from."
-  type        = string
-  default     = null
-}
-
-variable "source_db_instance_identifier" {
-  description = "The identifier of the source DB instance from which to restore."
-  type        = string
-  default     = null
-}
-
-variable "source_dbi_resource_id" {
-  description = "The resource ID of the source DB instance from which to restore. Required if source_db_instance_identifier is not specified."
-  type        = string
-  default     = null
-}
-
-variable "use_latest_restorable_time" {
-  description = "A boolean value that indicates whether the DB instance is restored from the latest backup time."
-  type        = bool
-  default     = null
-}
-
 variable "rds_sg_port" {
   description = "inbound rules of rds security group"
   type        = list(any)

@@ -144,3 +144,27 @@ variable "public_subnet_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "lb_internal"{
+  description = ""
+  type        = bool
+  default     = false
+}
+
+variable "lb_type"{
+  description = ""
+  type        = string
+  default     = "application"
+}
+
+variable "lb_ip_address_type"{
+  description = ""
+  type        = string
+  default     = "ipv4"
+}
+
+variable "lb_idle_timeout"{
+  description = ""
+  type        = number
+  default     = 900
+}

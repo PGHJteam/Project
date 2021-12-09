@@ -16,6 +16,18 @@ variable "subnet_num" {
   default     = ""
 }
 
+variable "vpc_enable_dns_hostnames"{
+  description = ""
+  type        = bool
+  default     = true
+}
+
+variable "vpc_enable_dns_support"{
+  description = ""
+  type        = bool
+  default     = true
+}
+
 variable "private_subnet_cidrs" {
   description = "CIDR blocks for the PRIVATE SUBNET"
   type        = list(string)

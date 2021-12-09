@@ -2,12 +2,18 @@
 # VPC
 ###################################
 resource "aws_vpc" "vpc" {
-  cidr_block           = var.vpc_cidr
-  enable_dns_support   = true
-  enable_dns_hostnames = true
+  cidr_block = var.vpc_cidr
+
+  enable_dns_support   = var.vpc_enable_dns_support
+  enable_dns_hostnames = var.vpc_enable_dns_hostnames
 
   tags = {
     Name = "${var.name_prefix}-vpc"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -17,11 +23,16 @@ resource "aws_vpc" "vpc" {
 resource "aws_subnet" "public_subnet" {
   count             = var.subnet_num
   vpc_id            = aws_vpc.vpc.id
-  availability_zone = var.subnet_az[count.index]
+  availability_zone = var.availability_zones[count.index]
   cidr_block        = var.public_subnet_cidrs[count.index]
 
   tags = {
     Name = "${var.name_prefix}-public"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -29,10 +40,15 @@ resource "aws_subnet" "private_subnet" {
   count             = var.subnet_num
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = var.private_subnet_cidrs[count.index]
-  availability_zone = var.subnet_az[count.index]
+  availability_zone = var.availability_zones[count.index]
 
   tags = {
     Name = "${var.name_prefix}-private"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -44,6 +60,32 @@ resource "aws_internet_gateway" "igw" {
 
   tags = {
     Name = "${var.name_prefix}-igw"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
+  }
+}
+
+###################################
+# NAT Gateway
+###################################
+resource "aws_eip" "elastic_ip" {
+  vpc = true
+}
+
+resource "aws_nat_gateway" "nat" {
+  allocation_id = aws_eip.elastic_ip.id
+  subnet_id     = aws_subnet.public_subnet[1].id
+
+  tags = {
+    Name = "${var.name_prefix}-nat"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -61,13 +103,28 @@ resource "aws_route_table" "public_rt" {
   tags = {
     Name = "${var.name_prefix}-public-rt"
   }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
+  }
 }
 
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.vpc.id
 
+  route {
+    cidr_block     = var.nat_cidr
+    nat_gateway_id = aws_nat_gateway.nat.id
+  }
+
   tags = {
     Name = "${var.name_prefix}-private-rt"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -79,8 +136,9 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public_subnet[count.index].id
   route_table_id = aws_route_table.public_rt.id
 
-  tags = {
-    Name = "${var.name_prefix}-public-rt-table"
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
 
@@ -89,10 +147,8 @@ resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.private_subnet[count.index].id
   route_table_id = aws_route_table.private_rt.id
 
-  tags = {
-    Name = "${var.name_prefix}-private-rt-table"
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
   }
 }
-
-
-# acl, nat

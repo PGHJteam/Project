@@ -4,16 +4,15 @@
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
 
-  enable_dns_support   = true
-  enable_dns_hostnames = true
+  enable_dns_support   = var.vpc_enable_dns_support
+  enable_dns_hostnames = var.vpc_enable_dns_hostnames
 
   tags = {
     Name = "${var.name_prefix}-vpc"
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -31,8 +30,7 @@ resource "aws_subnet" "public_subnet" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -47,8 +45,7 @@ resource "aws_subnet" "private_subnet" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -63,8 +60,7 @@ resource "aws_internet_gateway" "igw" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -84,8 +80,7 @@ resource "aws_nat_gateway" "nat" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -105,8 +100,7 @@ resource "aws_route_table" "public_rt" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -123,8 +117,7 @@ resource "aws_route_table" "private_rt" {
   }
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -137,8 +130,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public_rt.id
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }
 
@@ -148,7 +140,6 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.private_rt.id
 
   lifecycle {
-    # prevent_destroy = true
-    create_before_destroy = true 
+    create_before_destroy = true
   }
 }

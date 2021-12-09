@@ -2,7 +2,7 @@
 # subnet group
 ##################################################
 resource "aws_db_subnet_group" "rds_subnet_group" {
-  name       = var.rds_subnet_group_name
+  name       = "${var.name_prefix}-rds-subnet-group"
   subnet_ids = var.rds_subnet_ids
 }
 
@@ -19,7 +19,6 @@ resource "aws_db_instance" "rds" {
   backup_retention_period = var.rds_backup_retention_period
   backup_window           = var.rds_backup_window
 
-  ca_cert_identifier        = var.rds_ca_cert_name
   copy_tags_to_snapshot     = var.rds_copy_tags_to_snapshot
   customer_owned_ip_enabled = var.rds_customer_owned_ip_enabled
 
@@ -35,7 +34,7 @@ resource "aws_db_instance" "rds" {
   final_snapshot_identifier       = var.rds_final_snapshot_name
 
   iam_database_authentication_enabled = var.rds_iam_database_authentication_enabled
-  identifier                          = var.rds_name
+  identifier                          = "${var.name_prefix}-rds"
   instance_class                      = var.rds_type
   iops                                = var.rds_iops
   license_model                       = var.rds_license_model
@@ -78,11 +77,19 @@ resource "aws_db_instance" "rds" {
   #   bucket_prefix = var.s3_bucket_prefix
   #   ingestion_role = var.s3_ingestion_role
   # }
+  
+  lifecycle {
+    prevent_destroy = true
+    create_before_destroy = true
+  }
 }
 
+##################################################
+# Security Group
+##################################################
 resource "aws_security_group" "rds_sg" {
   vpc_id = var.vpc_id
-  name   = "rds_sg"
+  name   = "${var.name_prefix}-rds_sg"
 
   dynamic "ingress" {
     for_each = var.rds_sg_port
@@ -90,9 +97,30 @@ resource "aws_security_group" "rds_sg" {
     content {
       from_port   = ingress.value.port
       to_port     = ingress.value.port
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
     }
   }
-
 }
+
+
+##################################################
+# S3 bucket for snapshot backup
+##################################################
+/*resource "aws_s3_bucket" "snapshot-bucket" {
+  bucket = "${var.name_prefix}-snapshot-bucket"
+  acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  tags = {
+    Name = "${var.name_prefix}-snapshot-bucket"
+  }
+
+  lifecycle {
+    # prevent_destroy = true
+    create_before_destroy = true
+  }
+}*/

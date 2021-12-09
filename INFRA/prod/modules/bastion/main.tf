@@ -25,6 +25,7 @@ resource "aws_instance" "bastion" {
   }
 
   lifecycle {
+    prevent_destroy = true
     create_before_destroy = true
   }
 }

@@ -3,25 +3,23 @@
 ## Server Setting Guide
 #### 1. Infrastructure Provisioning
 ```
-terraform init
-terraform apply
+$ terraform init
+$ terraform apply
 ```
 
 #### 2. Access bastion host (ssh)
 
-#### 3. Get the private key for the ec2 server in private subnet.
-```
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1JsRXEKiYgnQvLcVNA6VVwWzSTx0yTTfY' -O server_key.pem 
-chmod 400 ./server_key.pem
-```
+#### 3. Get the private key for the ec2 server in private subnet. (in bastoin)
 
-#### 4. Access ec2 server
-```
-ssh -i "server_key.pem" ubuntu@172.31.4.167
-```
+#### 4. Access ec2 server (in bastion)
 
-#### 5. Write/Download server.sh & Execute
+#### 5. Write/Download server.sh & Execute (in server)
+
+#### 6. Modify Database Characterset (in bastion)
 ```
-chmod 755 server.sh
-./server.sh
-```
+$ mysql -h {DB host} -u {DB userID} -p {DB userPW}
+mysql> show databases;
+mysql> use {DB name};
+mysql> alter database {DB name} default character set = utf8;
+mysql> alter table {table name} convert to character set utf8;
+``` 
