@@ -19,18 +19,27 @@ class EditViewController: UIViewController {
     var page: Page?
     var delegate: EditDelegate?
     @IBOutlet weak var templateImageView: UIImageView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        guard var pageID = pageID else { return }
-        guard var lecture = lecture else { return }
-        self.page = lecture.getPage(id: pageID)
+        configure()
         
+        guard let pageID = pageID else { return }
+        guard let lecture = lecture else { return }
+        self.page = lecture.getPage(id: pageID)
+        print(page)
         let editedPage = Page(id: pageID, sentences: [Sentence(sentence: "changed", coordinate: Coordinate(left: 0.34, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic"))])
         self.page = editedPage
         self.lecture?.editPage(id: pageID, page: page!)
+
+        let height = view.bounds.width - (navigationController?.navigationBar.bounds.height)! - 10.0
+        let width = height * 16/9
+        print(height, width)
+    }
+    
+    private func configure() {
+        guard let lecture = lecture else { return }
         configureBackground(templateID: lecture.templateID)
     }
     
@@ -41,11 +50,6 @@ class EditViewController: UIViewController {
     
     @IBAction func saveButtonTouched(_ sender: Any) {
         delegate?.sendEditedLecture(lecture: lecture)
-        print(lecture)
-        guard let pageListVC = self.storyboard?.instantiateViewController(withIdentifier: "PageListViewController") as? PageListViewController else { return }
-//        pageListVC.lecture = lecture
-//        self.navigationController?.pushViewController(pageListVC, animated: true)
-
         self.navigationController?.popViewController(animated: true)
     }
 }

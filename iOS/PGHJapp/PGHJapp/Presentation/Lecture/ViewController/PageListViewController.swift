@@ -16,17 +16,10 @@ class PageListViewController: UIViewController {
                                   Page(id: 2, sentences: [Sentence(sentence: "three", coordinate: Coordinate(left: 0.34, top: 0.21), size: Size(height: 0.56, width: 0.45), font: Font(size: 10, type: "NanumBarunGothic"))])])
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureDelegate()
-    }
-    
-    private func configureDelegate() {
-        guard let editVC = self.storyboard?.instantiateViewController(identifier: "EditViewController") as? EditViewController else { return }
-        editVC.delegate = self
     }
     
     @IBAction func nextButtonTouched(_ sender: Any) {
         guard let downloadVC = self.storyboard?.instantiateViewController(withIdentifier: "DownloadViewController") as? DownloadViewController else { return }
-        print(lecture)
         downloadVC.lecture = lecture
         self.navigationController?.pushViewController(downloadVC, animated: true)
     }
