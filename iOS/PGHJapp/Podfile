@@ -9,6 +9,8 @@ target 'PGHJapp' do
 pod 'Alamofire'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'SnapKit'
+pod 'Then'
 pod 'Google-Mobile-Ads-SDK'
 
 use_frameworks!
