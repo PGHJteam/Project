@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'PGHJapp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for PGHJapp
+pod 'Alamofire'
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'SnapKit'
+pod 'Then'
+pod 'Google-Mobile-Ads-SDK'
+
+use_frameworks!
+pod "JLStickerTextView", :git =>
+"https://github.com/Textcat/JLStickerTextView.git"
+
+  target 'PGHJappTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PGHJappUITests' do
+    # Pods for testing
+  end
+
+end

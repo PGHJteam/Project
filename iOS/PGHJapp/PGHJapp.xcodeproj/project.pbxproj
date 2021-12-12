@@ -1,0 +1,1509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182855DD60E852F986B95628 /* Pods_PGHJapp.framework */; };
+		0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */; };
+		762DCB4327505F2D00C1D53E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DCB4227505F2C00C1D53E /* MyPageViewController.swift */; };
+		763EFB6327118D130071C22D /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB6227118D130071C22D /* LectureViewController.swift */; };
+		763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB642711A03F0071C22D /* SendDataDelegate.swift */; };
+		763EFB672711AA560071C22D /* MaterialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EFB662711AA560071C22D /* MaterialInfo.swift */; };
+		76406325275E2AC400C37335 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76406324275E2AC400C37335 /* Templates.swift */; };
+		76406327275E2FD400C37335 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76406326275E2FD400C37335 /* TemplateCell.swift */; };
+		764F6B8D273CD8A3004E81AE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B8C273CD8A3004E81AE /* Material.swift */; };
+		764F6B8F273CD8EF004E81AE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B8E273CD8EF004E81AE /* Font.swift */; };
+		764F6B91273CD917004E81AE /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B90273CD917004E81AE /* Sentence.swift */; };
+		764F6B93273CD937004E81AE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B92273CD937004E81AE /* Page.swift */; };
+		764F6B97273CD984004E81AE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B96273CD984004E81AE /* Coordinate.swift */; };
+		764F6B99273CD99F004E81AE /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B98273CD99F004E81AE /* Size.swift */; };
+		764F6B9B273CDA72004E81AE /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B9A273CDA72004E81AE /* Text.swift */; };
+		764F6B9D273CDA8E004E81AE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764F6B9C273CDA8E004E81AE /* Image.swift */; };
+		766C1F21275B7E9C007E9258 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1F1F275B7E9C007E9258 /* HistoryCell.swift */; };
+		766C1F22275B7E9C007E9258 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F20275B7E9C007E9258 /* HistoryCell.xib */; };
+		766C1F24275C47DD007E9258 /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1F23275C47DD007E9258 /* FontListViewController.swift */; };
+		766C1F8E275C512E007E9258 /* paybooc ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F26275C512E007E9258 /* paybooc ExtraBold.ttf */; };
+		766C1F8F275C512E007E9258 /* CookieRun Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F27275C512E007E9258 /* CookieRun Regular.ttf */; };
+		766C1F90275C512E007E9258 /* Cafe24Dangdanghae.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F28275C512E007E9258 /* Cafe24Dangdanghae.ttf */; };
+		766C1F91275C512E007E9258 /* Wemakeprice-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F29275C512E007E9258 /* Wemakeprice-Bold.ttf */; };
+		766C1F92275C512E007E9258 /* MaruBuri-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2A275C512E007E9258 /* MaruBuri-ExtraLight.ttf */; };
+		766C1F93275C512E007E9258 /* ONE Mobile POP.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2B275C512E007E9258 /* ONE Mobile POP.ttf */; };
+		766C1F94275C512E007E9258 /* ONE Mobile Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2C275C512E007E9258 /* ONE Mobile Regular.ttf */; };
+		766C1F95275C512E007E9258 /* NanumGothicExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2D275C512E007E9258 /* NanumGothicExtraBold.ttf */; };
+		766C1F96275C512E007E9258 /* ELAND 초이스 L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2E275C512E007E9258 /* ELAND 초이스 L.ttf */; };
+		766C1F97275C512E007E9258 /* Wemakeprice-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F2F275C512E007E9258 /* Wemakeprice-SemiBold.ttf */; };
+		766C1F98275C512E007E9258 /* IBMPlexSansKR-Text.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F30275C512E007E9258 /* IBMPlexSansKR-Text.ttf */; };
+		766C1F99275C512E007E9258 /* Cafe24Danjunghae.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F31275C512E007E9258 /* Cafe24Danjunghae.ttf */; };
+		766C1F9A275C512E007E9258 /* esamanru Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F32275C512E007E9258 /* esamanru Bold.ttf */; };
+		766C1F9B275C512E007E9258 /* MaruBuri-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F33275C512E007E9258 /* MaruBuri-Light.ttf */; };
+		766C1F9C275C512E007E9258 /* ELAND 초이스 M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F34275C512E007E9258 /* ELAND 초이스 M.ttf */; };
+		766C1F9D275C512E007E9258 /* SB 어그로 L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F35275C512E007E9258 /* SB 어그로 L.ttf */; };
+		766C1F9E275C512E007E9258 /* 강한육군 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F36275C512E007E9258 /* 강한육군 Bold.ttf */; };
+		766C1F9F275C512E007E9258 /* paybooc Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F37275C512E007E9258 /* paybooc Medium.ttf */; };
+		766C1FA0275C512E007E9258 /* esamanru Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F38275C512E007E9258 /* esamanru Medium.ttf */; };
+		766C1FA1275C512E007E9258 /* SF함박눈-TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F39275C512E007E9258 /* SF함박눈-TTF.ttf */; };
+		766C1FA2275C512E007E9258 /* EliceDigitalBaeum_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3A275C512E007E9258 /* EliceDigitalBaeum_Bold.ttf */; };
+		766C1FA3275C512E007E9258 /* SB 어그로 M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3B275C512E007E9258 /* SB 어그로 M.ttf */; };
+		766C1FA4275C512E007E9258 /* MaruBuri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3C275C512E007E9258 /* MaruBuri-Bold.ttf */; };
+		766C1FA5275C512E007E9258 /* NanumGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3D275C512E007E9258 /* NanumGothic.ttf */; };
+		766C1FA6275C512E007E9258 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3E275C512E007E9258 /* NotoSansKR-Light.otf */; };
+		766C1FA7275C512E007E9258 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F3F275C512E007E9258 /* GmarketSansTTFLight.ttf */; };
+		766C1FA8275C512E007E9258 /* YdestreetL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F40275C512E007E9258 /* YdestreetL.ttf */; };
+		766C1FA9275C512E007E9258 /* tway_fly.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F41275C512E007E9258 /* tway_fly.ttf */; };
+		766C1FAA275C512E007E9258 /* paybooc Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F42275C512E007E9258 /* paybooc Bold.ttf */; };
+		766C1FAB275C512E007E9258 /* GowunBatang-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F43275C512E007E9258 /* GowunBatang-Bold.ttf */; };
+		766C1FAC275C512E007E9258 /* 강한육군 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F44275C512E007E9258 /* 강한육군 Medium.ttf */; };
+		766C1FAD275C512E007E9258 /* tway_air.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F45275C512E007E9258 /* tway_air.ttf */; };
+		766C1FAE275C512E007E9258 /* ImcreSoojin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F46275C512E007E9258 /* ImcreSoojin.ttf */; };
+		766C1FAF275C512E007E9258 /* paybooc Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F47275C512E007E9258 /* paybooc Light.ttf */; };
+		766C1FB0275C512E007E9258 /* Wemakeprice-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F48275C512E007E9258 /* Wemakeprice-Regular.ttf */; };
+		766C1FB1275C512E007E9258 /* GmarketSansTTFBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F49275C512E007E9258 /* GmarketSansTTFBold.ttf */; };
+		766C1FB2275C512E007E9258 /* HangeulNuriR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4A275C512E007E9258 /* HangeulNuriR.ttf */; };
+		766C1FB3275C512E007E9258 /* IBMPlexSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4B275C512E007E9258 /* IBMPlexSansKR-Regular.ttf */; };
+		766C1FB4275C512E007E9258 /* 국립박물관문화재단클래식L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4C275C512E007E9258 /* 국립박물관문화재단클래식L.ttf */; };
+		766C1FB5275C512E007E9258 /* Cafe24Ohsquare.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4D275C512E007E9258 /* Cafe24Ohsquare.ttf */; };
+		766C1FB6275C512E007E9258 /* Cafe24Ohsquareair.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4E275C512E007E9258 /* Cafe24Ohsquareair.ttf */; };
+		766C1FB7275C512E007E9258 /* Cafe24Ssukssuk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F4F275C512E007E9258 /* Cafe24Ssukssuk.ttf */; };
+		766C1FB8275C512E007E9258 /* ELAND 나이스 M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F50275C512E007E9258 /* ELAND 나이스 M.ttf */; };
+		766C1FB9275C512E007E9258 /* NEXONLv1GothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F51275C512E007E9258 /* NEXONLv1GothicBold.ttf */; };
+		766C1FBA275C512E007E9258 /* 국립박물관문화재단클래식M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F52275C512E007E9258 /* 국립박물관문화재단클래식M.ttf */; };
+		766C1FBB275C512E007E9258 /* HangeulNuriB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F53275C512E007E9258 /* HangeulNuriB.ttf */; };
+		766C1FBC275C512E007E9258 /* 양진체v0.9_ttf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F54275C512E007E9258 /* 양진체v0.9_ttf.ttf */; };
+		766C1FBD275C512E007E9258 /* NanumGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F55275C512E007E9258 /* NanumGothicBold.ttf */; };
+		766C1FBE275C512E007E9258 /* Cafe24Ssurround.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F56275C512E007E9258 /* Cafe24Ssurround.ttf */; };
+		766C1FBF275C512E007E9258 /* MaruBuri-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F57275C512E007E9258 /* MaruBuri-SemiBold.ttf */; };
+		766C1FC0275C512E007E9258 /* ONE Mobile Title.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F58275C512E007E9258 /* ONE Mobile Title.ttf */; };
+		766C1FC1275C512E007E9258 /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F59275C512E007E9258 /* PretendardVariable.ttf */; };
+		766C1FC2275C512E007E9258 /* IBMPlexSansKR-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5A275C512E007E9258 /* IBMPlexSansKR-Medium.ttf */; };
+		766C1FC3275C512E007E9258 /* NEXONLv1GothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5B275C512E007E9258 /* NEXONLv1GothicLight.ttf */; };
+		766C1FC4275C512E007E9258 /* Cafe24Oneprettynight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5C275C512E007E9258 /* Cafe24Oneprettynight.ttf */; };
+		766C1FC5275C512E007E9258 /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5D275C512E007E9258 /* NanumBarunGothicLight.ttf */; };
+		766C1FC6275C512E007E9258 /* SEBANG Gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5E275C512E007E9258 /* SEBANG Gothic.ttf */; };
+		766C1FC7275C512E007E9258 /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F5F275C512E007E9258 /* SpoqaHanSansNeo-Regular.ttf */; };
+		766C1FC8275C512E007E9258 /* KOTRA LEAP_TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F60275C512E007E9258 /* KOTRA LEAP_TTF.ttf */; };
+		766C1FC9275C512E007E9258 /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F61275C512E007E9258 /* GmarketSansTTFMedium.ttf */; };
+		766C1FCA275C512E007E9258 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F62275C512E007E9258 /* NotoSansKR-Bold.otf */; };
+		766C1FCB275C512E007E9258 /* MaruBuri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F63275C512E007E9258 /* MaruBuri-Regular.ttf */; };
+		766C1FCC275C512E007E9258 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F64275C512E007E9258 /* NotoSansKR-Thin.otf */; };
+		766C1FCD275C512E007E9258 /* HS새마을체.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F65275C512E007E9258 /* HS새마을체.ttf */; };
+		766C1FCE275C512E007E9258 /* EliceDigitalBaeum_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F66275C512E007E9258 /* EliceDigitalBaeum_Regular.ttf */; };
+		766C1FCF275C512E007E9258 /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F67275C512E007E9258 /* SpoqaHanSansNeo-Medium.ttf */; };
+		766C1FD0275C512E007E9258 /* ONE Mobile Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F68275C512E007E9258 /* ONE Mobile Bold.ttf */; };
+		766C1FD1275C512E007E9258 /* IBMPlexSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F69275C512E007E9258 /* IBMPlexSansKR-Light.ttf */; };
+		766C1FD2275C512E007E9258 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6A275C512E007E9258 /* NanumBarunGothic.ttf */; };
+		766C1FD3275C512E007E9258 /* Cafe24Simplehae.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6B275C512E007E9258 /* Cafe24Simplehae.ttf */; };
+		766C1FD4275C512E007E9258 /* 국립박물관문화재단클래식B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6C275C512E007E9258 /* 국립박물관문화재단클래식B.ttf */; };
+		766C1FD5275C512E007E9258 /* tway_sky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6D275C512E007E9258 /* tway_sky.ttf */; };
+		766C1FD6275C512E007E9258 /* SLEIGothicTTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6E275C512E007E9258 /* SLEIGothicTTF.ttf */; };
+		766C1FD7275C512E007E9258 /* GowunDodum-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F6F275C512E007E9258 /* GowunDodum-Regular.ttf */; };
+		766C1FD8275C512E007E9258 /* CookieRun Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F70275C512E007E9258 /* CookieRun Bold.ttf */; };
+		766C1FD9275C512E007E9258 /* SB 어그로 B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F71275C512E007E9258 /* SB 어그로 B.ttf */; };
+		766C1FDA275C512E007E9258 /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F72275C512E007E9258 /* SpoqaHanSansNeo-Light.ttf */; };
+		766C1FDB275C512E007E9258 /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F73275C512E007E9258 /* SpoqaHanSansNeo-Bold.ttf */; };
+		766C1FDC275C512E007E9258 /* esamanru Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F74275C512E007E9258 /* esamanru Light.ttf */; };
+		766C1FDD275C512E007E9258 /* fonts.txt in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F75275C512E007E9258 /* fonts.txt */; };
+		766C1FDE275C512E007E9258 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F76275C512E007E9258 /* NotoSansKR-Black.otf */; };
+		766C1FDF275C512E007E9258 /* YdestreetB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F77275C512E007E9258 /* YdestreetB.ttf */; };
+		766C1FE0275C512E007E9258 /* NEXONLv1GothicRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F78275C512E007E9258 /* NEXONLv1GothicRegular.ttf */; };
+		766C1FE1275C512E007E9258 /* NanumGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F79275C512E007E9258 /* NanumGothicLight.ttf */; };
+		766C1FE2275C512E007E9258 /* IBMPlexSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7A275C512E007E9258 /* IBMPlexSansKR-Bold.ttf */; };
+		766C1FE3275C512E007E9258 /* CookieRun Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7B275C512E007E9258 /* CookieRun Black.ttf */; };
+		766C1FE4275C512E007E9258 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7C275C512E007E9258 /* NotoSansKR-Medium.otf */; };
+		766C1FE5275C512E007E9258 /* Cafe24SsurroundAir.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7D275C512E007E9258 /* Cafe24SsurroundAir.ttf */; };
+		766C1FE6275C512E007E9258 /* GowunBatang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7E275C512E007E9258 /* GowunBatang-Regular.ttf */; };
+		766C1FE7275C512E007E9258 /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F7F275C512E007E9258 /* NanumBarunGothicUltraLight.ttf */; };
+		766C1FE8275C512E007E9258 /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F80275C512E007E9258 /* SpoqaHanSansNeo-Thin.ttf */; };
+		766C1FE9275C512E007E9258 /* SEBANG Gothic Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F81275C512E007E9258 /* SEBANG Gothic Bold.ttf */; };
+		766C1FEA275C512E007E9258 /* profiles_settings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F84275C512E007E9258 /* profiles_settings.xml */; };
+		766C1FEB275C512E007E9258 /* Project_Default.xml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F85275C512E007E9258 /* Project_Default.xml */; };
+		766C1FEC275C512E007E9258 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F86275C512E007E9258 /* .gitignore */; };
+		766C1FED275C512E007E9258 /* workspace.xml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F87275C512E007E9258 /* workspace.xml */; };
+		766C1FEE275C512E007E9258 /* modules.xml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F88275C512E007E9258 /* modules.xml */; };
+		766C1FEF275C512E007E9258 /* misc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F89275C512E007E9258 /* misc.xml */; };
+		766C1FF0275C512E007E9258 /* Fonts.iml in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8A275C512E007E9258 /* Fonts.iml */; };
+		766C1FF1275C512E007E9258 /* ELAND 초이스 B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8B275C512E007E9258 /* ELAND 초이스 B.ttf */; };
+		766C1FF2275C512E007E9258 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8C275C512E007E9258 /* NotoSansKR-Regular.otf */; };
+		766C1FF3275C512E007E9258 /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 766C1F8D275C512E007E9258 /* NanumBarunGothicBold.ttf */; };
+		766C1FF5275C5BA1007E9258 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF4275C5BA1007E9258 /* Fonts.swift */; };
+		766C1FF8275C635D007E9258 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766C1FF6275C635D007E9258 /* FontCell.swift */; };
+		766C1FF9275C635D007E9258 /* FontCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766C1FF7275C635D007E9258 /* FontCell.xib */; };
+		767E3F252760ABBB00D85FFA /* LoadingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */; };
+		7688946726F4216900B204C9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946626F4216900B204C9 /* APIRouter.swift */; };
+		7688946926F429C900B204C9 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7688946826F429C900B204C9 /* APIClient.swift */; };
+		769603BB274F548200B41F27 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BA274F548200B41F27 /* InitialViewController.swift */; };
+		769603BD274F6AE300B41F27 /* SigninSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */; };
+		769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B912E2714AE8A0027DDE4 /* FontViewController.swift */; };
+		769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1852713E7A0001D79E4 /* LoadingViewController.swift */; };
+		769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769CA1872713EF3B001D79E4 /* LanguageType.swift */; };
+		76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */; };
+		76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2CA3E270B10E900C882FA /* SignupViewController.swift */; };
+		76A43AC627012B660064072D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC527012B660064072D /* EditViewController.swift */; };
+		76A43AC92701FF3E0064072D /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A43AC82701FF3E0064072D /* Lecture.swift */; };
+		76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6E147270FCC9300FC5080 /* uploadData.swift */; };
+		76AD3EF12751FFFE001DBAC0 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF02751FFFE001DBAC0 /* RefreshToken.swift */; };
+		76AD3EF327520174001DBAC0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF227520174001DBAC0 /* History.swift */; };
+		76AD3EF527520721001DBAC0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF427520721001DBAC0 /* HistoryViewController.swift */; };
+		76AD3EF7275219AC001DBAC0 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AD3EF6275219AC001DBAC0 /* UIImageViewExtension.swift */; };
+		76B5D3AC27141D090010210E /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AB27141D090010210E /* ImageButton.swift */; };
+		76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5D3AD27141D620010210E /* TemplateViewController.swift */; };
+		76B6A5692760D1F700F51D1B /* PageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6A5682760D1F700F51D1B /* PageListViewController.swift */; };
+		76B6A56D2760D31900F51D1B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6A56C2760D31900F51D1B /* PageCell.swift */; };
+		76B7981927590EA400402604 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7981727590EA400402604 /* ImageCell.swift */; };
+		76B7981A27590EA400402604 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B7981827590EA400402604 /* ImageCell.xib */; };
+		76B7981C2759F68B00402604 /* DownloadSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */; };
+		76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */; };
+		76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */; };
+		76C8359A270A055600BC5733 /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C83599270A055600BC5733 /* SignupForm.swift */; };
+		76C8359D270A66E500BC5733 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8359C270A66E500BC5733 /* Token.swift */; };
+		76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4098E26FAF8A3006A807F /* SigninViewController.swift */; };
+		76E4099326FB0027006A807F /* SigninForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099226FB0027006A807F /* SigninForm.swift */; };
+		76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4099926FB9DE5006A807F /* APIConstants.swift */; };
+		76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180826F1C51200D677D6 /* AppDelegate.swift */; };
+		76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180A26F1C51200D677D6 /* SceneDelegate.swift */; };
+		76F4180D26F1C51200D677D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4180C26F1C51200D677D6 /* HomeViewController.swift */; };
+		76F4181026F1C51200D677D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F4180E26F1C51200D677D6 /* Main.storyboard */; };
+		76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F4181126F1C51200D677D6 /* Assets.xcassets */; };
+		76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */; };
+		76F4182026F1C51300D677D6 /* PGHJappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4181F26F1C51300D677D6 /* PGHJappTests.swift */; };
+		76F4182B26F1C51300D677D6 /* PGHJappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4182A26F1C51300D677D6 /* PGHJappUITests.swift */; };
+		DD7993E1299D8768B49819ED /* Pods_PGHJappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76F4181C26F1C51300D677D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76F417FD26F1C51100D677D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76F4180426F1C51100D677D6;
+			remoteInfo = PGHJapp;
+		};
+		76F4182726F1C51300D677D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76F417FD26F1C51100D677D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76F4180426F1C51100D677D6;
+			remoteInfo = PGHJapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		182855DD60E852F986B95628 /* Pods_PGHJapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		762DCB4227505F2C00C1D53E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		763EFB6227118D130071C22D /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
+		763EFB642711A03F0071C22D /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
+		763EFB662711AA560071C22D /* MaterialInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialInfo.swift; sourceTree = "<group>"; };
+		76406324275E2AC400C37335 /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
+		76406326275E2FD400C37335 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		764F6B8C273CD8A3004E81AE /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		764F6B8E273CD8EF004E81AE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		764F6B90273CD917004E81AE /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		764F6B92273CD937004E81AE /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		764F6B96273CD984004E81AE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		764F6B98273CD99F004E81AE /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		764F6B9A273CDA72004E81AE /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		764F6B9C273CDA8E004E81AE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		766C1F1F275B7E9C007E9258 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		766C1F20275B7E9C007E9258 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		766C1F23275C47DD007E9258 /* FontListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewController.swift; sourceTree = "<group>"; };
+		766C1F26275C512E007E9258 /* paybooc ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "paybooc ExtraBold.ttf"; sourceTree = "<group>"; };
+		766C1F27275C512E007E9258 /* CookieRun Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CookieRun Regular.ttf"; sourceTree = "<group>"; };
+		766C1F28275C512E007E9258 /* Cafe24Dangdanghae.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Dangdanghae.ttf; sourceTree = "<group>"; };
+		766C1F29275C512E007E9258 /* Wemakeprice-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wemakeprice-Bold.ttf"; sourceTree = "<group>"; };
+		766C1F2A275C512E007E9258 /* MaruBuri-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaruBuri-ExtraLight.ttf"; sourceTree = "<group>"; };
+		766C1F2B275C512E007E9258 /* ONE Mobile POP.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile POP.ttf"; sourceTree = "<group>"; };
+		766C1F2C275C512E007E9258 /* ONE Mobile Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Regular.ttf"; sourceTree = "<group>"; };
+		766C1F2D275C512E007E9258 /* NanumGothicExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.ttf; sourceTree = "<group>"; };
+		766C1F2E275C512E007E9258 /* ELAND 초이스 L.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ELAND 초이스 L.ttf"; sourceTree = "<group>"; };
+		766C1F2F275C512E007E9258 /* Wemakeprice-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wemakeprice-SemiBold.ttf"; sourceTree = "<group>"; };
+		766C1F30275C512E007E9258 /* IBMPlexSansKR-Text.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Text.ttf"; sourceTree = "<group>"; };
+		766C1F31275C512E007E9258 /* Cafe24Danjunghae.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Danjunghae.ttf; sourceTree = "<group>"; };
+		766C1F32275C512E007E9258 /* esamanru Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru Bold.ttf"; sourceTree = "<group>"; };
+		766C1F33275C512E007E9258 /* MaruBuri-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaruBuri-Light.ttf"; sourceTree = "<group>"; };
+		766C1F34275C512E007E9258 /* ELAND 초이스 M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ELAND 초이스 M.ttf"; sourceTree = "<group>"; };
+		766C1F35275C512E007E9258 /* SB 어그로 L.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SB 어그로 L.ttf"; sourceTree = "<group>"; };
+		766C1F36275C512E007E9258 /* 강한육군 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강한육군 Bold.ttf"; sourceTree = "<group>"; };
+		766C1F37275C512E007E9258 /* paybooc Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "paybooc Medium.ttf"; sourceTree = "<group>"; };
+		766C1F38275C512E007E9258 /* esamanru Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru Medium.ttf"; sourceTree = "<group>"; };
+		766C1F39275C512E007E9258 /* SF함박눈-TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF함박눈-TTF.ttf"; sourceTree = "<group>"; };
+		766C1F3A275C512E007E9258 /* EliceDigitalBaeum_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Bold.ttf; sourceTree = "<group>"; };
+		766C1F3B275C512E007E9258 /* SB 어그로 M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SB 어그로 M.ttf"; sourceTree = "<group>"; };
+		766C1F3C275C512E007E9258 /* MaruBuri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaruBuri-Bold.ttf"; sourceTree = "<group>"; };
+		766C1F3D275C512E007E9258 /* NanumGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothic.ttf; sourceTree = "<group>"; };
+		766C1F3E275C512E007E9258 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		766C1F3F275C512E007E9258 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
+		766C1F40275C512E007E9258 /* YdestreetL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = YdestreetL.ttf; sourceTree = "<group>"; };
+		766C1F41275C512E007E9258 /* tway_fly.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tway_fly.ttf; sourceTree = "<group>"; };
+		766C1F42275C512E007E9258 /* paybooc Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "paybooc Bold.ttf"; sourceTree = "<group>"; };
+		766C1F43275C512E007E9258 /* GowunBatang-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GowunBatang-Bold.ttf"; sourceTree = "<group>"; };
+		766C1F44275C512E007E9258 /* 강한육군 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강한육군 Medium.ttf"; sourceTree = "<group>"; };
+		766C1F45275C512E007E9258 /* tway_air.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tway_air.ttf; sourceTree = "<group>"; };
+		766C1F46275C512E007E9258 /* ImcreSoojin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ImcreSoojin.ttf; sourceTree = "<group>"; };
+		766C1F47275C512E007E9258 /* paybooc Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "paybooc Light.ttf"; sourceTree = "<group>"; };
+		766C1F48275C512E007E9258 /* Wemakeprice-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wemakeprice-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F49275C512E007E9258 /* GmarketSansTTFBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFBold.ttf; sourceTree = "<group>"; };
+		766C1F4A275C512E007E9258 /* HangeulNuriR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangeulNuriR.ttf; sourceTree = "<group>"; };
+		766C1F4B275C512E007E9258 /* IBMPlexSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F4C275C512E007E9258 /* 국립박물관문화재단클래식L.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "국립박물관문화재단클래식L.ttf"; sourceTree = "<group>"; };
+		766C1F4D275C512E007E9258 /* Cafe24Ohsquare.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Ohsquare.ttf; sourceTree = "<group>"; };
+		766C1F4E275C512E007E9258 /* Cafe24Ohsquareair.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Ohsquareair.ttf; sourceTree = "<group>"; };
+		766C1F4F275C512E007E9258 /* Cafe24Ssukssuk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Ssukssuk.ttf; sourceTree = "<group>"; };
+		766C1F50275C512E007E9258 /* ELAND 나이스 M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ELAND 나이스 M.ttf"; sourceTree = "<group>"; };
+		766C1F51275C512E007E9258 /* NEXONLv1GothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NEXONLv1GothicBold.ttf; sourceTree = "<group>"; };
+		766C1F52275C512E007E9258 /* 국립박물관문화재단클래식M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "국립박물관문화재단클래식M.ttf"; sourceTree = "<group>"; };
+		766C1F53275C512E007E9258 /* HangeulNuriB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangeulNuriB.ttf; sourceTree = "<group>"; };
+		766C1F54275C512E007E9258 /* 양진체v0.9_ttf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "양진체v0.9_ttf.ttf"; sourceTree = "<group>"; };
+		766C1F55275C512E007E9258 /* NanumGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.ttf; sourceTree = "<group>"; };
+		766C1F56275C512E007E9258 /* Cafe24Ssurround.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Ssurround.ttf; sourceTree = "<group>"; };
+		766C1F57275C512E007E9258 /* MaruBuri-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaruBuri-SemiBold.ttf"; sourceTree = "<group>"; };
+		766C1F58275C512E007E9258 /* ONE Mobile Title.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Title.ttf"; sourceTree = "<group>"; };
+		766C1F59275C512E007E9258 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
+		766C1F5A275C512E007E9258 /* IBMPlexSansKR-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Medium.ttf"; sourceTree = "<group>"; };
+		766C1F5B275C512E007E9258 /* NEXONLv1GothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NEXONLv1GothicLight.ttf; sourceTree = "<group>"; };
+		766C1F5C275C512E007E9258 /* Cafe24Oneprettynight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Oneprettynight.ttf; sourceTree = "<group>"; };
+		766C1F5D275C512E007E9258 /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.ttf; sourceTree = "<group>"; };
+		766C1F5E275C512E007E9258 /* SEBANG Gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SEBANG Gothic.ttf"; sourceTree = "<group>"; };
+		766C1F5F275C512E007E9258 /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F60275C512E007E9258 /* KOTRA LEAP_TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA LEAP_TTF.ttf"; sourceTree = "<group>"; };
+		766C1F61275C512E007E9258 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFMedium.ttf; sourceTree = "<group>"; };
+		766C1F62275C512E007E9258 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		766C1F63275C512E007E9258 /* MaruBuri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaruBuri-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F64275C512E007E9258 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		766C1F65275C512E007E9258 /* HS새마을체.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HS새마을체.ttf"; sourceTree = "<group>"; };
+		766C1F66275C512E007E9258 /* EliceDigitalBaeum_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Regular.ttf; sourceTree = "<group>"; };
+		766C1F67275C512E007E9258 /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
+		766C1F68275C512E007E9258 /* ONE Mobile Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Bold.ttf"; sourceTree = "<group>"; };
+		766C1F69275C512E007E9258 /* IBMPlexSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Light.ttf"; sourceTree = "<group>"; };
+		766C1F6A275C512E007E9258 /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
+		766C1F6B275C512E007E9258 /* Cafe24Simplehae.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24Simplehae.ttf; sourceTree = "<group>"; };
+		766C1F6C275C512E007E9258 /* 국립박물관문화재단클래식B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "국립박물관문화재단클래식B.ttf"; sourceTree = "<group>"; };
+		766C1F6D275C512E007E9258 /* tway_sky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tway_sky.ttf; sourceTree = "<group>"; };
+		766C1F6E275C512E007E9258 /* SLEIGothicTTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SLEIGothicTTF.ttf; sourceTree = "<group>"; };
+		766C1F6F275C512E007E9258 /* GowunDodum-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GowunDodum-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F70275C512E007E9258 /* CookieRun Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CookieRun Bold.ttf"; sourceTree = "<group>"; };
+		766C1F71275C512E007E9258 /* SB 어그로 B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SB 어그로 B.ttf"; sourceTree = "<group>"; };
+		766C1F72275C512E007E9258 /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
+		766C1F73275C512E007E9258 /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
+		766C1F74275C512E007E9258 /* esamanru Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru Light.ttf"; sourceTree = "<group>"; };
+		766C1F75275C512E007E9258 /* fonts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fonts.txt; sourceTree = "<group>"; };
+		766C1F76275C512E007E9258 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		766C1F77275C512E007E9258 /* YdestreetB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = YdestreetB.ttf; sourceTree = "<group>"; };
+		766C1F78275C512E007E9258 /* NEXONLv1GothicRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NEXONLv1GothicRegular.ttf; sourceTree = "<group>"; };
+		766C1F79275C512E007E9258 /* NanumGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.ttf; sourceTree = "<group>"; };
+		766C1F7A275C512E007E9258 /* IBMPlexSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Bold.ttf"; sourceTree = "<group>"; };
+		766C1F7B275C512E007E9258 /* CookieRun Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CookieRun Black.ttf"; sourceTree = "<group>"; };
+		766C1F7C275C512E007E9258 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		766C1F7D275C512E007E9258 /* Cafe24SsurroundAir.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe24SsurroundAir.ttf; sourceTree = "<group>"; };
+		766C1F7E275C512E007E9258 /* GowunBatang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GowunBatang-Regular.ttf"; sourceTree = "<group>"; };
+		766C1F7F275C512E007E9258 /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.ttf; sourceTree = "<group>"; };
+		766C1F80275C512E007E9258 /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
+		766C1F81275C512E007E9258 /* SEBANG Gothic Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SEBANG Gothic Bold.ttf"; sourceTree = "<group>"; };
+		766C1F84275C512E007E9258 /* profiles_settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = profiles_settings.xml; sourceTree = "<group>"; };
+		766C1F85275C512E007E9258 /* Project_Default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Project_Default.xml; sourceTree = "<group>"; };
+		766C1F86275C512E007E9258 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		766C1F87275C512E007E9258 /* workspace.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
+		766C1F88275C512E007E9258 /* modules.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
+		766C1F89275C512E007E9258 /* misc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
+		766C1F8A275C512E007E9258 /* Fonts.iml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Fonts.iml; sourceTree = "<group>"; };
+		766C1F8B275C512E007E9258 /* ELAND 초이스 B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ELAND 초이스 B.ttf"; sourceTree = "<group>"; };
+		766C1F8C275C512E007E9258 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		766C1F8D275C512E007E9258 /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
+		766C1FF4275C5BA1007E9258 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		766C1FF6275C635D007E9258 /* FontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
+		766C1FF7275C635D007E9258 /* FontCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCell.xib; sourceTree = "<group>"; };
+		767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSuccessViewController.swift; sourceTree = "<group>"; };
+		7688946626F4216900B204C9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		7688946826F429C900B204C9 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		769603BA274F548200B41F27 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSuccessViewController.swift; sourceTree = "<group>"; };
+		769B912E2714AE8A0027DDE4 /* FontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
+		769CA1852713E7A0001D79E4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		769CA1872713EF3B001D79E4 /* LanguageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageType.swift; sourceTree = "<group>"; };
+		76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		76A2CA3E270B10E900C882FA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		76A43AC527012B660064072D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		76A43AC82701FF3E0064072D /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		76A6E147270FCC9300FC5080 /* uploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadData.swift; sourceTree = "<group>"; };
+		76AD3EF02751FFFE001DBAC0 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
+		76AD3EF227520174001DBAC0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		76AD3EF427520721001DBAC0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		76AD3EF6275219AC001DBAC0 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		76B5D3AB27141D090010210E /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		76B5D3AD27141D620010210E /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		76B6A5682760D1F700F51D1B /* PageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageListViewController.swift; sourceTree = "<group>"; };
+		76B6A56C2760D31900F51D1B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		76B7981727590EA400402604 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		76B7981827590EA400402604 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSuccessViewController.swift; sourceTree = "<group>"; };
+		76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		76C83599270A055600BC5733 /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
+		76C8359C270A66E500BC5733 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		76E4098E26FAF8A3006A807F /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		76E4099226FB0027006A807F /* SigninForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninForm.swift; sourceTree = "<group>"; };
+		76E4099926FB9DE5006A807F /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		76F4180526F1C51200D677D6 /* PGHJapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGHJapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76F4180826F1C51200D677D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		76F4180A26F1C51200D677D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		76F4180C26F1C51200D677D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		76F4180F26F1C51200D677D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		76F4181126F1C51200D677D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		76F4181426F1C51200D677D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		76F4181626F1C51200D677D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76F4181B26F1C51300D677D6 /* PGHJappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGHJappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76F4181F26F1C51300D677D6 /* PGHJappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGHJappTests.swift; sourceTree = "<group>"; };
+		76F4182126F1C51300D677D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76F4182626F1C51300D677D6 /* PGHJappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGHJappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76F4182A26F1C51300D677D6 /* PGHJappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGHJappUITests.swift; sourceTree = "<group>"; };
+		76F4182C26F1C51300D677D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		785F3C9AA30242E33DE48DEA /* Pods-PGHJappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJappTests.debug.xcconfig"; path = "Target Support Files/Pods-PGHJappTests/Pods-PGHJappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B09CE0F27BE8B730E3D85581 /* Pods-PGHJapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp.release.xcconfig"; path = "Target Support Files/Pods-PGHJapp/Pods-PGHJapp.release.xcconfig"; sourceTree = "<group>"; };
+		BB031D85220C3C2EE9E0E1A2 /* Pods-PGHJapp-PGHJappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp-PGHJappUITests.release.xcconfig"; path = "Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB4E8BAA77991859E20C2B91 /* Pods-PGHJappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJappTests.release.xcconfig"; path = "Target Support Files/Pods-PGHJappTests/Pods-PGHJappTests.release.xcconfig"; sourceTree = "<group>"; };
+		F01C6C38D583A04C7AF03416 /* Pods-PGHJapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGHJapp.debug.xcconfig"; path = "Target Support Files/Pods-PGHJapp/Pods-PGHJapp.debug.xcconfig"; sourceTree = "<group>"; };
+		F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGHJapp_PGHJappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76F4180226F1C51100D677D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AD89C16B760AD1748B3168E /* Pods_PGHJapp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4181826F1C51300D677D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD7993E1299D8768B49819ED /* Pods_PGHJappTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4182326F1C51300D677D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B40DF0F73123A1BA42D23C2 /* Pods_PGHJapp_PGHJappUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D2BCDC973A0B6AE2BBEFB2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F01C6C38D583A04C7AF03416 /* Pods-PGHJapp.debug.xcconfig */,
+				B09CE0F27BE8B730E3D85581 /* Pods-PGHJapp.release.xcconfig */,
+				3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */,
+				BB031D85220C3C2EE9E0E1A2 /* Pods-PGHJapp-PGHJappUITests.release.xcconfig */,
+				785F3C9AA30242E33DE48DEA /* Pods-PGHJappTests.debug.xcconfig */,
+				DB4E8BAA77991859E20C2B91 /* Pods-PGHJappTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4660E196FC92DAD80570DA05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				182855DD60E852F986B95628 /* Pods_PGHJapp.framework */,
+				F15BA8D7EC04512864D605F5 /* Pods_PGHJapp_PGHJappUITests.framework */,
+				4469EC1A1C224F6E4DFD6EEF /* Pods_PGHJappTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		761FD8B1273C469B00C845D1 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				766C1F25275C512E007E9258 /* Fonts */,
+				76F4180826F1C51200D677D6 /* AppDelegate.swift */,
+				76F4180A26F1C51200D677D6 /* SceneDelegate.swift */,
+				76BE1D7C274F250400E38C5B /* UITextFieldExtension.swift */,
+				76AD3EF6275219AC001DBAC0 /* UIImageViewExtension.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		761FD8B2273C472200C845D1 /* Lecture */ = {
+			isa = PBXGroup;
+			children = (
+				769CA1872713EF3B001D79E4 /* LanguageType.swift */,
+				76A43AC82701FF3E0064072D /* Lecture.swift */,
+				764F6B8E273CD8EF004E81AE /* Font.swift */,
+				764F6B90273CD917004E81AE /* Sentence.swift */,
+				764F6B92273CD937004E81AE /* Page.swift */,
+				764F6B96273CD984004E81AE /* Coordinate.swift */,
+				764F6B98273CD99F004E81AE /* Size.swift */,
+				764F6B9A273CDA72004E81AE /* Text.swift */,
+				766C1FF4275C5BA1007E9258 /* Fonts.swift */,
+				76406324275E2AC400C37335 /* Templates.swift */,
+			);
+			path = Lecture;
+			sourceTree = "<group>";
+		};
+		761FD8B3273C473F00C845D1 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				763EFB662711AA560071C22D /* MaterialInfo.swift */,
+				764F6B8C273CD8A3004E81AE /* Material.swift */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
+		761FD8B4273C476200C845D1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				76E4099226FB0027006A807F /* SigninForm.swift */,
+				76C83599270A055600BC5733 /* SignupForm.swift */,
+				76C8359C270A66E500BC5733 /* Token.swift */,
+				76AD3EF02751FFFE001DBAC0 /* RefreshToken.swift */,
+				76AD3EF227520174001DBAC0 /* History.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		764F6B9E273CDAA5004E81AE /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				76A6E147270FCC9300FC5080 /* uploadData.swift */,
+				764F6B9C273CDA8E004E81AE /* Image.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		766C1F25275C512E007E9258 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				766C1F26275C512E007E9258 /* paybooc ExtraBold.ttf */,
+				766C1F27275C512E007E9258 /* CookieRun Regular.ttf */,
+				766C1F28275C512E007E9258 /* Cafe24Dangdanghae.ttf */,
+				766C1F29275C512E007E9258 /* Wemakeprice-Bold.ttf */,
+				766C1F2A275C512E007E9258 /* MaruBuri-ExtraLight.ttf */,
+				766C1F2B275C512E007E9258 /* ONE Mobile POP.ttf */,
+				766C1F2C275C512E007E9258 /* ONE Mobile Regular.ttf */,
+				766C1F2D275C512E007E9258 /* NanumGothicExtraBold.ttf */,
+				766C1F2E275C512E007E9258 /* ELAND 초이스 L.ttf */,
+				766C1F2F275C512E007E9258 /* Wemakeprice-SemiBold.ttf */,
+				766C1F30275C512E007E9258 /* IBMPlexSansKR-Text.ttf */,
+				766C1F31275C512E007E9258 /* Cafe24Danjunghae.ttf */,
+				766C1F32275C512E007E9258 /* esamanru Bold.ttf */,
+				766C1F33275C512E007E9258 /* MaruBuri-Light.ttf */,
+				766C1F34275C512E007E9258 /* ELAND 초이스 M.ttf */,
+				766C1F35275C512E007E9258 /* SB 어그로 L.ttf */,
+				766C1F36275C512E007E9258 /* 강한육군 Bold.ttf */,
+				766C1F37275C512E007E9258 /* paybooc Medium.ttf */,
+				766C1F38275C512E007E9258 /* esamanru Medium.ttf */,
+				766C1F39275C512E007E9258 /* SF함박눈-TTF.ttf */,
+				766C1F3A275C512E007E9258 /* EliceDigitalBaeum_Bold.ttf */,
+				766C1F3B275C512E007E9258 /* SB 어그로 M.ttf */,
+				766C1F3C275C512E007E9258 /* MaruBuri-Bold.ttf */,
+				766C1F3D275C512E007E9258 /* NanumGothic.ttf */,
+				766C1F3E275C512E007E9258 /* NotoSansKR-Light.otf */,
+				766C1F3F275C512E007E9258 /* GmarketSansTTFLight.ttf */,
+				766C1F40275C512E007E9258 /* YdestreetL.ttf */,
+				766C1F41275C512E007E9258 /* tway_fly.ttf */,
+				766C1F42275C512E007E9258 /* paybooc Bold.ttf */,
+				766C1F43275C512E007E9258 /* GowunBatang-Bold.ttf */,
+				766C1F44275C512E007E9258 /* 강한육군 Medium.ttf */,
+				766C1F45275C512E007E9258 /* tway_air.ttf */,
+				766C1F46275C512E007E9258 /* ImcreSoojin.ttf */,
+				766C1F47275C512E007E9258 /* paybooc Light.ttf */,
+				766C1F48275C512E007E9258 /* Wemakeprice-Regular.ttf */,
+				766C1F49275C512E007E9258 /* GmarketSansTTFBold.ttf */,
+				766C1F4A275C512E007E9258 /* HangeulNuriR.ttf */,
+				766C1F4B275C512E007E9258 /* IBMPlexSansKR-Regular.ttf */,
+				766C1F4C275C512E007E9258 /* 국립박물관문화재단클래식L.ttf */,
+				766C1F4D275C512E007E9258 /* Cafe24Ohsquare.ttf */,
+				766C1F4E275C512E007E9258 /* Cafe24Ohsquareair.ttf */,
+				766C1F4F275C512E007E9258 /* Cafe24Ssukssuk.ttf */,
+				766C1F50275C512E007E9258 /* ELAND 나이스 M.ttf */,
+				766C1F51275C512E007E9258 /* NEXONLv1GothicBold.ttf */,
+				766C1F52275C512E007E9258 /* 국립박물관문화재단클래식M.ttf */,
+				766C1F53275C512E007E9258 /* HangeulNuriB.ttf */,
+				766C1F54275C512E007E9258 /* 양진체v0.9_ttf.ttf */,
+				766C1F55275C512E007E9258 /* NanumGothicBold.ttf */,
+				766C1F56275C512E007E9258 /* Cafe24Ssurround.ttf */,
+				766C1F57275C512E007E9258 /* MaruBuri-SemiBold.ttf */,
+				766C1F58275C512E007E9258 /* ONE Mobile Title.ttf */,
+				766C1F59275C512E007E9258 /* PretendardVariable.ttf */,
+				766C1F5A275C512E007E9258 /* IBMPlexSansKR-Medium.ttf */,
+				766C1F5B275C512E007E9258 /* NEXONLv1GothicLight.ttf */,
+				766C1F5C275C512E007E9258 /* Cafe24Oneprettynight.ttf */,
+				766C1F5D275C512E007E9258 /* NanumBarunGothicLight.ttf */,
+				766C1F5E275C512E007E9258 /* SEBANG Gothic.ttf */,
+				766C1F5F275C512E007E9258 /* SpoqaHanSansNeo-Regular.ttf */,
+				766C1F60275C512E007E9258 /* KOTRA LEAP_TTF.ttf */,
+				766C1F61275C512E007E9258 /* GmarketSansTTFMedium.ttf */,
+				766C1F62275C512E007E9258 /* NotoSansKR-Bold.otf */,
+				766C1F63275C512E007E9258 /* MaruBuri-Regular.ttf */,
+				766C1F64275C512E007E9258 /* NotoSansKR-Thin.otf */,
+				766C1F65275C512E007E9258 /* HS새마을체.ttf */,
+				766C1F66275C512E007E9258 /* EliceDigitalBaeum_Regular.ttf */,
+				766C1F67275C512E007E9258 /* SpoqaHanSansNeo-Medium.ttf */,
+				766C1F68275C512E007E9258 /* ONE Mobile Bold.ttf */,
+				766C1F69275C512E007E9258 /* IBMPlexSansKR-Light.ttf */,
+				766C1F6A275C512E007E9258 /* NanumBarunGothic.ttf */,
+				766C1F6B275C512E007E9258 /* Cafe24Simplehae.ttf */,
+				766C1F6C275C512E007E9258 /* 국립박물관문화재단클래식B.ttf */,
+				766C1F6D275C512E007E9258 /* tway_sky.ttf */,
+				766C1F6E275C512E007E9258 /* SLEIGothicTTF.ttf */,
+				766C1F6F275C512E007E9258 /* GowunDodum-Regular.ttf */,
+				766C1F70275C512E007E9258 /* CookieRun Bold.ttf */,
+				766C1F71275C512E007E9258 /* SB 어그로 B.ttf */,
+				766C1F72275C512E007E9258 /* SpoqaHanSansNeo-Light.ttf */,
+				766C1F73275C512E007E9258 /* SpoqaHanSansNeo-Bold.ttf */,
+				766C1F74275C512E007E9258 /* esamanru Light.ttf */,
+				766C1F75275C512E007E9258 /* fonts.txt */,
+				766C1F76275C512E007E9258 /* NotoSansKR-Black.otf */,
+				766C1F77275C512E007E9258 /* YdestreetB.ttf */,
+				766C1F78275C512E007E9258 /* NEXONLv1GothicRegular.ttf */,
+				766C1F79275C512E007E9258 /* NanumGothicLight.ttf */,
+				766C1F7A275C512E007E9258 /* IBMPlexSansKR-Bold.ttf */,
+				766C1F7B275C512E007E9258 /* CookieRun Black.ttf */,
+				766C1F7C275C512E007E9258 /* NotoSansKR-Medium.otf */,
+				766C1F7D275C512E007E9258 /* Cafe24SsurroundAir.ttf */,
+				766C1F7E275C512E007E9258 /* GowunBatang-Regular.ttf */,
+				766C1F7F275C512E007E9258 /* NanumBarunGothicUltraLight.ttf */,
+				766C1F80275C512E007E9258 /* SpoqaHanSansNeo-Thin.ttf */,
+				766C1F81275C512E007E9258 /* SEBANG Gothic Bold.ttf */,
+				766C1F82275C512E007E9258 /* .idea */,
+				766C1F8B275C512E007E9258 /* ELAND 초이스 B.ttf */,
+				766C1F8C275C512E007E9258 /* NotoSansKR-Regular.otf */,
+				766C1F8D275C512E007E9258 /* NanumBarunGothicBold.ttf */,
+			);
+			name = Fonts;
+			path = ../../../../../../../Downloads/Fonts;
+			sourceTree = "<group>";
+		};
+		766C1F82275C512E007E9258 /* .idea */ = {
+			isa = PBXGroup;
+			children = (
+				766C1F83275C512E007E9258 /* inspectionProfiles */,
+				766C1F86275C512E007E9258 /* .gitignore */,
+				766C1F87275C512E007E9258 /* workspace.xml */,
+				766C1F88275C512E007E9258 /* modules.xml */,
+				766C1F89275C512E007E9258 /* misc.xml */,
+				766C1F8A275C512E007E9258 /* Fonts.iml */,
+			);
+			path = .idea;
+			sourceTree = "<group>";
+		};
+		766C1F83275C512E007E9258 /* inspectionProfiles */ = {
+			isa = PBXGroup;
+			children = (
+				766C1F84275C512E007E9258 /* profiles_settings.xml */,
+				766C1F85275C512E007E9258 /* Project_Default.xml */,
+			);
+			path = inspectionProfiles;
+			sourceTree = "<group>";
+		};
+		7688946426F4215500B204C9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7688946526F4215D00B204C9 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7688946526F4215D00B204C9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7688946626F4216900B204C9 /* APIRouter.swift */,
+				7688946826F429C900B204C9 /* APIClient.swift */,
+				76E4099926FB9DE5006A807F /* APIConstants.swift */,
+				76BE1D7E274F2F2D00E38C5B /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		76B6A56A2760D2C400F51D1B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				76F4180C26F1C51200D677D6 /* HomeViewController.swift */,
+				763EFB6227118D130071C22D /* LectureViewController.swift */,
+				769CA1852713E7A0001D79E4 /* LoadingViewController.swift */,
+				76B5D3AD27141D620010210E /* TemplateViewController.swift */,
+				769B912E2714AE8A0027DDE4 /* FontViewController.swift */,
+				766C1F23275C47DD007E9258 /* FontListViewController.swift */,
+				76B6A5682760D1F700F51D1B /* PageListViewController.swift */,
+				76A43AC527012B660064072D /* EditViewController.swift */,
+				76A2CA3C270AEE8C00C882FA /* DownloadViewController.swift */,
+				76B7981B2759F68B00402604 /* DownloadSuccessViewController.swift */,
+				767E3F242760ABBB00D85FFA /* LoadingSuccessViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		76B6A56B2760D2CF00F51D1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76B5D3AB27141D090010210E /* ImageButton.swift */,
+				76B7981727590EA400402604 /* ImageCell.swift */,
+				76B7981827590EA400402604 /* ImageCell.xib */,
+				766C1FF6275C635D007E9258 /* FontCell.swift */,
+				766C1FF7275C635D007E9258 /* FontCell.xib */,
+				76406326275E2FD400C37335 /* TemplateCell.swift */,
+				76B6A56C2760D31900F51D1B /* PageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76BE1D7B274F19BB00E38C5B /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		76C835982709FA6A00BC5733 /* Lecture */ = {
+			isa = PBXGroup;
+			children = (
+				76B6A56B2760D2CF00F51D1B /* View */,
+				76B6A56A2760D2C400F51D1B /* ViewController */,
+			);
+			path = Lecture;
+			sourceTree = "<group>";
+		};
+		76E4098C26FAF87E006A807F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				76BE1D7B274F19BB00E38C5B /* StoryBoard */,
+				76F4180E26F1C51200D677D6 /* Main.storyboard */,
+				76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */,
+				76C835982709FA6A00BC5733 /* Lecture */,
+				76E4098D26FAF885006A807F /* User */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		76E4098D26FAF885006A807F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				76E4098E26FAF8A3006A807F /* SigninViewController.swift */,
+				76A2CA3E270B10E900C882FA /* SignupViewController.swift */,
+				769603BA274F548200B41F27 /* InitialViewController.swift */,
+				769603BC274F6AE300B41F27 /* SigninSuccessViewController.swift */,
+				762DCB4227505F2C00C1D53E /* MyPageViewController.swift */,
+				766C1F1F275B7E9C007E9258 /* HistoryCell.swift */,
+				766C1F20275B7E9C007E9258 /* HistoryCell.xib */,
+				76AD3EF427520721001DBAC0 /* HistoryViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		76E4099026FAFFE0006A807F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				76E4099126FAFFE7006A807F /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		76E4099126FAFFE7006A807F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				764F6B9E273CDAA5004E81AE /* Image */,
+				761FD8B4273C476200C845D1 /* User */,
+				761FD8B3273C473F00C845D1 /* Material */,
+				761FD8B2273C472200C845D1 /* Lecture */,
+				763EFB642711A03F0071C22D /* SendDataDelegate.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		76F417FC26F1C51100D677D6 = {
+			isa = PBXGroup;
+			children = (
+				76F4180726F1C51200D677D6 /* PGHJapp */,
+				76F4181E26F1C51300D677D6 /* PGHJappTests */,
+				76F4182926F1C51300D677D6 /* PGHJappUITests */,
+				76F4180626F1C51200D677D6 /* Products */,
+				0D2BCDC973A0B6AE2BBEFB2D /* Pods */,
+				4660E196FC92DAD80570DA05 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		76F4180626F1C51200D677D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76F4180526F1C51200D677D6 /* PGHJapp.app */,
+				76F4181B26F1C51300D677D6 /* PGHJappTests.xctest */,
+				76F4182626F1C51300D677D6 /* PGHJappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		76F4180726F1C51200D677D6 /* PGHJapp */ = {
+			isa = PBXGroup;
+			children = (
+				76F4181626F1C51200D677D6 /* Info.plist */,
+				761FD8B1273C469B00C845D1 /* Supporting files */,
+				76E4099026FAFFE0006A807F /* Domain */,
+				76E4098C26FAF87E006A807F /* Presentation */,
+				7688946426F4215500B204C9 /* Data */,
+				76F4181126F1C51200D677D6 /* Assets.xcassets */,
+			);
+			path = PGHJapp;
+			sourceTree = "<group>";
+		};
+		76F4181E26F1C51300D677D6 /* PGHJappTests */ = {
+			isa = PBXGroup;
+			children = (
+				76F4181F26F1C51300D677D6 /* PGHJappTests.swift */,
+				76F4182126F1C51300D677D6 /* Info.plist */,
+			);
+			path = PGHJappTests;
+			sourceTree = "<group>";
+		};
+		76F4182926F1C51300D677D6 /* PGHJappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				76F4182A26F1C51300D677D6 /* PGHJappUITests.swift */,
+				76F4182C26F1C51300D677D6 /* Info.plist */,
+			);
+			path = PGHJappUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		76F4180426F1C51100D677D6 /* PGHJapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76F4182F26F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJapp" */;
+			buildPhases = (
+				C1967E3C8DF41018B391A044 /* [CP] Check Pods Manifest.lock */,
+				76F4180126F1C51100D677D6 /* Sources */,
+				76F4180226F1C51100D677D6 /* Frameworks */,
+				76F4180326F1C51100D677D6 /* Resources */,
+				D40ECA61CF175CD2CAB1395E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PGHJapp;
+			productName = PGHJapp;
+			productReference = 76F4180526F1C51200D677D6 /* PGHJapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		76F4181A26F1C51300D677D6 /* PGHJappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76F4183226F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJappTests" */;
+			buildPhases = (
+				BF7AD0FE52E28A9CFDA25F39 /* [CP] Check Pods Manifest.lock */,
+				76F4181726F1C51300D677D6 /* Sources */,
+				76F4181826F1C51300D677D6 /* Frameworks */,
+				76F4181926F1C51300D677D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76F4181D26F1C51300D677D6 /* PBXTargetDependency */,
+			);
+			name = PGHJappTests;
+			productName = PGHJappTests;
+			productReference = 76F4181B26F1C51300D677D6 /* PGHJappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		76F4182526F1C51300D677D6 /* PGHJappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76F4183526F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJappUITests" */;
+			buildPhases = (
+				17FE2DF0F770F4D182D49006 /* [CP] Check Pods Manifest.lock */,
+				76F4182226F1C51300D677D6 /* Sources */,
+				76F4182326F1C51300D677D6 /* Frameworks */,
+				76F4182426F1C51300D677D6 /* Resources */,
+				16413C2D5BC6DF32F4D285C9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76F4182826F1C51300D677D6 /* PBXTargetDependency */,
+			);
+			name = PGHJappUITests;
+			productName = PGHJappUITests;
+			productReference = 76F4182626F1C51300D677D6 /* PGHJappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		76F417FD26F1C51100D677D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					76F4180426F1C51100D677D6 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					76F4181A26F1C51300D677D6 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 76F4180426F1C51100D677D6;
+					};
+					76F4182526F1C51300D677D6 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 76F4180426F1C51100D677D6;
+					};
+				};
+			};
+			buildConfigurationList = 76F4180026F1C51100D677D6 /* Build configuration list for PBXProject "PGHJapp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 76F417FC26F1C51100D677D6;
+			productRefGroup = 76F4180626F1C51200D677D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				76F4180426F1C51100D677D6 /* PGHJapp */,
+				76F4181A26F1C51300D677D6 /* PGHJappTests */,
+				76F4182526F1C51300D677D6 /* PGHJappUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76F4180326F1C51100D677D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				766C1FCC275C512E007E9258 /* NotoSansKR-Thin.otf in Resources */,
+				766C1FA2275C512E007E9258 /* EliceDigitalBaeum_Bold.ttf in Resources */,
+				766C1FD7275C512E007E9258 /* GowunDodum-Regular.ttf in Resources */,
+				766C1FCF275C512E007E9258 /* SpoqaHanSansNeo-Medium.ttf in Resources */,
+				766C1FDA275C512E007E9258 /* SpoqaHanSansNeo-Light.ttf in Resources */,
+				766C1FAE275C512E007E9258 /* ImcreSoojin.ttf in Resources */,
+				766C1FE8275C512E007E9258 /* SpoqaHanSansNeo-Thin.ttf in Resources */,
+				766C1FD5275C512E007E9258 /* tway_sky.ttf in Resources */,
+				766C1FAF275C512E007E9258 /* paybooc Light.ttf in Resources */,
+				766C1FE4275C512E007E9258 /* NotoSansKR-Medium.otf in Resources */,
+				766C1FA9275C512E007E9258 /* tway_fly.ttf in Resources */,
+				766C1FE3275C512E007E9258 /* CookieRun Black.ttf in Resources */,
+				766C1F9C275C512E007E9258 /* ELAND 초이스 M.ttf in Resources */,
+				766C1F90275C512E007E9258 /* Cafe24Dangdanghae.ttf in Resources */,
+				766C1FBB275C512E007E9258 /* HangeulNuriB.ttf in Resources */,
+				766C1FAB275C512E007E9258 /* GowunBatang-Bold.ttf in Resources */,
+				766C1FB9275C512E007E9258 /* NEXONLv1GothicBold.ttf in Resources */,
+				766C1F9E275C512E007E9258 /* 강한육군 Bold.ttf in Resources */,
+				766C1FDB275C512E007E9258 /* SpoqaHanSansNeo-Bold.ttf in Resources */,
+				766C1FD8275C512E007E9258 /* CookieRun Bold.ttf in Resources */,
+				76F4181526F1C51200D677D6 /* LaunchScreen.storyboard in Resources */,
+				766C1FB4275C512E007E9258 /* 국립박물관문화재단클래식L.ttf in Resources */,
+				766C1FC0275C512E007E9258 /* ONE Mobile Title.ttf in Resources */,
+				766C1FD9275C512E007E9258 /* SB 어그로 B.ttf in Resources */,
+				766C1F9D275C512E007E9258 /* SB 어그로 L.ttf in Resources */,
+				766C1FA6275C512E007E9258 /* NotoSansKR-Light.otf in Resources */,
+				766C1FA4275C512E007E9258 /* MaruBuri-Bold.ttf in Resources */,
+				766C1FE1275C512E007E9258 /* NanumGothicLight.ttf in Resources */,
+				766C1FB2275C512E007E9258 /* HangeulNuriR.ttf in Resources */,
+				766C1FB8275C512E007E9258 /* ELAND 나이스 M.ttf in Resources */,
+				766C1FEB275C512E007E9258 /* Project_Default.xml in Resources */,
+				766C1F94275C512E007E9258 /* ONE Mobile Regular.ttf in Resources */,
+				766C1FC6275C512E007E9258 /* SEBANG Gothic.ttf in Resources */,
+				766C1FA7275C512E007E9258 /* GmarketSansTTFLight.ttf in Resources */,
+				76B7981A27590EA400402604 /* ImageCell.xib in Resources */,
+				766C1FE9275C512E007E9258 /* SEBANG Gothic Bold.ttf in Resources */,
+				766C1FF2275C512E007E9258 /* NotoSansKR-Regular.otf in Resources */,
+				766C1FDC275C512E007E9258 /* esamanru Light.ttf in Resources */,
+				766C1FCD275C512E007E9258 /* HS새마을체.ttf in Resources */,
+				766C1FCA275C512E007E9258 /* NotoSansKR-Bold.otf in Resources */,
+				766C1FE7275C512E007E9258 /* NanumBarunGothicUltraLight.ttf in Resources */,
+				766C1FDD275C512E007E9258 /* fonts.txt in Resources */,
+				766C1FF1275C512E007E9258 /* ELAND 초이스 B.ttf in Resources */,
+				766C1FC7275C512E007E9258 /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				766C1FB5275C512E007E9258 /* Cafe24Ohsquare.ttf in Resources */,
+				766C1FBD275C512E007E9258 /* NanumGothicBold.ttf in Resources */,
+				766C1FBF275C512E007E9258 /* MaruBuri-SemiBold.ttf in Resources */,
+				766C1F97275C512E007E9258 /* Wemakeprice-SemiBold.ttf in Resources */,
+				766C1FD4275C512E007E9258 /* 국립박물관문화재단클래식B.ttf in Resources */,
+				766C1F91275C512E007E9258 /* Wemakeprice-Bold.ttf in Resources */,
+				766C1F99275C512E007E9258 /* Cafe24Danjunghae.ttf in Resources */,
+				766C1FBE275C512E007E9258 /* Cafe24Ssurround.ttf in Resources */,
+				766C1FD3275C512E007E9258 /* Cafe24Simplehae.ttf in Resources */,
+				766C1FF0275C512E007E9258 /* Fonts.iml in Resources */,
+				766C1FDF275C512E007E9258 /* YdestreetB.ttf in Resources */,
+				766C1FD0275C512E007E9258 /* ONE Mobile Bold.ttf in Resources */,
+				766C1FC8275C512E007E9258 /* KOTRA LEAP_TTF.ttf in Resources */,
+				76F4181226F1C51200D677D6 /* Assets.xcassets in Resources */,
+				766C1FA8275C512E007E9258 /* YdestreetL.ttf in Resources */,
+				766C1F98275C512E007E9258 /* IBMPlexSansKR-Text.ttf in Resources */,
+				766C1FEA275C512E007E9258 /* profiles_settings.xml in Resources */,
+				766C1FAD275C512E007E9258 /* tway_air.ttf in Resources */,
+				766C1FA0275C512E007E9258 /* esamanru Medium.ttf in Resources */,
+				766C1FEC275C512E007E9258 /* .gitignore in Resources */,
+				766C1FF9275C635D007E9258 /* FontCell.xib in Resources */,
+				766C1FB0275C512E007E9258 /* Wemakeprice-Regular.ttf in Resources */,
+				766C1F8F275C512E007E9258 /* CookieRun Regular.ttf in Resources */,
+				766C1F9A275C512E007E9258 /* esamanru Bold.ttf in Resources */,
+				766C1F8E275C512E007E9258 /* paybooc ExtraBold.ttf in Resources */,
+				766C1FC2275C512E007E9258 /* IBMPlexSansKR-Medium.ttf in Resources */,
+				766C1FCE275C512E007E9258 /* EliceDigitalBaeum_Regular.ttf in Resources */,
+				766C1FED275C512E007E9258 /* workspace.xml in Resources */,
+				76F4181026F1C51200D677D6 /* Main.storyboard in Resources */,
+				766C1FA3275C512E007E9258 /* SB 어그로 M.ttf in Resources */,
+				766C1F95275C512E007E9258 /* NanumGothicExtraBold.ttf in Resources */,
+				766C1F22275B7E9C007E9258 /* HistoryCell.xib in Resources */,
+				766C1FDE275C512E007E9258 /* NotoSansKR-Black.otf in Resources */,
+				766C1FC1275C512E007E9258 /* PretendardVariable.ttf in Resources */,
+				766C1FBA275C512E007E9258 /* 국립박물관문화재단클래식M.ttf in Resources */,
+				766C1FBC275C512E007E9258 /* 양진체v0.9_ttf.ttf in Resources */,
+				766C1FC3275C512E007E9258 /* NEXONLv1GothicLight.ttf in Resources */,
+				766C1FC5275C512E007E9258 /* NanumBarunGothicLight.ttf in Resources */,
+				766C1FA5275C512E007E9258 /* NanumGothic.ttf in Resources */,
+				766C1F9B275C512E007E9258 /* MaruBuri-Light.ttf in Resources */,
+				766C1F96275C512E007E9258 /* ELAND 초이스 L.ttf in Resources */,
+				766C1FAC275C512E007E9258 /* 강한육군 Medium.ttf in Resources */,
+				766C1FE0275C512E007E9258 /* NEXONLv1GothicRegular.ttf in Resources */,
+				766C1FEE275C512E007E9258 /* modules.xml in Resources */,
+				766C1FB1275C512E007E9258 /* GmarketSansTTFBold.ttf in Resources */,
+				766C1FF3275C512E007E9258 /* NanumBarunGothicBold.ttf in Resources */,
+				766C1FD2275C512E007E9258 /* NanumBarunGothic.ttf in Resources */,
+				766C1FEF275C512E007E9258 /* misc.xml in Resources */,
+				766C1F9F275C512E007E9258 /* paybooc Medium.ttf in Resources */,
+				766C1FB6275C512E007E9258 /* Cafe24Ohsquareair.ttf in Resources */,
+				766C1FAA275C512E007E9258 /* paybooc Bold.ttf in Resources */,
+				766C1FD1275C512E007E9258 /* IBMPlexSansKR-Light.ttf in Resources */,
+				766C1FB7275C512E007E9258 /* Cafe24Ssukssuk.ttf in Resources */,
+				766C1F92275C512E007E9258 /* MaruBuri-ExtraLight.ttf in Resources */,
+				766C1FB3275C512E007E9258 /* IBMPlexSansKR-Regular.ttf in Resources */,
+				766C1FD6275C512E007E9258 /* SLEIGothicTTF.ttf in Resources */,
+				766C1FC4275C512E007E9258 /* Cafe24Oneprettynight.ttf in Resources */,
+				766C1FE6275C512E007E9258 /* GowunBatang-Regular.ttf in Resources */,
+				766C1FA1275C512E007E9258 /* SF함박눈-TTF.ttf in Resources */,
+				766C1FCB275C512E007E9258 /* MaruBuri-Regular.ttf in Resources */,
+				766C1FE5275C512E007E9258 /* Cafe24SsurroundAir.ttf in Resources */,
+				766C1FE2275C512E007E9258 /* IBMPlexSansKR-Bold.ttf in Resources */,
+				766C1F93275C512E007E9258 /* ONE Mobile POP.ttf in Resources */,
+				766C1FC9275C512E007E9258 /* GmarketSansTTFMedium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4181926F1C51300D677D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4182426F1C51300D677D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16413C2D5BC6DF32F4D285C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PGHJapp-PGHJappUITests/Pods-PGHJapp-PGHJappUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17FE2DF0F770F4D182D49006 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PGHJapp-PGHJappUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF7AD0FE52E28A9CFDA25F39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PGHJappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1967E3C8DF41018B391A044 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PGHJapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D40ECA61CF175CD2CAB1395E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PGHJapp/Pods-PGHJapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PGHJapp/Pods-PGHJapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PGHJapp/Pods-PGHJapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		76F4180126F1C51100D677D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				764F6B91273CD917004E81AE /* Sentence.swift in Sources */,
+				763EFB652711A03F0071C22D /* SendDataDelegate.swift in Sources */,
+				769B912F2714AE8A0027DDE4 /* FontViewController.swift in Sources */,
+				76E4098F26FAF8A3006A807F /* SigninViewController.swift in Sources */,
+				76F4180D26F1C51200D677D6 /* HomeViewController.swift in Sources */,
+				76B7981927590EA400402604 /* ImageCell.swift in Sources */,
+				76F4180926F1C51200D677D6 /* AppDelegate.swift in Sources */,
+				766C1F24275C47DD007E9258 /* FontListViewController.swift in Sources */,
+				763EFB6327118D130071C22D /* LectureViewController.swift in Sources */,
+				76C8359A270A055600BC5733 /* SignupForm.swift in Sources */,
+				766C1FF5275C5BA1007E9258 /* Fonts.swift in Sources */,
+				76B7981C2759F68B00402604 /* DownloadSuccessViewController.swift in Sources */,
+				766C1F21275B7E9C007E9258 /* HistoryCell.swift in Sources */,
+				76B5D3AE27141D620010210E /* TemplateViewController.swift in Sources */,
+				7688946926F429C900B204C9 /* APIClient.swift in Sources */,
+				76BE1D7F274F2F2D00E38C5B /* NetworkManager.swift in Sources */,
+				766C1FF8275C635D007E9258 /* FontCell.swift in Sources */,
+				764F6B93273CD937004E81AE /* Page.swift in Sources */,
+				769CA1882713EF3B001D79E4 /* LanguageType.swift in Sources */,
+				764F6B9D273CDA8E004E81AE /* Image.swift in Sources */,
+				769603BB274F548200B41F27 /* InitialViewController.swift in Sources */,
+				76E4099A26FB9DE5006A807F /* APIConstants.swift in Sources */,
+				76C8359D270A66E500BC5733 /* Token.swift in Sources */,
+				76B6A56D2760D31900F51D1B /* PageCell.swift in Sources */,
+				76406327275E2FD400C37335 /* TemplateCell.swift in Sources */,
+				76BE1D7D274F250400E38C5B /* UITextFieldExtension.swift in Sources */,
+				76A43AC92701FF3E0064072D /* Lecture.swift in Sources */,
+				7688946726F4216900B204C9 /* APIRouter.swift in Sources */,
+				76B6A5692760D1F700F51D1B /* PageListViewController.swift in Sources */,
+				76AD3EF7275219AC001DBAC0 /* UIImageViewExtension.swift in Sources */,
+				764F6B97273CD984004E81AE /* Coordinate.swift in Sources */,
+				764F6B8F273CD8EF004E81AE /* Font.swift in Sources */,
+				76AD3EF527520721001DBAC0 /* HistoryViewController.swift in Sources */,
+				76A2CA3F270B10E900C882FA /* SignupViewController.swift in Sources */,
+				767E3F252760ABBB00D85FFA /* LoadingSuccessViewController.swift in Sources */,
+				764F6B99273CD99F004E81AE /* Size.swift in Sources */,
+				762DCB4327505F2D00C1D53E /* MyPageViewController.swift in Sources */,
+				76F4180B26F1C51200D677D6 /* SceneDelegate.swift in Sources */,
+				764F6B8D273CD8A3004E81AE /* Material.swift in Sources */,
+				76E4099326FB0027006A807F /* SigninForm.swift in Sources */,
+				76AD3EF12751FFFE001DBAC0 /* RefreshToken.swift in Sources */,
+				769603BD274F6AE300B41F27 /* SigninSuccessViewController.swift in Sources */,
+				76A6E148270FCC9300FC5080 /* uploadData.swift in Sources */,
+				764F6B9B273CDA72004E81AE /* Text.swift in Sources */,
+				76406325275E2AC400C37335 /* Templates.swift in Sources */,
+				76B5D3AC27141D090010210E /* ImageButton.swift in Sources */,
+				76A2CA3D270AEE8C00C882FA /* DownloadViewController.swift in Sources */,
+				769CA1862713E7A0001D79E4 /* LoadingViewController.swift in Sources */,
+				76AD3EF327520174001DBAC0 /* History.swift in Sources */,
+				763EFB672711AA560071C22D /* MaterialInfo.swift in Sources */,
+				76A43AC627012B660064072D /* EditViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4181726F1C51300D677D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76F4182026F1C51300D677D6 /* PGHJappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76F4182226F1C51300D677D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76F4182B26F1C51300D677D6 /* PGHJappUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76F4181D26F1C51300D677D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76F4180426F1C51100D677D6 /* PGHJapp */;
+			targetProxy = 76F4181C26F1C51300D677D6 /* PBXContainerItemProxy */;
+		};
+		76F4182826F1C51300D677D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76F4180426F1C51100D677D6 /* PGHJapp */;
+			targetProxy = 76F4182726F1C51300D677D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		76F4180E26F1C51200D677D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76F4180F26F1C51200D677D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		76F4181326F1C51200D677D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76F4181426F1C51200D677D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		76F4182D26F1C51300D677D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		76F4182E26F1C51300D677D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		76F4183026F1C51300D677D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F01C6C38D583A04C7AF03416 /* Pods-PGHJapp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		76F4183126F1C51300D677D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B09CE0F27BE8B730E3D85581 /* Pods-PGHJapp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		76F4183326F1C51300D677D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 785F3C9AA30242E33DE48DEA /* Pods-PGHJappTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJappTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PGHJapp.app/PGHJapp";
+			};
+			name = Debug;
+		};
+		76F4183426F1C51300D677D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB4E8BAA77991859E20C2B91 /* Pods-PGHJappTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJappTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PGHJapp.app/PGHJapp";
+			};
+			name = Release;
+		};
+		76F4183626F1C51300D677D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DB16B5B9E34244017FF418E /* Pods-PGHJapp-PGHJappUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PGHJapp;
+			};
+			name = Debug;
+		};
+		76F4183726F1C51300D677D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB031D85220C3C2EE9E0E1A2 /* Pods-PGHJapp-PGHJappUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7A464AFW63;
+				INFOPLIST_FILE = PGHJappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.codesquad.PGHJappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PGHJapp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		76F4180026F1C51100D677D6 /* Build configuration list for PBXProject "PGHJapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76F4182D26F1C51300D677D6 /* Debug */,
+				76F4182E26F1C51300D677D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76F4182F26F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76F4183026F1C51300D677D6 /* Debug */,
+				76F4183126F1C51300D677D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76F4183226F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76F4183326F1C51300D677D6 /* Debug */,
+				76F4183426F1C51300D677D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76F4183526F1C51300D677D6 /* Build configuration list for PBXNativeTarget "PGHJappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76F4183626F1C51300D677D6 /* Debug */,
+				76F4183726F1C51300D677D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 76F417FD26F1C51100D677D6 /* Project object */;
+}
