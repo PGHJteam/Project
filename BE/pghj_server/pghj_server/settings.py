@@ -30,8 +30,8 @@ ALGORITHM = get_secret("ALGORITHM")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # False
-ALLOWED_HOSTS = ["*"]
+DEBUG = False  # False
+ALLOWED_HOSTS = ["*"] # server domain or IP, localhost
 
 
 # Application definition
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,7 +74,6 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,                 
     'BLACKLIST_AFTER_ROTATION': True,              
     'UPDATE_LAST_LOGIN': False,                     
-
     'ALGORITHM': ALGORITHM,                           
     'SIGNING_KEY': SECRET_KEY,              
     'VERIFYING_KEY': None,                         
@@ -82,11 +81,9 @@ SIMPLE_JWT = {
     'ISSUER': None,
     'JWK_URL': None,
     'LEEWAY': 0,
-
     'AUTH_HEADER_TYPES': ('Bearer',),               
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',        
     'USER_AUTHENTICATION_RULE': 'rest_framework_simplejwt.authentication.default_user_authentication_rule',
-
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
@@ -112,13 +109,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pghj_server.wsgi.application'
 
-DATABASES = get_secret("DATABASES")
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+#DATABASES = get_secret("DATABASES")
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
