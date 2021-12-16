@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'storages',
     'users',
     'files',
-    'models',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,6 +113,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pghj_server.wsgi.application'
 
 DATABASES = get_secret("DATABASES")
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
