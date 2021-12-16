@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>ko_KR</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-5273303934305782~7223255069</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cafe24Dangdanghae.ttf</string>
+		<string>Cafe24Danjunghae.ttf</string>
+		<string>Cafe24Ohsquare.ttf</string>
+		<string>Cafe24Ohsquareair.ttf</string>
+		<string>Cafe24Oneprettynight.ttf</string>
+		<string>Cafe24Simplehae.ttf</string>
+		<string>Cafe24Ssukssuk.ttf</string>
+		<string>Cafe24Ssurround.ttf</string>
+		<string>Cafe24SsurroundAir.ttf</string>
+		<string>CookieRun Black.ttf</string>
+		<string>CookieRun Bold.ttf</string>
+		<string>CookieRun Regular.ttf</string>
+		<string>ELAND 나이스 M.ttf</string>
+		<string>ELAND 초이스 B.ttf</string>
+		<string>ELAND 초이스 L.ttf</string>
+		<string>ELAND 초이스 M.ttf</string>
+		<string>EliceDigitalBaeum_Bold.ttf</string>
+		<string>EliceDigitalBaeum_Regular.ttf</string>
+		<string>GmarketSansTTFBold.ttf</string>
+		<string>GmarketSansTTFLight.ttf</string>
+		<string>GmarketSansTTFMedium.ttf</string>
+		<string>GowunBatang-Bold.ttf</string>
+		<string>GowunBatang-Regular.ttf</string>
+		<string>GowunDodum-Regular.ttf</string>
+		<string>HS새마을체.ttf</string>
+		<string>HangeulNuriB.ttf</string>
+		<string>HangeulNuriR.ttf</string>
+		<string>IBMPlexSansKR-Bold.ttf</string>
+		<string>IBMPlexSansKR-Light.ttf</string>
+		<string>IBMPlexSansKR-Medium.ttf</string>
+		<string>IBMPlexSansKR-Regular.ttf</string>
+		<string>IBMPlexSansKR-Text.ttf</string>
+		<string>ImcreSoojin.ttf</string>
+		<string>KOTRA LEAP_TTF.ttf</string>
+		<string>MaruBuri-Bold.ttf</string>
+		<string>MaruBuri-ExtraLight.ttf</string>
+		<string>MaruBuri-Light.ttf</string>
+		<string>MaruBuri-Regular.ttf</string>
+		<string>MaruBuri-SemiBold.ttf</string>
+		<string>NEXONLv1GothicBold.ttf</string>
+		<string>NEXONLv1GothicLight.ttf</string>
+		<string>NEXONLv1GothicRegular.ttf</string>
+		<string>NanumBarunGothic.ttf</string>
+		<string>NanumBarunGothicBold.ttf</string>
+		<string>NanumBarunGothicLight.ttf</string>
+		<string>NanumBarunGothicUltraLight.ttf</string>
+		<string>NanumGothic.ttf</string>
+		<string>NanumGothicBold.ttf</string>
+		<string>NanumGothicExtraBold.ttf</string>
+		<string>NanumGothicLight.ttf</string>
+		<string>NotoSansKR-Black.otf</string>
+		<string>NotoSansKR-Bold.otf</string>
+		<string>NotoSansKR-Light.otf</string>
+		<string>NotoSansKR-Medium.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>NotoSansKR-Thin.otf</string>
+		<string>ONE Mobile Bold.ttf</string>
+		<string>ONE Mobile POP.ttf</string>
+		<string>ONE Mobile Regular.ttf</string>
+		<string>ONE Mobile Title.ttf</string>
+		<string>PretendardVariable.ttf</string>
+		<string>SB 어그로 B.ttf</string>
+		<string>SB 어그로 L.ttf</string>
+		<string>SB 어그로 M.ttf</string>
+		<string>SEBANG Gothic Bold.ttf</string>
+		<string>SEBANG Gothic.ttf</string>
+		<string>SF함박눈-TTF.ttf</string>
+		<string>SLEIGothicTTF.ttf</string>
+		<string>SpoqaHanSansNeo-Bold.ttf</string>
+		<string>SpoqaHanSansNeo-Light.ttf</string>
+		<string>SpoqaHanSansNeo-Medium.ttf</string>
+		<string>SpoqaHanSansNeo-Regular.ttf</string>
+		<string>SpoqaHanSansNeo-Thin.ttf</string>
+		<string>Wemakeprice-Bold.ttf</string>
+		<string>Wemakeprice-Regular.ttf</string>
+		<string>Wemakeprice-SemiBold.ttf</string>
+		<string>YdestreetB.ttf</string>
+		<string>YdestreetL.ttf</string>
+		<string>esamanru Bold.ttf</string>
+		<string>esamanru Light.ttf</string>
+		<string>esamanru Medium.ttf</string>
+		<string>paybooc Bold.ttf</string>
+		<string>paybooc ExtraBold.ttf</string>
+		<string>paybooc Light.ttf</string>
+		<string>paybooc Medium.ttf</string>
+		<string>tway_air.ttf</string>
+		<string>tway_fly.ttf</string>
+		<string>tway_sky.ttf</string>
+		<string>강한육군 Bold.ttf</string>
+		<string>강한육군 Medium.ttf</string>
+		<string>국립박물관문화재단클래식B.ttf</string>
+		<string>국립박물관문화재단클래식L.ttf</string>
+		<string>국립박물관문화재단클래식M.ttf</string>
+		<string>양진체v0.9_ttf.ttf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+--------------------------------------------------------------------------------
+image_path               	predicted_labels         	confidence score
+--------------------------------------------------------------------------------
+temps/croped_0.jpg       	importast                	0.5693
+temps/croped_1.jpg       	very                     	0.9629
+temps/croped_2.jpg       	15                       	0.7152
+temps/croped_3.jpg       	this                     	0.9997
+temps/croped_4.jpg       	ember                    	0.9946
+temps/croped_5.jpg       	hemm                     	0.5300
+temps/croped_6.jpg       	should                   	0.8176
+temps/croped_7.jpg       	you                      	0.9987
+temps/croped_8.jpg       	hizzs                    	0.1691
+temps/croped_9.jpg       	those                    	0.7538
+--------------------------------------------------------------------------------
+image_path               	predicted_labels         	confidence score
+--------------------------------------------------------------------------------
+temps/croped_0.jpg       	importast                	0.5693
+temps/croped_1.jpg       	very                     	0.9629
+temps/croped_2.jpg       	15                       	0.7152
+temps/croped_3.jpg       	this                     	0.9997
+temps/croped_4.jpg       	ember                    	0.9946
+temps/croped_5.jpg       	hemm                     	0.5300
+temps/croped_6.jpg       	should                   	0.8176
+temps/croped_7.jpg       	you                      	0.9987
+temps/croped_8.jpg       	hizzs                    	0.1691
+temps/croped_9.jpg       	those                    	0.7538
+--------------------------------------------------------------------------------
+image_path               	predicted_labels         	confidence score
+--------------------------------------------------------------------------------
+temps/croped_0.jpg       	importast                	0.5693
+temps/croped_1.jpg       	very                     	0.9629
+temps/croped_2.jpg       	15                       	0.7152
+temps/croped_3.jpg       	this                     	0.9997
+temps/croped_4.jpg       	ember                    	0.9946
+temps/croped_5.jpg       	hemm                     	0.5300
+temps/croped_6.jpg       	should                   	0.8176
+temps/croped_7.jpg       	you                      	0.9987
+temps/croped_8.jpg       	hizzs                    	0.1691
+temps/croped_9.jpg       	those                    	0.7538
