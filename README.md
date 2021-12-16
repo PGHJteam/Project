@@ -1,6 +1,7 @@
 # 자료메이커 프로젝트✏️
 
 * 아날로그 자료로부터 텍스트를 추출하여 사용자 맞춤형 디지털 자료를 만들어주는  "교육 보조용 앱"
+<br>
 
 ## Overview
 4차 산업혁명 시대에 접어들며 대부분의 교육이 온라인으로 이루어지고 있기에 수업자료 또한 판서, 종이가 아닌 디지털 문서로 제공되고 있다. 이와 같이 교육의 형태가 급변함에 따라 기존의 아날로그 자료를 디지털화할 필요가 증가하였다. 또한 이동성이 낮은 PC 대신에 스마트폰, 태블릿의 사용량이 증가하고 있다. 하지만 이러한 흐름에 비해 모바일 기기로 문서를 작성하는 서비스는 키보드와 같은 추가 디바이스가 없이는 사용하기 어렵다는 점 때문에 거의 존재하지 않는다.
@@ -11,9 +12,9 @@
 
 [더보기](https://dour-dianella-55a.notion.site/e84006a862d84398b4305d41705db890)
 
+<br>
 
-## 팀소개
-
+## Team Members
 | 이름                                  | 개발 분야 |
 | --| -- |
 | [고혁훈](https://github.com/hhzzang)  | AI        |
@@ -21,10 +22,18 @@
 | [김지선](https://github.com/zzisun)   | iOS       |
 | [정창윤](https://github.com/jcy9503)  | Design    |
 
+<br>
 
 
 ## Project Wiki
 
-[Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
+* [Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
 
-[회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
+* [회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
+
+* [UI 시나리오](https://github.com/PGHJteam/Project/files/7726589/6._UI.Scenario.pdf)
+
+<br>
+
+## Date
+* 2021.09.02 - 2021.12.21
