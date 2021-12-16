@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from files.models import Material
+from files.models import Material, Image, Upload
+from files.s3 import get_path
 
  
 class MaterialSerializer(serializers.ModelSerializer):

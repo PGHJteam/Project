@@ -1,7 +1,7 @@
 import json
 
 # Convert String to Json Format
-def get_json(data, upload_id):
+def convert(data, upload_id):
     # Decode data (Bytes to String)
     decoded_data = data.decode('utf-8')
     
@@ -22,7 +22,7 @@ def get_json(data, upload_id):
         images.append(image)
     
     response = {
-        "upload_id": upload_id,
+        "upload": upload_id,
         "images": images
     }
     return response

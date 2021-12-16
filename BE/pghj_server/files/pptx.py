@@ -1,6 +1,6 @@
 from pptx import Presentation
 from pptx.util import Inches, Pt
-from pghj_server.settings import TEMPLATE_DIR, MEDIA_DIR
+from pghj_server.settings import TEMPLATE_DIR
 
 # Change pixel into inch
 def get_inch(x, y):
@@ -38,10 +38,7 @@ def add_slides(prs, items):
 
 
 # make presentation
-def create_pptx(data, pptx_path, pptx_name):  
-    items = data['items']
-    template_id = data['template_id'] 
-
+def create_pptx(template_id, file_path, file_name, items):  
     # open presentation
     if template_id == "template00": # If user do not choose any template, open new presentation
         prs = Presentation()
@@ -52,7 +49,4 @@ def create_pptx(data, pptx_path, pptx_name):
     prs = add_slides(prs, items)
 
     # save pptx
-    prs.save(MEDIA_DIR + pptx_path + pptx_name)
-    
-    # return path
-    return MEDIA_DIR + pptx_path
+    prs.save(file_path + file_name)
