@@ -3,11 +3,13 @@
 <br><br>
 
 ## 인프라 구성
-
+![인프라 구성](https://user-images.githubusercontent.com/67676029/146353939-50fe57e6-dd29-4e1b-a955-8a70aa479ede.png)
 
 <br>
 
 ## 모듈 구성
+![모듈](https://user-images.githubusercontent.com/67676029/146353955-8ef14065-ec1e-444f-aee8-0e749930b4ab.png)
+
 #### [Network] 
 * VPC, Subnet, IGW, NAT, Route Table
 
