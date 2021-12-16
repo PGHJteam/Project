@@ -1,8 +1,8 @@
 asgiref==3.4.1
-Django==3.2.7
+Django>=3.2.10
 djangorestframework==3.12.4
 djangorestframework-simplejwt==4.3.0
-lxml==4.6.3
+lxml>=4.6.5
 Pillow==8.3.2
 PyJWT==1.7.1
 python-pptx==0.6.21
@@ -12,6 +12,7 @@ XlsxWriter==3.0.1
 pymysql
 boto3
 django-storages
+channels
 
 -f https://download.pytorch.org/whl/torch_stable.html
 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html
