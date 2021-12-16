@@ -12,6 +12,7 @@ XlsxWriter==3.0.1
 pymysql
 boto3
 django-storages
+channels
 
 -f https://download.pytorch.org/whl/torch_stable.html
 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html
