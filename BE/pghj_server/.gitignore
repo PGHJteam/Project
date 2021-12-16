@@ -1,0 +1,9 @@
+migrations/
+__pycache__/
+media/
+
+db.sqlite3
+*.json
+.gitignore
+
+*.pth

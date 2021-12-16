@@ -1,0 +1,40 @@
+asgiref==3.4.1
+Django==3.2.7
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.3.0
+lxml==4.6.3
+Pillow==8.3.2
+PyJWT==1.7.1
+python-pptx==0.6.21
+pytz==2021.1
+sqlparse==0.4.2
+XlsxWriter==3.0.1
+pymysql
+boto3
+django-storages
+
+-f https://download.pytorch.org/whl/torch_stable.html
+-f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html
+numpy
+h5py
+nltk
+cython
+scikit-image
+scikit-build
+torch==1.7.1+cu110
+torchvision==0.8.2+cu110
+timm==0.4.5
+scipy
+imutils
+pybind11
+# fastwer
+tqdm
+lmdb 
+natsort
+tensorboard
+pandas
+opencv-contrib-python
+opencv-python
+matplotlib
+transformers
+kobert_transformers 

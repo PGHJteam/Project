@@ -1,0 +1,12 @@
+# file
+*.pub
+*.pem
+*.sh
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+.terraform.lock.hcl
+*.tfvars
+
+# directory
+.terraform/
