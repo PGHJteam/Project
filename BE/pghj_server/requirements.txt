@@ -1,8 +1,8 @@
 asgiref==3.4.1
-Django==3.2.7
+Django>=3.2.10
 djangorestframework==3.12.4
 djangorestframework-simplejwt==4.3.0
-lxml==4.6.3
+lxml>=4.6.5
 Pillow==8.3.2
 PyJWT==1.7.1
 python-pptx==0.6.21
