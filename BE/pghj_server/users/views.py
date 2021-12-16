@@ -25,10 +25,9 @@ class SignOutView(generics.GenericAPIView):
     permission_classes = (AllowAny,) # Anyone can access
     
     def post(self, request):
-        data = JSONParser().parse(request)
-        refresh_token = data['refresh']
+        refresh_token = request.data.get('refresh')
         token = RefreshToken(token=refresh_token) # New refresh token
-        token.blacklist()                        # Blacklist new refresh token
+        token.blacklist()                         # Blacklist new refresh token
         return JsonResponse(data=Success(), status=status.HTTP_205_RESET_CONTENT)
 
 # History
@@ -36,7 +35,7 @@ class HistoryView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,) # Only Authorized users can access
 
     def get(self, request):
-        # find user's uploads & pptx names
+        # find user's upload list
         upload_objs = Upload.objects.filter(user=request.user)
         history_lst = []
         for upload in upload_objs:
@@ -44,13 +43,11 @@ class HistoryView(generics.GenericAPIView):
             material_objs = Material.objects.filter(upload=upload).values('material_name')
             for material in material_objs:
                 pptx_lst.append(material)
-
             history_lst.append({
                 "upload_id": upload.id,
                 "material_list": pptx_lst
             })
-
         data = {
             "history": history_lst
         }
-        return JsonResponse(data, status=status.HTTP_200_OK) 
+        return JsonResponse(data=data, status=status.HTTP_200_OK) 
