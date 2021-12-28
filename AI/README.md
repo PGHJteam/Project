@@ -14,7 +14,7 @@ pip3 install pybind11
 pip3 install -r requirements.txt
 pip3 install transformers
 ```
-### 패키지 업으면, 필요한 것 있으면 다운
+### 기타 추가 패키지 및 필요한 것 있으면 다운
 
 
 ## pretrained model download
