@@ -60,7 +60,3 @@ python craft_eng.py --test_folder {경로} --cuda n --recog_name {**trocr** 또�
 ```
 python craft_eng.py --test_folder ./data --cuda n --recog_name trocr --recog_model ./downloads/models/htr.pth --detect_model ./downloads/models/craft.pt --detect_text htr
 ```
-
-
-
-```
