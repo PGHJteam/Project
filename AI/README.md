@@ -3,6 +3,15 @@
 2. wget으로 pretrained model down
 3. python craft --test_folder로 실행
 
+## 모델설명
+```
+detection craft 이용
+recongition trocr/naver CRNN 이용
+
+type : 한글, 
+```
+
+
 ```
 # 서버가 아니라면 / cpu 이용
 pip3 install pybind11
