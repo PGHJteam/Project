@@ -10,10 +10,9 @@ pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit
 
 ```
 # 서버가 아니라면 / cpu 이용
-sudo apt-get install cmake
 pip3 install pybind11
 pip3 install -r requirements.txt
-pip3 install git+https://github.com/liminghao1630/fairseq.git
+pip3 install transformers
 ```
 ### 패키지 업으면, 필요한 것 있으면 다운
 
@@ -52,25 +51,18 @@ python craft.py --test_folder {경로} --recog_name trocr 또는 naver 선택 --
 ```
 ### 만약 gpu 없다면
 ```
+detect_model : 이미지에서 텍스트 위치 탐지기, recog_model : 해당 위치 이미지 크롭 후 인식하기
+
 #한국어
-python craft_kor.py --test_folder {경로} --cuda n --recog_name {trocr 또는 naver 선택} --recog_model {경로}
+python craft_kor.py --test_folder {경로} --cuda n --recog_name {trocr 또는 **naver** 선택} --recog_model {경로} --detect_model {경로} --detect_text {htr or ocr}
 #영어
-python craft_eng.py --test_folder {경로} --cuda n --recog_name {trocr 또는 naver 선택} --recog_model {경로}
+python craft_eng.py --test_folder {경로} --cuda n --recog_name {**trocr** 또는 naver 선택} --recog_model {경로} --detect_model {경로} --detect_text {htr or ocr}
 ```
 ### example
 ```
 python craft.py --test_folder "eng/" --recog_name trocr --recog_model downloads/premodels/trhtr.pt
 
 ```
-### 서버용
-```
-sudo apt-get install build-essential
-sudo apt-get install python3.8-dev
-cd models/trocr
-pip3 install pybind11
-pip3 install -r requirements.txt
-cd ..
-cd ..
 
 img_path, '--cuda','n','--recog_name','trocr','--recog_model','./models/trhtr.pt','--detect_model','./models/craft.pth
 ```
