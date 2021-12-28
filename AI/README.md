@@ -3,11 +3,6 @@
 2. wget으로 pretrained model down
 3. python craft --test_folder로 실행
 
-
-```
-pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit-image==0.14.2 scipy==1.1.0 pillow imutils
-```
-
 ```
 # 서버가 아니라면 / cpu 이용
 pip3 install pybind11
