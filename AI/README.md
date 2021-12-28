@@ -8,7 +8,7 @@
 detection craft 이용
 recongition trocr/naver CRNN 이용
 
-type : 한글, 
+type : 한글, 영어
 ```
 
 
