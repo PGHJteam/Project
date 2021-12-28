@@ -57,6 +57,9 @@ detect_model : 이미지에서 텍스트 위치 탐지기, recog_model : 해당 
 python craft_kor.py --test_folder {경로} --cuda n --recog_name {trocr 또는 **naver** 선택} --recog_model {경로} --detect_model {경로} --detect_text {htr or ocr}
 #영어
 python craft_eng.py --test_folder {경로} --cuda n --recog_name {**trocr** 또는 naver 선택} --recog_model {경로} --detect_model {경로} --detect_text {htr or ocr}
+
+#ex)
+python craft_eng.py --test_folder ./data --cuda n --recog_name trocr --recog_model ./downloads/models/htr.pth --detect_model ./downloads/models/craft.pt --detect_text htr
 ```
 ### example
 ```
@@ -64,5 +67,5 @@ python craft.py --test_folder "eng/" --recog_name trocr --recog_model downloads/
 
 ```
 
-img_path, '--cuda','n','--recog_name','trocr','--recog_model','./models/trhtr.pt','--detect_model','./models/craft.pth
+
 ```
