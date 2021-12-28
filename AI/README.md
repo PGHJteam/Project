@@ -12,7 +12,6 @@ pip install torch==0.4.1.post2 torchvision==0.2.1 opencv-python==3.4.2.17 scikit
 # 서버가 아니라면 / cpu 이용
 pip3 install pybind11
 pip3 install -r requirements.txt
-pip3 install transformers
 ```
 ### 기타 추가 패키지 및 필요한 것 있으면 다운
 
