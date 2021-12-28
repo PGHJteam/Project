@@ -1,25 +1,27 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html
 
+lxml>=4.6.5
+Pillow==8.3.2
+PyJWT==1.7.1
+numpy
+h5py
+nltk
+cython
+scikit-image
+scikit-build
 torch==1.7.1+cu110
 torchvision==0.8.2+cu110
 timm==0.4.5
-pybind11
-natsort
-tensorboard
-nltk
-h5py
-numpy
-fastwer
-scikit-build
-opencv-python
-scikit-image
 scipy
-pillow
 imutils
 tqdm
-lmdb
+lmdb 
+natsort
+tensorboard
 pandas
+opencv-contrib-python
+opencv-python
 matplotlib
 transformers
 kobert_transformers
