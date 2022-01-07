@@ -29,6 +29,12 @@
 
 ## Project Wiki
 
-[Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
+* [Ground Rule](https://github.com/PGHJteam/Project/wiki/Ground-Rule)
 
-[회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
+* [회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
+
+* [UI 시나리오](https://github.com/PGHJteam/Project/files/7726589/6._UI.Scenario.pdf)
+
+
+## 데모 영상 (한글)
+![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/60323625/148476989-e54fb3a6-789f-441d-9e08-7d29c2b61850.gif)
