@@ -35,6 +35,8 @@
 
 * [UI 시나리오](https://github.com/PGHJteam/Project/files/7726589/6._UI.Scenario.pdf)
 
+* [최종 발표 자료]()
 
-## 데모 영상 (한글)
-![ezgif com-gif-maker-2](https://user-images.githubusercontent.com/60323625/148476989-e54fb3a6-789f-441d-9e08-7d29c2b61850.gif)
+
+## 데모 영상
+* [데모 영상](https://github.com/PGHJteam/Project/wiki/데모-영상)
