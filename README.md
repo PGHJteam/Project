@@ -33,9 +33,9 @@
 
 * [회의록](https://gummycode.notion.site/c1c02f36aac743d097818bf8cbe08e24)
 
-* [UI 시나리오](https://github.com/PGHJteam/Project/files/7726589/6._UI.Scenario.pdf)
+* [UI 시나리오](https://drive.google.com/file/d/1kiRJVaOaPgNtpwM0jcA9xhtQGKvNNkeb/view?usp=sharing)
 
-* [최종 발표 자료]()
+* [최종 발표 자료](https://docs.google.com/presentation/d/1lEOLLrbAOXqEyGfynfOSYSyq3UyhrUoq/edit?usp=sharing&ouid=118414489794656142373&rtpof=true&sd=true)
 
 
 ## 데모 영상
